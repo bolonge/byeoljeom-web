@@ -1,4 +1,5 @@
 import React from "react";
+import { HashRouter as Router } from "react-router-dom";
 import PropTypes from "prop-types";
 
 interface IProps {
@@ -6,7 +7,7 @@ interface IProps {
 }
 
 const AppPresenter: React.SFC<IProps> = ({ isLoggedIn }) => {
-  return isLoggedIn ? <>d</> : <>s</>;
+  return <Router></Router>;
 };
 
 AppPresenter.propTypes = {

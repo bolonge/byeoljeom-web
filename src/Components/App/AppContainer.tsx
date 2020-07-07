@@ -4,6 +4,7 @@ import Theme from "../../Styles/Theme";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 import AppPresenter from "./AppPresenter";
+import GlobalStyles from "../../Styles/GlobalStyles";
 
 const QUERY = gql`
   {
@@ -18,7 +19,10 @@ function App() {
 
   return (
     <ThemeProvider theme={Theme}>
-      <AppPresenter isLoggedIn={data?.auth.isLoggedIn}></AppPresenter>
+      <>
+        <GlobalStyles />
+        <AppPresenter isLoggedIn={data?.auth.isLoggedIn}></AppPresenter>
+      </>
     </ThemeProvider>
   );
 }
