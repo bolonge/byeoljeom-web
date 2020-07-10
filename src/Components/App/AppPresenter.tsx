@@ -6,6 +6,7 @@ import {
   HashRouter as Router,
 } from "react-router-dom";
 import PropTypes from "prop-types";
+import Home from "../../Routes/Home";
 
 interface IProps {
   isLoggedIn: boolean;
@@ -14,7 +15,7 @@ interface IProps {
 const MainRoute: React.FunctionComponent = () => {
   return (
     <Switch>
-      <Route exact path="/"></Route>
+      <Route exact path="/" component={Home}></Route>
       <Redirect from="*" to="/" />
     </Switch>
   );
