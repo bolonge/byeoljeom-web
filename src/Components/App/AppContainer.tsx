@@ -1,27 +1,17 @@
 import React from "react";
 import { ThemeProvider } from "../../typed-components";
 import Theme from "../../Styles/Theme";
-import gql from "graphql-tag";
-import { useQuery } from "@apollo/react-hooks";
 import AppPresenter from "./AppPresenter";
 import GlobalStyles from "../../Styles/GlobalStyles";
-
-const QUERY = gql`
-  {
-    auth {
-      isLoggedIn @client
-    }
-  }
-`;
+import useIsLoggedIn from "../../Hooks/useIsLoggedIn";
 
 function App() {
-  const { data } = useQuery(QUERY);
-
+  const isLoggedIn = useIsLoggedIn();
   return (
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
-        <AppPresenter isLoggedIn={data?.auth.isLoggedIn}></AppPresenter>
+        <AppPresenter isLoggedIn={isLoggedIn}></AppPresenter>
       </>
     </ThemeProvider>
   );
