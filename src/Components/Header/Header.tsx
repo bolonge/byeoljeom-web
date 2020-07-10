@@ -13,11 +13,9 @@ const Container = styled.header`
   background-color: ${(props) => props.theme.mainColor};
   border-bottom: ${(props) => props.theme.boxBorder};
   border-radius: 0px;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 25px 0px;
-  z-index: 2;
   ${media.phone} {
     padding: 30px 0px;
   }
