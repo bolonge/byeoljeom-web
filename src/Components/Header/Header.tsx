@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "../../typed-components";
 import { Link, useHistory } from "react-router-dom";
+import { media } from "../../Styles/MediaSize";
+import useInput from "../../Hooks/useInput";
 
 const Container = styled.header`
   width: 100%;
@@ -16,10 +18,14 @@ const Container = styled.header`
   align-items: center;
   padding: 25px 0px;
   z-index: 2;
+  ${media.phone} {
+    padding: 30px 0px;
+  }
 `;
 
 const Header: React.FunctionComponent = () => {
   const history = useHistory();
+  const search = useInput("");
   return <Container></Container>;
 };
 
