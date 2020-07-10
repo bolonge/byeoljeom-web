@@ -20,7 +20,8 @@ const {
   css,
   keyframes,
   ThemeProvider,
+  createGlobalStyle,
 } = styledComponents as ThemedStyledComponentsModule<IThemeInterface>;
 
-export { css, keyframes, ThemeProvider };
+export { css, keyframes, ThemeProvider, createGlobalStyle };
 export default styled;

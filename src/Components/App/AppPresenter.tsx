@@ -26,7 +26,11 @@ const MainRoute: React.FunctionComponent = () => {
 //프로필화면(개인정보변경,회원탈퇴)
 
 const AppPresenter: React.FunctionComponent<IProps> = ({ isLoggedIn }) => {
-  return <Router></Router>;
+  return (
+    <Router>
+      <MainRoute></MainRoute>
+    </Router>
+  );
 };
 
 AppPresenter.propTypes = {
