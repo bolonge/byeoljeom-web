@@ -4,6 +4,7 @@ import { ThemedStyledComponentsModule } from "styled-components";
 interface IThemeInterface {
   maxWidth: string;
   bgColor: string;
+  mainColor: string;
   blackColor: string;
   darkGreyColor: string;
   lightGreyColor: string;
