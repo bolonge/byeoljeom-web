@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "../../typed-components";
 import { Link, useHistory } from "react-router-dom";
 import { media } from "../../Styles/MediaSize";
@@ -35,9 +35,14 @@ const HeaderMoreIcon = styled(MoreIcon)`
 const Header: React.FunctionComponent = () => {
   const history = useHistory();
   const search = useInput("");
+  const [show, setShow] = useState(false);
+  const onClick = () => {
+    setShow((s) => !s);
+  };
+
   return (
     <Container>
-      <HeaderMoreIcon />
+      <HeaderMoreIcon onClick={onClick} />
       <SearchInput
         onChange={search.onChange}
         value={search.value}
