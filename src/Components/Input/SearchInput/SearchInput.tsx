@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "../../../typed-components";
 import SearchIcon from "../../Icon/SearchIcon";
+import { media } from "../../../Styles/MediaSize";
 
-const Container = styled.div`
-  width: 300px;
-  padding: 8px;
+const Container = styled.div<{ bg: string }>`
+  width: 500px;
+  padding: 4px;
   margin-left: 10px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-color: white;
+  background-color: ${(props) => props.bg};
+  ${media.phone} {
+    width: 300px;
+  }
 `;
 
 const Input = styled.input`
   border: 0;
-  width: 300px;
+  padding: 4px;
+  width: 500px;
   margin-left: 10px;
+  background-color: transparent;
+  ${media.phone} {
+    width: 300px;
+  }
 `;
 
 interface IProps {
@@ -39,10 +48,13 @@ const SearchInput: React.FunctionComponent<IProps> = ({
   onChange,
   className,
 }) => {
+  const [color, setColor] = useState("#eeeeee");
   return (
-    <Container className={className}>
-      <SearchIcon color={"#c4c4c4"} />
+    <Container className={className} bg={color}>
+      <SearchIcon color={"#999"} />
       <Input
+        onFocus={() => setColor("white")}
+        onBlur={() => setColor("#eeeeee")}
         onChange={onChange}
         name={name}
         type={type}
