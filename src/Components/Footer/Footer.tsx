@@ -5,10 +5,10 @@ import { media } from "../../Styles/MediaSize";
 
 const Container = styled.footer`
   width: 100%;
-  height: 200px;
   position: absolute;
   bottom: 0;
   border-top: ${(props) => props.theme.boxBorder};
+  background-color: #f4f4f4;
   justify-content: center;
   align-items: center;
   padding: 25px 0px;

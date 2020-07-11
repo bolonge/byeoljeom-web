@@ -3,9 +3,11 @@ import styled from "../../typed-components";
 import { Link, useHistory } from "react-router-dom";
 import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
+import SearchInput from "../Input/SearchInput";
 
 const Container = styled.header`
   width: 100%;
+  height: 55px;
   border: 0;
   position: fixed;
   top: 0;
@@ -13,18 +15,26 @@ const Container = styled.header`
   background-color: ${(props) => props.theme.mainColor};
   border-bottom: ${(props) => props.theme.boxBorder};
   border-radius: 0px;
-  justify-content: center;
+  padding-left: 10px;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  padding: 25px 0px;
   ${media.phone} {
-    padding: 30px 0px;
+    height: 60px;
   }
 `;
 
 const Header: React.FunctionComponent = () => {
   const history = useHistory();
   const search = useInput("");
-  return <Container></Container>;
+  return (
+    <Container>
+      <SearchInput
+        onChange={search.onChange}
+        value={search.value}
+      ></SearchInput>
+    </Container>
+  );
 };
 
 export default Header;
