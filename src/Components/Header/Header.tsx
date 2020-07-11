@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
+import MoreIcon from "../Icon/MoreIcon";
 
 const Container = styled.header`
   width: 100%;
@@ -24,11 +25,19 @@ const Container = styled.header`
   }
 `;
 
+const HeaderMoreIcon = styled(MoreIcon)`
+  display: none;
+  ${media.phone} {
+    display: flex;
+  }
+`;
+
 const Header: React.FunctionComponent = () => {
   const history = useHistory();
   const search = useInput("");
   return (
     <Container>
+      <HeaderMoreIcon />
       <SearchInput
         onChange={search.onChange}
         value={search.value}
