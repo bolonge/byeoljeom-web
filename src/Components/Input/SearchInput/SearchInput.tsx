@@ -1,10 +1,21 @@
 import React from "react";
 import styled from "../../../typed-components";
+import SearchIcon from "../../Icon/SearchIcon";
+
+const Container = styled.div`
+  width: 300px;
+  padding: 8px;
+  margin-left: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: white;
+`;
 
 const Input = styled.input`
-  padding: 8px;
   border: 0;
-  border-radius: 10px;
   width: 300px;
   margin-left: 10px;
 `;
@@ -29,15 +40,17 @@ const SearchInput: React.FunctionComponent<IProps> = ({
   className,
 }) => {
   return (
-    <Input
-      className={className}
-      onChange={onChange}
-      name={name}
-      type={type}
-      required={required}
-      value={value}
-      placeholder={placeholder}
-    ></Input>
+    <Container className={className}>
+      <SearchIcon color={"#c4c4c4"} />
+      <Input
+        onChange={onChange}
+        name={name}
+        type={type}
+        required={required}
+        value={value}
+        placeholder={placeholder}
+      />
+    </Container>
   );
 };
 

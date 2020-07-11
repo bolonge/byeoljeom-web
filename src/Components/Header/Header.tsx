@@ -27,6 +27,9 @@ const Container = styled.header`
 
 const HeaderMoreIcon = styled(MoreIcon)`
   display: none;
+  transition: 0.3s ease-in-out;
+  &:hover {
+  }
   ${media.phone} {
     display: flex;
   }
