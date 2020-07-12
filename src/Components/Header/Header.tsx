@@ -44,7 +44,7 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <Container>
-      <HeaderMoreIcon onClick={onClick} color={"#999"} />
+      <HeaderMoreIcon onClick={onClick} color={show ? "#6AB04C" : "#999"} />
       <SearchInput
         onChange={search.onChange}
         value={search.value}
