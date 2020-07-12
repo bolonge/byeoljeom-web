@@ -11,7 +11,7 @@ const Container = styled.header`
   height: 55px;
   position: fixed;
   top: 0;
-  left: 0;
+
   background-color: ${(props) => props.theme.whiteGrey};
   border-bottom: ${(props) => props.theme.boxBorder};
   border-radius: 0px;
@@ -34,7 +34,11 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
 `;
 
-const Header: React.FunctionComponent = () => {
+interface IProp {
+  style: any;
+}
+
+const Header: React.FunctionComponent<IProp> = ({ style }) => {
   const history = useHistory();
   const search = useInput("");
   const [show, setShow] = useState(false);
@@ -43,7 +47,7 @@ const Header: React.FunctionComponent = () => {
   };
 
   return (
-    <Container>
+    <Container style={style}>
       <HeaderMoreIcon onClick={onClick} color={show ? "#6AB04C" : "#999"} />
       <SearchInput
         onChange={search.onChange}

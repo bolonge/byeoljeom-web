@@ -7,6 +7,7 @@ const Container = styled.footer`
   width: 100%;
   position: absolute;
   bottom: 0;
+  left: 0;
   border-top: ${(props) => props.theme.boxBorder};
   background-color: ${(props) => props.theme.lightGreyColor};
   justify-content: center;
