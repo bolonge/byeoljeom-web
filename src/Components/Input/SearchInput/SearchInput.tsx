@@ -3,7 +3,7 @@ import styled from "../../../typed-components";
 import SearchIcon from "../../Icon/SearchIcon";
 import { media } from "../../../Styles/MediaSize";
 
-const Container = styled.div<{ bg: string }>`
+const Container = styled.div<{ bg: string; bd: string }>`
   width: 500px;
   padding: 4px;
   margin-left: 10px;
@@ -13,10 +13,17 @@ const Container = styled.div<{ bg: string }>`
   align-items: center;
   flex-direction: row;
   background-color: ${(props) => props.bg};
+  border: ${(props) => props.bd};
+  :hover {
+    border: 0.5px solid ${(props) => props.theme.mainColor};
+    background-color: white;
+  }
   ${media.phone} {
     width: 300px;
   }
 `;
+
+const SearchMainIcon = styled(SearchIcon)``;
 
 const Input = styled.input`
   border: 0;
@@ -49,12 +56,19 @@ const SearchInput: React.FunctionComponent<IProps> = ({
   className,
 }) => {
   const [color, setColor] = useState("#eeeeee");
+  const [border, setBorder] = useState("0.5px solid transparent");
   return (
-    <Container className={className} bg={color}>
-      <SearchIcon color={"#999"} />
+    <Container className={className} bg={color} bd={border}>
+      <SearchMainIcon color={"#999"} />
       <Input
-        onFocus={() => setColor("white")}
-        onBlur={() => setColor("#eeeeee")}
+        onFocus={() => {
+          setColor("white");
+          setBorder("0.5px solid #6AB04C");
+        }}
+        onBlur={() => {
+          setColor("#eeeeee");
+          setBorder("0.5px solid transparent");
+        }}
         onChange={onChange}
         name={name}
         type={type}

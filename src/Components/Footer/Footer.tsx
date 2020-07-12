@@ -8,7 +8,7 @@ const Container = styled.footer`
   position: absolute;
   bottom: 0;
   border-top: ${(props) => props.theme.boxBorder};
-  background-color: #f4f4f4;
+  background-color: ${(props) => props.theme.lightGreyColor};
   justify-content: center;
   align-items: center;
   padding: 25px 0px;

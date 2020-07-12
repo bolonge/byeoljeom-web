@@ -9,11 +9,10 @@ import MoreIcon from "../Icon/MoreIcon";
 const Container = styled.header`
   width: 100%;
   height: 55px;
-  border: 0;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.whiteGrey};
   border-bottom: ${(props) => props.theme.boxBorder};
   border-radius: 0px;
   padding-left: 10px;
@@ -45,7 +44,7 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <Container>
-      <HeaderMoreIcon onClick={onClick} />
+      <HeaderMoreIcon onClick={onClick} color={"#999"} />
       <SearchInput
         onChange={search.onChange}
         value={search.value}

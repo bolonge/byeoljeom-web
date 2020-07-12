@@ -7,6 +7,7 @@ interface IThemeInterface {
   mainColor: string;
   blackColor: string;
   darkGreyColor: string;
+  whiteGrey: string;
   lightGreyColor: string;
   redColor: string;
   blueColor: string;
