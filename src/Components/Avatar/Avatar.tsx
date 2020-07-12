@@ -19,7 +19,9 @@ const getSize = (size: string) => {
 const Container = styled.div<{ size: string; url: string }>`
   ${(props) => getSize(props.size)}
   background-image:url(${(props) => props.url});
-`;
+  background-size:cover;
+  border-radius:50%;
+  `;
 
 interface IProp {
   size: string;
