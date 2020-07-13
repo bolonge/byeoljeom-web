@@ -12,7 +12,7 @@ const Container = styled.header`
   position: fixed;
   top: 0;
   background-color: ${(props) => props.theme.whiteGrey};
-  border-bottom: ${(props) => props.theme.boxBorder};
+  border-bottom: 0.5px solid rgba(101, 166, 74, 0.3);
   border-radius: 0px;
   padding-left: 10px;
   display: flex;
@@ -34,7 +34,7 @@ const HeaderMoreIcon = styled(MoreIcon)`
 `;
 
 interface IProp {
-  style: any;
+  style?: any;
   className?: string;
 }
 
