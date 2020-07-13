@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "../../../typed-components";
-import { HomeReviewsData } from "../../../Routes/Home/HomeQueries";
+import { HomeReviewsData, HomeReviews } from "../../../Routes/Home/HomeQueries";
 
 const Wrapper = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -8,12 +8,23 @@ const Wrapper = styled.div`
 
 const Text = styled.span``;
 
-const ReviewBox: React.FunctionComponent<HomeReviewsData> = ({
-  homeReviews,
+const ReviewBox: React.FunctionComponent<HomeReviews> = ({
+  id,
+  user,
+  product,
+  title,
+  text,
+  rating,
+  reviewPhotos,
+  isLiked,
+  isHated,
+  likeCount,
+  hateCount,
+  commentCount,
 }) => {
   return (
     <Wrapper>
-      <Text></Text>
+      <Text>{}</Text>
     </Wrapper>
   );
 };
