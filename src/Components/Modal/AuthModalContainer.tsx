@@ -1,7 +1,11 @@
 import React from "react";
 import AuthModalPresenter from "./AuthModalPresenter";
 
-const AuthModalContainer: React.FunctionComponent = () => {
+interface IProp {
+  show?: boolean;
+}
+
+const AuthModalContainer: React.FunctionComponent<IProp> = ({ show }) => {
   return <AuthModalPresenter></AuthModalPresenter>;
 };
 
