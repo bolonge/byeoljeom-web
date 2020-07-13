@@ -8,11 +8,13 @@ const Wrapper = styled.div``;
 
 const MainContainer = styled.div`
   width: 100%;
+
   min-height: 100vh;
   margin-top: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-color: rgba(101, 166, 74, 0.18);
 `;
 
@@ -20,6 +22,7 @@ const MainPage = styled.div`
   width: 60%;
   min-height: 100vh;
   background-color: red;
+
   ${media.phone} {
     width: 100%;
   }

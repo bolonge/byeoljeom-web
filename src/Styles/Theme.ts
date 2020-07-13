@@ -7,7 +7,7 @@ export default {
   mainColor: "#6AB04C",
   blackColor: "#262626",
   darkGreyColor: "#999",
-  whiteGrey: "f9f9f9",
+  whiteGrey: "#f9f9f9",
   lightGreyColor: "#f4f4f4",
   redColor: "#ED4956",
   blueColor: "#3897f0",
