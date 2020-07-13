@@ -7,7 +7,7 @@ export default new ApolloClient({
   cache,
   uri:
     process.env.NODE_ENV === "development"
-      ? "http://localhost:4000"
+      ? "https://reveiwgraphqlserver.herokuapp.com"
       : "https://reveiwgraphqlserver.herokuapp.com",
   clientState: {
     defaults: {

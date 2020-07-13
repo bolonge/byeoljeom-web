@@ -14,7 +14,7 @@ interface IThemeInterface {
   darkBlueColor: string;
   boxBorder: string;
   borderRadius: string;
-  whiteBox: string;
+  whiteBox: any;
 }
 
 const {

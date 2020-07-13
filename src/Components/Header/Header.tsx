@@ -41,14 +41,17 @@ interface IProp {
 const Header: React.FunctionComponent<IProp> = ({ style, className }) => {
   const history = useHistory();
   const search = useInput("");
-  const [show, setShow] = useState(false);
+  const [moreIShow, setMoreIShow] = useState(false);
   const onClick = () => {
-    setShow((s) => !s);
+    setMoreIShow((s) => !s);
   };
 
   return (
     <Container style={style} className={className}>
-      <HeaderMoreIcon onClick={onClick} color={show ? "#6AB04C" : "#999"} />
+      <HeaderMoreIcon
+        onClick={onClick}
+        color={moreIShow ? "#6AB04C" : "#999"}
+      />
       <SearchInput
         onChange={search.onChange}
         value={search.value}

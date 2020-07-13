@@ -3,6 +3,7 @@ import styled from "../../typed-components";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import { media } from "../../Styles/MediaSize";
+import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 
 const Wrapper = styled.div``;
 
@@ -28,12 +29,22 @@ const MainPage = styled.div`
   }
 `;
 
-const HomePresenter: React.FunctionComponent = () => {
+interface IProp {
+  reviewData?: any;
+}
+
+const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
   return (
     <Wrapper>
       <Header />
       <MainContainer>
-        <MainPage></MainPage>
+        <MainPage>
+          {reviewData &&
+            reviewData.homeReviews &&
+            reviewData.homeReviews.map((r: any) => (
+              <ReviewBox key={r.id} {...r}></ReviewBox>
+            ))}
+        </MainPage>
       </MainContainer>
     </Wrapper>
   );
