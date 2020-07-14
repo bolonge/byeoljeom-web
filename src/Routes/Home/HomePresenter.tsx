@@ -6,6 +6,7 @@ import { media } from "../../Styles/MediaSize";
 import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 import Modal from "../../Components/Modal";
 import AuthButton from "../../Components/Button/AuthButton";
+import useIsLoggedIn from "../../Hooks/useIsLoggedIn";
 
 const OverlayMask = styled.div`
   position: fixed;
@@ -27,7 +28,7 @@ const ButtonContainer = styled.div`
   width: 500px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: row;
 `;
 
@@ -59,6 +60,7 @@ interface IProp {
 }
 
 const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
+  const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
@@ -71,22 +73,24 @@ const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
       )}
       <MainContainer>
         <MainHeader>
-          <ButtonContainer>
-            <AuthButton
-              text="로그인"
-              textColor={"#6AB04C"}
-              backColor={"#fff"}
-              borderColor={"#6AB04C"}
-              onClick={openModal}
-            ></AuthButton>
-            <AuthButton
-              text="회원가입"
-              textColor={"#fff"}
-              backColor={"#6AB04C"}
-              borderColor={"#6AB04C"}
-              onClick={openModal}
-            ></AuthButton>
-          </ButtonContainer>
+          {isLoggedIn ? null : (
+            <ButtonContainer>
+              <AuthButton
+                text="로그인"
+                textColor={"#6AB04C"}
+                backColor={"#fff"}
+                borderColor={"#6AB04C"}
+                onClick={openModal}
+              ></AuthButton>
+              <AuthButton
+                text="회원가입"
+                textColor={"#fff"}
+                backColor={"#6AB04C"}
+                borderColor={"#6AB04C"}
+                onClick={openModal}
+              ></AuthButton>
+            </ButtonContainer>
+          )}
         </MainHeader>
         <MainPage>
           {reviewData &&

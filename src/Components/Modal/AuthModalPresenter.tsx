@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
+import CloseIcon from "../Icon/CloseIcon";
 
 const Container = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -25,6 +26,12 @@ const Container = styled.div`
   }
 `;
 
+const ModalClose = styled(CloseIcon)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+`;
+
 interface IProp {
   show?: boolean;
   closeModal?: any;
@@ -36,7 +43,11 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   closeModal,
   className,
 }) => {
-  return <Container className={className}></Container>;
+  return (
+    <Container className={className}>
+      <ModalClose color="#999" onClick={closeModal}></ModalClose>
+    </Container>
+  );
 };
 
 export default AuthModalPresenter;
