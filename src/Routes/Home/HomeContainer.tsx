@@ -5,8 +5,6 @@ import { HOME_REVIEWS, HomeReviewsData } from "./HomeQueries";
 
 const HomeContainer: React.FunctionComponent = () => {
   const { data, loading } = useQuery<HomeReviewsData>(HOME_REVIEWS);
-  console.log(data);
-
   return <HomePresenter reviewData={data}></HomePresenter>;
 };
 

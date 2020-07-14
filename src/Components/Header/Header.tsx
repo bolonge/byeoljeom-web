@@ -6,14 +6,14 @@ import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
 import MoreIcon from "../Icon/MoreIcon";
 
-const Container = styled.header`
+const Container = styled.div`
   width: 100%;
   height: 55px;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: ${(props) => props.theme.whiteGrey};
   border-bottom: 0.5px solid rgba(101, 166, 74, 0.3);
-  border-radius: 0px;
   padding-left: 10px;
   display: flex;
   justify-content: flex-start;
