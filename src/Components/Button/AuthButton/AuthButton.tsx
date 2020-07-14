@@ -5,9 +5,11 @@ const Container = styled.div<{ tC: string; backC: string; borderC: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10%;
+  width: 30%;
+  min-width: 60px;
   height: 40px;
   border-radius: 5px;
+  font-weight: 700;
   color: ${(props) => props.tC};
   background-color: ${(props) => props.backC};
   border: 0.5px solid ${(props) => props.borderC};

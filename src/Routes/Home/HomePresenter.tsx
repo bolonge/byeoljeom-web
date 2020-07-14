@@ -23,6 +23,14 @@ const OverlayMask = styled.div`
 
 const MainHeader = styled(Header)``;
 
+const ButtonContainer = styled.div`
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+`;
+
 const Wrapper = styled.div``;
 
 const MainContainer = styled.div`
@@ -63,20 +71,22 @@ const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
       )}
       <MainContainer>
         <MainHeader>
-          <AuthButton
-            text="로그인"
-            textColor={"#6AB04C"}
-            backColor={"#fff"}
-            borderColor={"#6AB04C"}
-            onClick={openModal}
-          ></AuthButton>
-          <AuthButton
-            text="회원가입"
-            textColor={"#fff"}
-            backColor={"#6AB04C"}
-            borderColor={"#6AB04C"}
-            onClick={openModal}
-          ></AuthButton>
+          <ButtonContainer>
+            <AuthButton
+              text="로그인"
+              textColor={"#6AB04C"}
+              backColor={"#fff"}
+              borderColor={"#6AB04C"}
+              onClick={openModal}
+            ></AuthButton>
+            <AuthButton
+              text="회원가입"
+              textColor={"#fff"}
+              backColor={"#6AB04C"}
+              borderColor={"#6AB04C"}
+              onClick={openModal}
+            ></AuthButton>
+          </ButtonContainer>
         </MainHeader>
         <MainPage>
           {reviewData &&

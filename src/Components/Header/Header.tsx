@@ -16,7 +16,7 @@ const Container = styled.div`
   border-bottom: 0.5px solid rgba(101, 166, 74, 0.3);
   padding-left: 10px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   ${media.phone} {
     height: 60px;
