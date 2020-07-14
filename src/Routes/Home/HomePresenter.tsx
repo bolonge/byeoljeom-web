@@ -5,6 +5,7 @@ import Footer from "../../Components/Footer";
 import { media } from "../../Styles/MediaSize";
 import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 import Modal from "../../Components/Modal";
+import AuthButton from "../../Components/Button/AuthButton";
 
 const OverlayMask = styled.div`
   position: fixed;
@@ -62,11 +63,20 @@ const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
       )}
       <MainContainer>
         <MainHeader>
-          {" "}
-          <button
+          <AuthButton
+            text="로그인"
+            textColor={"#6AB04C"}
+            backColor={"#fff"}
+            borderColor={"#6AB04C"}
             onClick={openModal}
-            style={{ width: 50, height: 50 }}
-          ></button>
+          ></AuthButton>
+          <AuthButton
+            text="회원가입"
+            textColor={"#fff"}
+            backColor={"#6AB04C"}
+            borderColor={"#6AB04C"}
+            onClick={openModal}
+          ></AuthButton>
         </MainHeader>
         <MainPage>
           {reviewData &&
