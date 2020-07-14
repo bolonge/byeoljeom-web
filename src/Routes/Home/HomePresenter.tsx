@@ -50,16 +50,24 @@ interface IProp {
 }
 
 const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+  const openModal = () => setShow(true);
+  const closeModal = () => setShow(false);
   return (
     <Wrapper>
       {show && (
         <OverlayMask>
-          <Modal show={show}></Modal>
+          <Modal show={show} closeModal={closeModal}></Modal>
         </OverlayMask>
       )}
       <MainContainer>
-        <MainHeader />
+        <MainHeader>
+          {" "}
+          <button
+            onClick={openModal}
+            style={{ width: 50, height: 50 }}
+          ></button>
+        </MainHeader>
         <MainPage>
           {reviewData &&
             reviewData.homeReviews &&

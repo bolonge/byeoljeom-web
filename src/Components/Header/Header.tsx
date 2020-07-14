@@ -38,7 +38,11 @@ interface IProp {
   className?: string;
 }
 
-const Header: React.FunctionComponent<IProp> = ({ style, className }) => {
+const Header: React.FunctionComponent<IProp> = ({
+  style,
+  className,
+  children,
+}) => {
   const history = useHistory();
   const search = useInput("");
   const [moreIShow, setMoreIShow] = useState(false);
@@ -56,6 +60,7 @@ const Header: React.FunctionComponent<IProp> = ({ style, className }) => {
         onChange={search.onChange}
         value={search.value}
       ></SearchInput>
+      {children}
     </Container>
   );
 };
