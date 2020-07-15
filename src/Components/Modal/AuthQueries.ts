@@ -35,3 +35,9 @@ export const LOG_IN = gql`
     login(NameOrEmail: $NameOrEmail, password: $password, type: $type)
   }
 `;
+
+export const LOCAL_LOG_IN = gql`
+  mutation logUserIn($token: String!) {
+    logUserIn(token: $token) @client
+  }
+`;

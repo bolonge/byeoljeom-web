@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
@@ -43,6 +43,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   closeModal,
   className,
 }) => {
+  const [action, setAction] = useState("logIn");
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
