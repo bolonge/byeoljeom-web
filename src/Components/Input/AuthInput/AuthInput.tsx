@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "../../../typed-components";
-import SearchIcon from "../../Icon/SearchIcon";
 import { media } from "../../../Styles/MediaSize";
 
 const Container = styled.div<{ bg: string; bd: string }>`
@@ -23,8 +22,6 @@ const Container = styled.div<{ bg: string; bd: string }>`
     width: 200px;
   }
 `;
-
-const SearchMainIcon = styled(SearchIcon)``;
 
 const Input = styled.input`
   border: 0;

@@ -29,7 +29,7 @@ const Container = styled.div`
 `;
 
 const Form = styled.div`
-  width: 100%;
+  width: 50%;
 `;
 
 const ModalClose = styled(CloseIcon)`
@@ -67,6 +67,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             type={"password"}
           ></AuthInput>
         </form>
+      </Form>
+      <Form>
+        <form></form>
       </Form>
     </Container>
   );
