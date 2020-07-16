@@ -8,7 +8,6 @@ import {
   CONFIRM_SECRET,
   LOCAL_LOG_IN,
 } from "./AuthQueries";
-import useInput from "../../Hooks/useInput";
 
 interface IProp {
   show?: boolean;
@@ -21,19 +20,9 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   closeModal,
   className,
 }) => {
-  const eamilInput = useInput("");
-  const userInput = useInput("");
-  const [requestSecretMutation] = useMutation(LOG_IN, {
-    variables: { email: eamilInput.value },
-  });
-  const [createAccountMutation] = useMutation(CREATE_ACCOUNT, {
-    variables: {
-      email: eamilInput.value,
-    },
-  });
-  const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
-    variables: {},
-  });
+  const [requestSecretMutation] = useMutation(LOG_IN);
+  const [createAccountMutation] = useMutation(CREATE_ACCOUNT);
+  const [confirmSecretMutation] = useMutation(CONFIRM_SECRET);
   const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
 
   return (

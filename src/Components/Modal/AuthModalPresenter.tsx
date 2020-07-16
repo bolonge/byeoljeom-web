@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
+import AuthInput from "../Input/AuthInput";
+import useInput from "../../Hooks/useInput";
 
 const Container = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -26,6 +28,10 @@ const Container = styled.div`
   }
 `;
 
+const Form = styled.div`
+  width: 100%;
+`;
+
 const ModalClose = styled(CloseIcon)`
   position: absolute;
   top: 20px;
@@ -44,9 +50,24 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   className,
 }) => {
   const [action, setAction] = useState("logIn");
+  const emailInput = useInput("");
+  const nickNameINput = useInput("");
+  const passInput = useInput("");
+  const secretInput = useInput("");
+  const comfirmInput = useInput("");
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
+      <Form>
+        <form>
+          <AuthInput {...emailInput} placeholder={"이메일"}></AuthInput>
+          <AuthInput
+            {...passInput}
+            placeholder={"비밀번호"}
+            type={"password"}
+          ></AuthInput>
+        </form>
+      </Form>
     </Container>
   );
 };

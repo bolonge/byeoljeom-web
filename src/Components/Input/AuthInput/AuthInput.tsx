@@ -7,7 +7,8 @@ const Container = styled.div<{ bg: string; bd: string }>`
   width: 300px;
   padding: 4px;
   margin-left: 10px;
-  border-radius: 10px;
+  border: 0.5px solid ${(props) => props.theme.lightGreyColor};
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +60,6 @@ const AuthInput: React.FunctionComponent<IProps> = ({
   const [border, setBorder] = useState("0.5px solid transparent");
   return (
     <Container className={className} bg={color} bd={border}>
-      <SearchMainIcon color={"#999"} />
       <Input
         onFocus={() => {
           setColor("white");
