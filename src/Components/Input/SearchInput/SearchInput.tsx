@@ -5,7 +5,7 @@ import { media } from "../../../Styles/MediaSize";
 
 const Container = styled.div<{ bg: string; bd: string }>`
   width: 500px;
-  min-width: 400px;
+  min-width: 450px;
   padding: 4px;
   margin-left: 10px;
   border-radius: 10px;
@@ -20,11 +20,12 @@ const Container = styled.div<{ bg: string; bd: string }>`
     background-color: white;
   }
   ${media.tablet} {
-    width: 400px;
-    min-width: 300px;
+    width: 500px;
+    min-width: 350px;
   }
   ${media.phone} {
-    width: 300px;
+    width: 350px;
+    min-width: 200px;
   }
 `;
 

@@ -25,7 +25,7 @@ const OverlayMask = styled.div`
 const MainHeader = styled(Header)``;
 
 const ButtonContainer = styled.div`
-  width: 500px;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
