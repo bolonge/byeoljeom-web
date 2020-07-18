@@ -4,6 +4,7 @@ import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
 import AuthInput from "../Input/AuthInput";
 import useInput from "../../Hooks/useInput";
+import AuthButton from "../Button/AuthButton";
 
 const Container = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -38,6 +39,8 @@ const ModalClose = styled(CloseIcon)`
   right: 20px;
 `;
 
+const LoginText = styled.span``;
+
 interface IProp {
   show?: boolean;
   closeModal?: any;
@@ -51,7 +54,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
 }) => {
   const [action, setAction] = useState("logIn");
   const emailInput = useInput("");
-  const nickNameINput = useInput("");
+  const nickNameInput = useInput("");
   const passInput = useInput("");
   const secretInput = useInput("");
   const comfirmInput = useInput("");
@@ -59,13 +62,22 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
       <Form>
+        <LoginText>로그인</LoginText>
         <form>
-          <AuthInput {...emailInput} placeholder={"이메일"}></AuthInput>
+          <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
           <AuthInput
             {...passInput}
             placeholder={"비밀번호"}
             type={"password"}
           ></AuthInput>
+          <AuthButton
+            text="로그인"
+            size={"lg"}
+            textColor={"#6AB04C"}
+            backColor={"#fff"}
+            borderColor={"#6AB04C"}
+            onClick={null}
+          ></AuthButton>
         </form>
       </Form>
       <Form>

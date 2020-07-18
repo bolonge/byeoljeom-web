@@ -3,7 +3,7 @@ import styled from "../../../typed-components";
 import { media } from "../../../Styles/MediaSize";
 
 const Container = styled.div<{ bg: string; bd: string }>`
-  width: 300px;
+  width: 100%;
   padding: 4px;
   margin-left: 10px;
   border: 0.5px solid ${(props) => props.theme.lightGreyColor};

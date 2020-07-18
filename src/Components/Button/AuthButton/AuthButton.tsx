@@ -1,11 +1,30 @@
 import React from "react";
 import styled from "../../../typed-components";
 
-const Container = styled.div<{ tC: string; backC: string; borderC: string }>`
+const getSize = (size: string) => {
+  let number;
+  if (size === "sm") {
+    number = 30;
+  } else if (size === "md") {
+    number = 50;
+  } else if (size === "lg") {
+    number = 100;
+  }
+  return `
+          width:${number}%;
+          `;
+};
+
+const Container = styled.div<{
+  tC: string;
+  backC: string;
+  borderC: string;
+  size: string;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  ${(props) => getSize(props.size)}
   min-width: 60px;
   height: 40px;
   border-radius: 5px;
@@ -18,6 +37,7 @@ const Container = styled.div<{ tC: string; backC: string; borderC: string }>`
 
 interface IProp {
   text: string;
+  size?: string;
   textColor: string;
   backColor: string;
   borderColor: string;
@@ -26,6 +46,7 @@ interface IProp {
 
 const AuthButton: React.FunctionComponent<IProp> = ({
   text,
+  size = "sm",
   textColor,
   backColor,
   borderColor,
@@ -37,6 +58,7 @@ const AuthButton: React.FunctionComponent<IProp> = ({
       backC={backColor}
       borderC={borderColor}
       onClick={onClick}
+      size={size}
     >
       {text}
     </Container>
