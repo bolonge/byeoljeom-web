@@ -3,9 +3,10 @@ import styled from "../../../typed-components";
 import { media } from "../../../Styles/MediaSize";
 
 const Container = styled.div<{ bg: string; bd: string }>`
-  width: 100%;
-  padding: 4px;
-  margin-left: 10px;
+  width: 80%;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border: 0.5px solid ${(props) => props.theme.lightGreyColor};
   border-radius: 5px;
   display: flex;
@@ -25,7 +26,7 @@ const Container = styled.div<{ bg: string; bd: string }>`
 
 const Input = styled.input`
   border: 0;
-  padding: 4px;
+  padding: 5px;
   width: 500px;
   margin-left: 10px;
   background-color: transparent;

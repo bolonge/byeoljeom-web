@@ -7,6 +7,8 @@ const getSize = (size: string) => {
     number = 30;
   } else if (size === "md") {
     number = 50;
+  } else if (size === "mg") {
+    number = 80;
   } else if (size === "lg") {
     number = 100;
   }

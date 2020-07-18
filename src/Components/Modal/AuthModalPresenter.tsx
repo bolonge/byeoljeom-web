@@ -8,6 +8,7 @@ import AuthButton from "../Button/AuthButton";
 
 const Container = styled.div`
   ${(props) => props.theme.whiteBox}
+  display:flex;
   height: 80vh;
   width: 60%;
   min-width: ${768 * 0.9}px;
@@ -31,6 +32,12 @@ const Container = styled.div`
 
 const Form = styled.div`
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  form {
+    margin-left: 10px;
+  }
 `;
 
 const ModalClose = styled(CloseIcon)`
@@ -39,7 +46,11 @@ const ModalClose = styled(CloseIcon)`
   right: 20px;
 `;
 
-const LoginText = styled.span``;
+const LoginText = styled.span`
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 200px;
+`;
 
 interface IProp {
   show?: boolean;
@@ -72,7 +83,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
           ></AuthInput>
           <AuthButton
             text="로그인"
-            size={"lg"}
+            size={"mg"}
             textColor={"#6AB04C"}
             backColor={"#fff"}
             borderColor={"#6AB04C"}
