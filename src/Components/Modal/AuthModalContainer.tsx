@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AuthModalPresenter from "./AuthModalPresenter";
 import { useMutation } from "@apollo/react-hooks";
 import {
@@ -21,6 +21,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   closeModal,
   className,
 }) => {
+  const [action, setAction] = useState("logIn");
   const emailInput = useInput("");
   const nickNameInput = useInput("");
   const passInput = useInput("");
@@ -55,6 +56,8 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       show={show}
       closeModal={closeModal}
       className={className}
+      action={action}
+      setAction={setAction}
       emailInput={emailInput}
       nickNameInput={nickNameInput}
       passInput={passInput}

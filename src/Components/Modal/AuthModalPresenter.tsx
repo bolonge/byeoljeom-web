@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
@@ -55,6 +55,8 @@ interface IProp {
   show?: boolean;
   closeModal?: any;
   className?: string;
+  action: string;
+  setAction: any;
   emailInput: any;
   nickNameInput: any;
   passInput: any;
@@ -67,6 +69,8 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   show,
   closeModal,
   className,
+  action,
+  setAction,
   emailInput,
   nickNameInput,
   passInput,
@@ -74,7 +78,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   comfirmInput,
   onSubmit,
 }) => {
-  const [action, setAction] = useState("logIn");
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
