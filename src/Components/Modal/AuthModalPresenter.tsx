@@ -3,7 +3,6 @@ import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
 import AuthInput from "../Input/AuthInput";
-import useInput from "../../Hooks/useInput";
 import AuthButton from "../Button/AuthButton";
 
 const Container = styled.div`
@@ -56,19 +55,26 @@ interface IProp {
   show?: boolean;
   closeModal?: any;
   className?: string;
+  emailInput: any;
+  nickNameInput: any;
+  passInput: any;
+  secretInput: any;
+  comfirmInput: any;
+  onSubmit: any;
 }
 
 const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   show,
   closeModal,
   className,
+  emailInput,
+  nickNameInput,
+  passInput,
+  secretInput,
+  comfirmInput,
+  onSubmit,
 }) => {
   const [action, setAction] = useState("logIn");
-  const emailInput = useInput("");
-  const nickNameInput = useInput("");
-  const passInput = useInput("");
-  const secretInput = useInput("");
-  const comfirmInput = useInput("");
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
@@ -87,7 +93,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             textColor={"#6AB04C"}
             backColor={"#fff"}
             borderColor={"#6AB04C"}
-            onClick={null}
+            onClick={onSubmit}
           ></AuthButton>
         </form>
       </Form>
