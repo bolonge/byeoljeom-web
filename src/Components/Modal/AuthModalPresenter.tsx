@@ -78,7 +78,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   comfirmInput,
   onSubmit,
 }) => {
-  return (
+  const LoginPage = () => (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
       <Form>
@@ -104,6 +104,13 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
         <form></form>
       </Form>
     </Container>
+  );
+  return action === "login" ? (
+    <LoginPage></LoginPage>
+  ) : action === "signUp" ? (
+    <></>
+  ) : (
+    <></>
   );
 };
 

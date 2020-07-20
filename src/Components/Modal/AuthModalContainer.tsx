@@ -40,14 +40,18 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    if (nickNameInput.value !== "") {
-      const {
-        data: { login },
-      } = await loginMutation();
-      if (login) {
-        localLogInMutation({ variables: { token: login } });
-        window.location.reload();
+    if (action === "login") {
+      if (nickNameInput.value !== "" || passInput.value !== "") {
+        const {
+          data: { login },
+        } = await loginMutation();
+        if (login) {
+          localLogInMutation({ variables: { token: login } });
+          window.location.reload();
+        }
       }
+    } else if (action === "signUp") {
+    } else if (action === "confirm") {
     }
   };
 
