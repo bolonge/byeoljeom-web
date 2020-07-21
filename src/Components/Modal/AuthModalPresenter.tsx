@@ -4,6 +4,7 @@ import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
 import AuthInput from "../Input/AuthInput";
 import AuthButton from "../Button/AuthButton";
+import TextButton from "../Button/TextButton";
 
 const Container = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -99,6 +100,12 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             onClick={onSubmit}
           ></AuthButton>
         </form>
+        <TextButton
+          text={"회원가입"}
+          size={13}
+          color={"#6AB04C"}
+          onClick={() => setAction("signUp")}
+        ></TextButton>
       </Form>
       <Form>
         <form></form>
@@ -110,9 +117,8 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
       <Form>
-        <LoginText>로그인</LoginText>
+        <LoginText>회원가입</LoginText>
         <form>
-          <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
           <AuthInput
             {...passInput}
             placeholder={"비밀번호"}
@@ -138,7 +144,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
       <Form>
-        <LoginText>로그인</LoginText>
+        <LoginText>이메일 확인</LoginText>
         <form>
           <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
           <AuthInput
@@ -162,7 +168,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
     </Container>
   );
 
-  return action === "login" ? (
+  return action === "logIn" ? (
     <LoginPage></LoginPage>
   ) : action === "signUp" ? (
     <SignUpPage></SignUpPage>
