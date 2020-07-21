@@ -105,12 +105,69 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
       </Form>
     </Container>
   );
+
+  const SignUpPage = () => (
+    <Container className={className}>
+      <ModalClose color="#999" onClick={closeModal}></ModalClose>
+      <Form>
+        <LoginText>로그인</LoginText>
+        <form>
+          <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
+          <AuthInput
+            {...passInput}
+            placeholder={"비밀번호"}
+            type={"password"}
+          ></AuthInput>
+          <AuthButton
+            text="로그인"
+            size={"mg"}
+            textColor={"#6AB04C"}
+            backColor={"#fff"}
+            borderColor={"#6AB04C"}
+            onClick={onSubmit}
+          ></AuthButton>
+        </form>
+      </Form>
+      <Form>
+        <form></form>
+      </Form>
+    </Container>
+  );
+
+  const ConfirmPage = () => (
+    <Container className={className}>
+      <ModalClose color="#999" onClick={closeModal}></ModalClose>
+      <Form>
+        <LoginText>로그인</LoginText>
+        <form>
+          <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
+          <AuthInput
+            {...passInput}
+            placeholder={"비밀번호"}
+            type={"password"}
+          ></AuthInput>
+          <AuthButton
+            text="로그인"
+            size={"mg"}
+            textColor={"#6AB04C"}
+            backColor={"#fff"}
+            borderColor={"#6AB04C"}
+            onClick={onSubmit}
+          ></AuthButton>
+        </form>
+      </Form>
+      <Form>
+        <form></form>
+      </Form>
+    </Container>
+  );
+
   return action === "login" ? (
     <LoginPage></LoginPage>
   ) : action === "signUp" ? (
-    <></>
+    <SignUpPage></SignUpPage>
   ) : (
-    <></>
+    <ConfirmPage></ConfirmPage>
   );
 };
 
