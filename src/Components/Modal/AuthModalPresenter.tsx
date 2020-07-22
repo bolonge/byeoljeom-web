@@ -34,7 +34,7 @@ const Form = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   form {
     margin-left: 10px;
   }
@@ -49,7 +49,18 @@ const ModalClose = styled(CloseIcon)`
 const LoginText = styled.span`
   font-size: 20px;
   font-weight: 500;
-  margin-bottom: 200px;
+`;
+
+const TextContainer = styled.div`
+  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+`;
+
+const Text = styled.span`
+  padding-right: 10px;
 `;
 
 interface IProp {
@@ -100,12 +111,15 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             onClick={onSubmit}
           ></AuthButton>
         </form>
-        <TextButton
-          text={"회원가입"}
-          size={13}
-          color={"#6AB04C"}
-          onClick={() => setAction("signUp")}
-        ></TextButton>
+        <TextContainer>
+          <Text>처음이신가요?</Text>
+          <TextButton
+            text={"회원가입"}
+            size={13}
+            color={"#6AB04C"}
+            onClick={() => setAction("signUp")}
+          ></TextButton>
+        </TextContainer>
       </Form>
       <Form>
         <form></form>
@@ -121,7 +135,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
         <form>
           <AuthInput
             {...passInput}
-            placeholder={"비밀번호"}
+            placeholder={"이메일"}
             type={"password"}
           ></AuthInput>
           <AuthButton

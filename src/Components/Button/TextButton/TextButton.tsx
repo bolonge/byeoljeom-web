@@ -2,6 +2,7 @@ import React from "react";
 import styled from "../../../typed-components";
 
 const Container = styled.div<{ size: number; color: string }>`
+  width: auto;
   font-size: ${(props) => props.size}px;
   color: ${(props) => props.color};
   cursor: pointer;
