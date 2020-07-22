@@ -147,6 +147,14 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             onClick={onSubmit}
           ></AuthButton>
         </form>
+        <TextContainer>
+          <TextButton
+            text={"로그인 화면으로"}
+            size={13}
+            color={"#6AB04C"}
+            onClick={() => setAction("logIn")}
+          ></TextButton>
+        </TextContainer>
       </Form>
       <Form>
         <form></form>

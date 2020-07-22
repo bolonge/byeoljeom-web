@@ -20,7 +20,7 @@ const Container = styled.div<{ bg: string; bd: string }>`
     background-color: white;
   }
   ${media.phone} {
-    width: 200px;
+    width: 80%;
   }
 `;
 

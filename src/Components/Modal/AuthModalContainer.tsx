@@ -62,11 +62,11 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       className={className}
       action={action}
       setAction={setAction}
-      emailInput={emailInput}
-      nickNameInput={nickNameInput}
-      passInput={passInput}
-      secretInput={secretInput}
-      comfirmInput={comfirmInput}
+      emailInput={[emailInput.onChange, emailInput.value]}
+      nickNameInput={[nickNameInput.onChange, nickNameInput.value]}
+      passInput={[passInput.onChange, passInput.value]}
+      secretInput={[secretInput.onChange, secretInput.value]}
+      comfirmInput={[comfirmInput.onChange, comfirmInput.value]}
       onSubmit={onSubmit}
     ></AuthModalPresenter>
   );
