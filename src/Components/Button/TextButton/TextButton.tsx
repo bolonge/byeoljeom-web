@@ -8,7 +8,7 @@ const Container = styled.div<{ size: number; color: string }>`
   cursor: pointer;
   transition: 0.2s ease-in;
   &:hover {
-    font-size: 15px;
+    transform: scale(1.2);
   }
 `;
 

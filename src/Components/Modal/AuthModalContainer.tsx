@@ -26,7 +26,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   const nickNameInput = useInput("");
   const passInput = useInput("");
   const secretInput = useInput("");
-  const comfirmInput = useInput("");
+  const confirmInput = useInput("");
   const [loginMutation] = useMutation(LOG_IN, {
     variables: {
       NameOrEmail: nickNameInput.value,
@@ -66,7 +66,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       nickNameInput={[nickNameInput.onChange, nickNameInput.value]}
       passInput={[passInput.onChange, passInput.value]}
       secretInput={[secretInput.onChange, secretInput.value]}
-      comfirmInput={[comfirmInput.onChange, comfirmInput.value]}
+      confirmInput={[confirmInput.onChange, confirmInput.value]}
       onSubmit={onSubmit}
     ></AuthModalPresenter>
   );

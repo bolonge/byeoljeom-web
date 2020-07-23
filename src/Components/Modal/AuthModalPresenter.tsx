@@ -73,7 +73,7 @@ interface IProp {
   nickNameInput: any;
   passInput: any;
   secretInput: any;
-  comfirmInput: any;
+  confirmInput: any;
   onSubmit: any;
 }
 
@@ -87,7 +87,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   nickNameInput,
   passInput,
   secretInput,
-  comfirmInput,
+  confirmInput,
   onSubmit,
 }) => {
   const LoginPage = () => (
@@ -134,9 +134,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
         <LoginText>회원가입</LoginText>
         <form>
           <AuthInput
-            {...passInput}
+            {...emailInput}
             placeholder={"이메일"}
-            type={"password"}
+            type={"email"}
           ></AuthInput>
           <AuthButton
             text="로그인"
@@ -170,12 +170,12 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
         <form>
           <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
           <AuthInput
-            {...passInput}
-            placeholder={"비밀번호"}
+            {...confirmInput}
+            placeholder={"시크릿 코드"}
             type={"password"}
           ></AuthInput>
           <AuthButton
-            text="로그인"
+            text="확인하기"
             size={"mg"}
             textColor={"#6AB04C"}
             backColor={"#fff"}
@@ -183,6 +183,14 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             onClick={onSubmit}
           ></AuthButton>
         </form>
+        <TextContainer>
+          <TextButton
+            text={"코드 다시 보내기"}
+            size={13}
+            color={"#6AB04C"}
+            onClick={() => null}
+          ></TextButton>
+        </TextContainer>
       </Form>
       <Form>
         <form></form>
