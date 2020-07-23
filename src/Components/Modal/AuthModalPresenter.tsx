@@ -90,120 +90,107 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   confirmInput,
   onSubmit,
 }) => {
-  const LoginPage = () => (
-    <Container className={className}>
-      <ModalClose color="#999" onClick={closeModal}></ModalClose>
-      <Form>
-        <LoginText>로그인</LoginText>
-        <form>
-          <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
-          <AuthInput
-            {...passInput}
-            placeholder={"비밀번호"}
-            type={"password"}
-          ></AuthInput>
-          <AuthButton
-            text="로그인"
-            size={"mg"}
-            textColor={"#6AB04C"}
-            backColor={"#fff"}
-            borderColor={"#6AB04C"}
-            onClick={onSubmit}
-          ></AuthButton>
-        </form>
-        <TextContainer>
-          <Text>처음이신가요?</Text>
-          <TextButton
-            text={"회원가입"}
-            size={13}
-            color={"#6AB04C"}
-            onClick={() => setAction("signUp")}
-          ></TextButton>
-        </TextContainer>
-      </Form>
-      <Form>
-        <form></form>
-      </Form>
-    </Container>
-  );
-
-  const SignUpPage = () => (
-    <Container className={className}>
-      <ModalClose color="#999" onClick={closeModal}></ModalClose>
-      <Form>
-        <LoginText>회원가입</LoginText>
-        <form>
-          <AuthInput
-            {...emailInput}
-            placeholder={"이메일"}
-            type={"email"}
-          ></AuthInput>
-          <AuthButton
-            text="로그인"
-            size={"mg"}
-            textColor={"#6AB04C"}
-            backColor={"#fff"}
-            borderColor={"#6AB04C"}
-            onClick={onSubmit}
-          ></AuthButton>
-        </form>
-        <TextContainer>
-          <TextButton
-            text={"로그인 화면으로"}
-            size={13}
-            color={"#6AB04C"}
-            onClick={() => setAction("logIn")}
-          ></TextButton>
-        </TextContainer>
-      </Form>
-      <Form>
-        <form></form>
-      </Form>
-    </Container>
-  );
-
   const ConfirmPage = () => (
+    <Container>
+      <ModalClose color="#999" onClick={closeModal}></ModalClose>
+      <Form></Form>
+    </Container>
+  );
+
+  return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
       <Form>
-        <LoginText>이메일 확인</LoginText>
-        <form>
-          <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
-          <AuthInput
-            {...confirmInput}
-            placeholder={"시크릿 코드"}
-            type={"password"}
-          ></AuthInput>
-          <AuthButton
-            text="확인하기"
-            size={"mg"}
-            textColor={"#6AB04C"}
-            backColor={"#fff"}
-            borderColor={"#6AB04C"}
-            onClick={onSubmit}
-          ></AuthButton>
-        </form>
-        <TextContainer>
-          <TextButton
-            text={"코드 다시 보내기"}
-            size={13}
-            color={"#6AB04C"}
-            onClick={() => null}
-          ></TextButton>
-        </TextContainer>
+        {action === "logIn" && (
+          <>
+            <LoginText>로그인</LoginText>
+            <form onSubmit={onSubmit}>
+              <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
+              <AuthInput
+                {...passInput}
+                placeholder={"비밀번호"}
+                type={"password"}
+              ></AuthInput>
+              <AuthButton
+                text="로그인"
+                size={"mg"}
+                textColor={"#6AB04C"}
+                backColor={"#fff"}
+                borderColor={"#6AB04C"}
+                onClick={onSubmit}
+              ></AuthButton>
+            </form>
+            <TextContainer>
+              <Text>처음이신가요?</Text>
+              <TextButton
+                text={"회원가입"}
+                size={13}
+                color={"#6AB04C"}
+                onClick={() => setAction("signUp")}
+              ></TextButton>
+            </TextContainer>
+          </>
+        )}
+        {action === "signUp" && (
+          <>
+            <LoginText>회원가입</LoginText>
+            <form onSubmit={onSubmit}>
+              <AuthInput
+                {...emailInput}
+                placeholder={"이메일"}
+                type={"email"}
+              ></AuthInput>
+              <AuthButton
+                text="이메일 확인"
+                size={"mg"}
+                textColor={"#6AB04C"}
+                backColor={"#fff"}
+                borderColor={"#6AB04C"}
+              ></AuthButton>
+            </form>
+            <TextContainer>
+              <TextButton
+                text={"로그인 화면으로"}
+                size={13}
+                color={"#6AB04C"}
+                onClick={() => setAction("logIn")}
+              ></TextButton>
+            </TextContainer>
+          </>
+        )}
+        {action === "confirm" && (
+          <>
+            <LoginText>이메일 확인</LoginText>
+            <form onSubmit={onSubmit}>
+              <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
+              <AuthInput
+                {...confirmInput}
+                placeholder={"시크릿 코드"}
+                type={"password"}
+              ></AuthInput>
+              <AuthButton
+                text="확인하기"
+                size={"mg"}
+                textColor={"#6AB04C"}
+                backColor={"#fff"}
+                borderColor={"#6AB04C"}
+              ></AuthButton>
+            </form>
+            <TextContainer>
+              <TextButton
+                text={"코드 다시 보내기"}
+                size={13}
+                color={"#6AB04C"}
+                onClick={() => null}
+              ></TextButton>
+            </TextContainer>
+          </>
+        )}
       </Form>
       <Form>
         <form></form>
       </Form>
     </Container>
-  );
-
-  return action === "logIn" ? (
-    <LoginPage></LoginPage>
-  ) : action === "signUp" ? (
-    <SignUpPage></SignUpPage>
-  ) : (
-    <ConfirmPage></ConfirmPage>
   );
 };
 

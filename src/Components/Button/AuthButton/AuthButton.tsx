@@ -43,7 +43,7 @@ interface IProp {
   textColor: string;
   backColor: string;
   borderColor: string;
-  onClick: any;
+  onClick?: any;
 }
 
 const AuthButton: React.FunctionComponent<IProp> = ({

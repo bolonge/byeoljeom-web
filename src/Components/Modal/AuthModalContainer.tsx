@@ -35,20 +35,32 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
     },
   });
   const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
-  const [createAccountMutation] = useMutation(CREATE_ACCOUNT);
+  const [createAccountMutation] = useMutation(CREATE_ACCOUNT, {
+    variables: {
+      nickName: nickNameInput.value,
+      email: emailInput.value,
+      password: passInput.value,
+    },
+  });
   const [confirmSecretMutation] = useMutation(CONFIRM_SECRET);
 
   const onSubmit = async (e: any) => {
-    e.preventDefault();
-    if (action === "login") {
-      if (nickNameInput.value !== "" || passInput.value !== "") {
-        const {
-          data: { login },
-        } = await loginMutation();
-        if (login) {
-          localLogInMutation({ variables: { token: login } });
-          window.location.reload();
+    e.persist();
+    if (action === "logIn") {
+      if (nickNameInput.value !== "" && passInput.value !== "") {
+        try {
+          const {
+            data: { login },
+          } = await loginMutation();
+          if (login) {
+            localLogInMutation({ variables: { token: login } });
+            window.location.reload();
+          }
+        } catch (error) {
+          console.log(error);
         }
+      } else {
+        console.log("빈칸");
       }
     } else if (action === "signUp") {
     } else if (action === "confirm") {
@@ -62,11 +74,11 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       className={className}
       action={action}
       setAction={setAction}
-      emailInput={[emailInput.onChange, emailInput.value]}
-      nickNameInput={[nickNameInput.onChange, nickNameInput.value]}
-      passInput={[passInput.onChange, passInput.value]}
-      secretInput={[secretInput.onChange, secretInput.value]}
-      confirmInput={[confirmInput.onChange, confirmInput.value]}
+      emailInput={emailInput}
+      nickNameInput={nickNameInput}
+      passInput={passInput}
+      secretInput={secretInput}
+      confirmInput={confirmInput}
       onSubmit={onSubmit}
     ></AuthModalPresenter>
   );

@@ -79,7 +79,7 @@ const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
                 text="로그인"
                 textColor={"#6AB04C"}
                 backColor={"#fff"}
-                borderColor={"#6AB04C"}
+                borderColor={"#fff"}
                 onClick={openModal}
               ></AuthButton>
               <AuthButton
