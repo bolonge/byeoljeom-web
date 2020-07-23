@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/react-hooks";
 import {
   LOG_IN,
   CREATE_ACCOUNT,
-  CHANGE_PASSWORD,
   CONFIRM_SECRET,
   LOCAL_LOG_IN,
 } from "./AuthQueries";

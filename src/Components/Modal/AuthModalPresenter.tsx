@@ -90,13 +90,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   confirmInput,
   onSubmit,
 }) => {
-  const ConfirmPage = () => (
-    <Container>
-      <ModalClose color="#999" onClick={closeModal}></ModalClose>
-      <Form></Form>
-    </Container>
-  );
-
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
