@@ -81,7 +81,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       try {
         const {
           data: { confirmSecret },
-        } = await createAccountMutation();
+        } = await confirmSecretMutation();
         if (confirmSecret) {
           setAction("logIn");
         }
