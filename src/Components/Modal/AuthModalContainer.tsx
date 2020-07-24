@@ -41,7 +41,12 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       password: passInput.value,
     },
   });
-  const [confirmSecretMutation] = useMutation(CONFIRM_SECRET);
+  const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
+    variables: {
+      email: emailInput.value,
+      secret: secretInput.value,
+    },
+  });
 
   const onSubmit = async (e: any) => {
     e.persist();
@@ -62,7 +67,27 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         console.log("빈칸");
       }
     } else if (action === "signUp") {
+      try {
+        const {
+          data: { createAccount },
+        } = await createAccountMutation();
+        if (createAccount) {
+          setAction("confirm");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     } else if (action === "confirm") {
+      try {
+        const {
+          data: { confirmSecret },
+        } = await createAccountMutation();
+        if (confirmSecret) {
+          setAction("logIn");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
