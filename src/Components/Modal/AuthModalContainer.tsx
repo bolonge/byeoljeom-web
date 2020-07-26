@@ -20,7 +20,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   closeModal,
   className,
 }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [action, setAction] = useState("logIn");
   const emailInput = useInput("");
   const nickNameInput = useInput("");
@@ -54,6 +54,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
     if (action === "logIn") {
       if (nickNameInput.value !== "" && passInput.value !== "") {
         try {
+          setLoading(true);
           const {
             data: { login },
           } = await loginMutation();
@@ -63,6 +64,8 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           }
         } catch (error) {
           console.log(error);
+        } finally {
+          setLoading(false);
         }
       } else {
         console.log("빈칸");
