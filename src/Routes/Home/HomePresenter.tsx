@@ -57,9 +57,13 @@ const MainPage = styled.div`
 
 interface IProp {
   reviewData?: any;
+  loading: boolean;
 }
 
-const HomePresenter: React.FunctionComponent<IProp> = ({ reviewData }) => {
+const HomePresenter: React.FunctionComponent<IProp> = ({
+  reviewData,
+  loading,
+}) => {
   const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);

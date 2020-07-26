@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "../../../typed-components";
-import { HomeReviewsData, HomeReviews } from "../../../Routes/Home/HomeQueries";
+import { HomeReviews } from "../../../Routes/Home/HomeQueries";
 
 const Wrapper = styled.div`
   ${(props) => props.theme.whiteBox}
