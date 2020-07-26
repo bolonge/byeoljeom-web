@@ -53,6 +53,7 @@ const AuthButton: React.FunctionComponent<IProp> = ({
   backColor,
   borderColor,
   onClick,
+  children,
 }) => {
   return (
     <Container
@@ -62,7 +63,7 @@ const AuthButton: React.FunctionComponent<IProp> = ({
       onClick={onClick}
       size={size}
     >
-      {text}
+      {children ? children : text}
     </Container>
   );
 };

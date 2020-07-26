@@ -20,6 +20,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   closeModal,
   className,
 }) => {
+  const [loading, setLoading] = useState(true);
   const [action, setAction] = useState("logIn");
   const emailInput = useInput("");
   const nickNameInput = useInput("");
@@ -93,7 +94,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
 
   return (
     <AuthModalPresenter
-      show={show}
+      loading={loading}
       closeModal={closeModal}
       className={className}
       action={action}

@@ -5,6 +5,7 @@ import CloseIcon from "../Icon/CloseIcon";
 import AuthInput from "../Input/AuthInput";
 import AuthButton from "../Button/AuthButton";
 import TextButton from "../Button/TextButton";
+import Spinner from "../Spinner";
 
 const Container = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -64,7 +65,7 @@ const Text = styled.span`
 `;
 
 interface IProp {
-  show?: boolean;
+  loading?: boolean;
   closeModal?: any;
   className?: string;
   action: string;
@@ -78,7 +79,7 @@ interface IProp {
 }
 
 const AuthModalPresenter: React.FunctionComponent<IProp> = ({
-  show,
+  loading,
   closeModal,
   className,
   action,
@@ -111,7 +112,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 backColor={"#fff"}
                 borderColor={"#6AB04C"}
                 onClick={onSubmit}
-              ></AuthButton>
+              >
+                {loading ? <Spinner /> : null}
+              </AuthButton>
             </form>
             <TextContainer>
               <Text>처음이신가요?</Text>
