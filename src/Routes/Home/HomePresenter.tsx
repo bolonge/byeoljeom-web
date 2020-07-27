@@ -79,13 +79,21 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
 }) => {
   const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
-  const openModal = () => setShow(true);
+  const [action, setAction] = useState("logIn");
+  const openModal = (location: string) => {
+    setShow(true);
+    if (location === "signUp") {
+      setAction("signUp");
+    } else {
+      setAction("logIn");
+    }
+  };
   const closeModal = () => setShow(false);
   return (
     <Wrapper>
       {show && (
         <OverlayMask>
-          <Modal show={show} closeModal={closeModal}></Modal>
+          <Modal action={action} closeModal={closeModal}></Modal>
         </OverlayMask>
       )}
       <MainContainer>
@@ -95,7 +103,7 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
               <LoginButton
                 text="로그인"
                 size={16}
-                onClick={openModal}
+                onClick={() => openModal("logIn")}
                 color={"#6AB04C"}
               ></LoginButton>
               <AuthButton
@@ -103,7 +111,7 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
                 textColor={"#fff"}
                 backColor={"#6AB04C"}
                 borderColor={"#6AB04C"}
-                onClick={openModal}
+                onClick={() => openModal("signUp")}
               ></AuthButton>
             </ButtonContainer>
           )}

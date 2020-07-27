@@ -10,18 +10,18 @@ import {
 import useInput from "../../Hooks/useInput";
 
 interface IProp {
-  show?: boolean;
+  action?: string;
   closeModal?: any;
   className?: string;
 }
 
 const AuthModalContainer: React.FunctionComponent<IProp> = ({
-  show,
+  action: actionProp,
   closeModal,
   className,
 }) => {
   const [loading, setLoading] = useState(false);
-  const [action, setAction] = useState("logIn");
+  const [action, setAction] = useState(actionProp);
   const emailInput = useInput("");
   const nickNameInput = useInput("");
   const passInput = useInput("");

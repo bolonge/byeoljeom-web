@@ -68,7 +68,7 @@ interface IProp {
   loading?: boolean;
   closeModal?: any;
   className?: string;
-  action: string;
+  action?: string;
   setAction: any;
   emailInput: any;
   nickNameInput: any;
