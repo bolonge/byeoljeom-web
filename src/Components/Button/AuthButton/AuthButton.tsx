@@ -35,6 +35,12 @@ const Container = styled.div<{
   background-color: ${(props) => props.backC};
   border: 0.5px solid ${(props) => props.borderC};
   cursor: pointer;
+  &:hover,
+  &active {
+    background-color: ${(props) => props.tC};
+    border: 0.5px solid ${(props) => props.backC};
+    color: ${(props) => props.backC};
+  }
 `;
 
 interface IProp {

@@ -31,7 +31,7 @@ const Input = styled.input`
   margin-left: 10px;
   background-color: transparent;
   ${media.phone} {
-    width: 300px;
+    width: 400px;
   }
 `;
 

@@ -7,8 +7,9 @@ const Container = styled.div<{ size: number; color: string }>`
   color: ${(props) => props.color};
   cursor: pointer;
   transition: 0.2s ease-in;
-  &:hover {
-    transform: scale(1.2);
+  &:hover,
+  &:active {
+    font-weight: 600;
   }
 `;
 
