@@ -20,6 +20,7 @@ interface IProp {
   onClick: any;
   size: number;
   color: string;
+  className?: string;
 }
 
 const TextButton: React.FunctionComponent<IProp> = ({
@@ -27,9 +28,15 @@ const TextButton: React.FunctionComponent<IProp> = ({
   onClick,
   size,
   color,
+  className,
 }) => {
   return (
-    <Container onClick={onClick} size={size} color={color}>
+    <Container
+      className={className}
+      onClick={onClick}
+      size={size}
+      color={color}
+    >
       <Text>{text}</Text>
     </Container>
   );

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "../../typed-components";
 import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
 import { media } from "../../Styles/MediaSize";
 import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 import Modal from "../../Components/Modal";
 import AuthButton from "../../Components/Button/AuthButton";
 import useIsLoggedIn from "../../Hooks/useIsLoggedIn";
+import TextButton from "../../Components/Button/TextButton";
 
 const OverlayMask = styled.div`
   position: fixed;
@@ -25,11 +25,20 @@ const OverlayMask = styled.div`
 const MainHeader = styled(Header)``;
 
 const ButtonContainer = styled.div`
-  width: 30%;
+  width: 400px;
+  min-width: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
+  ${media.tablet} {
+    width: 300px;
+    min-width: 200px;
+  }
+  ${media.phone} {
+    width: 150px;
+    min-width: 150px;
+  }
 `;
 
 const Wrapper = styled.div``;
@@ -53,6 +62,10 @@ const MainPage = styled.div`
   ${media.phone} {
     width: 100%;
   }
+`;
+
+const LoginButton = styled(TextButton)`
+  margin-right: 30px;
 `;
 
 interface IProp {
@@ -79,13 +92,12 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
         <MainHeader>
           {isLoggedIn ? null : (
             <ButtonContainer>
-              <AuthButton
+              <LoginButton
                 text="로그인"
-                textColor={"#6AB04C"}
-                backColor={"#fff"}
-                borderColor={"#fff"}
+                size={16}
                 onClick={openModal}
-              ></AuthButton>
+                color={"#6AB04C"}
+              ></LoginButton>
               <AuthButton
                 text="회원가입"
                 textColor={"#fff"}
