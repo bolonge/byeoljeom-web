@@ -1,6 +1,5 @@
 import { PRODUCT_FRAGMENT, REVIEW_FRAGMENT } from "../../fragments";
 import gql from "graphql-tag";
-import { object } from "prop-types";
 
 export const HOME_PRODUCTS = gql`
   query homeProducts {

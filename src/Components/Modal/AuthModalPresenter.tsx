@@ -73,7 +73,6 @@ interface IProp {
   emailInput: any;
   nickNameInput: any;
   passInput: any;
-  secretInput: any;
   confirmInput: any;
   onSubmit: any;
 }
@@ -87,7 +86,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   emailInput,
   nickNameInput,
   passInput,
-  secretInput,
   confirmInput,
   onSubmit,
 }) => {
@@ -131,6 +129,16 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
           <>
             <LoginText>회원가입</LoginText>
             <form onSubmit={onSubmit}>
+              <AuthInput
+                {...nickNameInput}
+                placeholder={"닉네임"}
+                type={"email"}
+              ></AuthInput>
+              <AuthInput
+                {...passInput}
+                placeholder={"비밀번호"}
+                type={"email"}
+              ></AuthInput>
               <AuthInput
                 {...emailInput}
                 placeholder={"이메일"}
