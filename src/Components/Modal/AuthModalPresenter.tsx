@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "../../typed-components";
+import { GoogleLogin } from "react-google-login";
 import { media } from "../../Styles/MediaSize";
 import CloseIcon from "../Icon/CloseIcon";
 import AuthInput from "../Input/AuthInput";
@@ -89,6 +90,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   confirmInput,
   onSubmit,
 }) => {
+  const responseGoogle = (response: any) => {
+    console.log(response);
+  };
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
@@ -192,7 +196,15 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
         )}
       </Form>
       <Form>
-        <form></form>
+        <form>
+          <GoogleLogin
+            clientId="445431490120-o04ktdsg2qvtdktld3bjev0ce6g8pvs3.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+        </form>
       </Form>
     </Container>
   );
