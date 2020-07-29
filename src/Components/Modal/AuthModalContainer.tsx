@@ -6,6 +6,7 @@ import {
   CREATE_ACCOUNT,
   CONFIRM_SECRET,
   LOCAL_LOG_IN,
+  REQUEST_SECRET,
 } from "./AuthQueries";
 import useInput from "../../Hooks/useInput";
 
@@ -43,12 +44,24 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       password: passInput.value,
     },
   });
+
+  const [requestSecretMutation] = useMutation(REQUEST_SECRET, {
+    variables: {
+      email: emailInput.value,
+    },
+  });
   const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
     variables: {
       email: emailInput.value,
       secret: secretInput.value,
     },
   });
+
+  const sendMessage = async () => {
+    const {
+      data: { requestSecret },
+    } = await requestSecretMutation();
+  };
 
   const onSubmit = async (e: any) => {
     e.persist();
@@ -61,6 +74,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           } = await loginMutation();
           if (login === "이메일인증을 해야합니다") {
             setMessage("이메일 인증을 해야합니다");
+            setTimeout(() => setAction("confirm"), 1000);
           } else if (
             login === "유저이름이 없습니다" ||
             login === "비밀번호 오류"
@@ -87,6 +101,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         } = await createAccountMutation();
         if (createAccount) {
           setAction("confirm");
+          setMessage("이메일 인증을 위해 이메일로 코드를 보냈습니다");
         }
       } catch (error) {
         console.log(error);
