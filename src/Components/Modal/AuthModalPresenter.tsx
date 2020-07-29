@@ -65,12 +65,15 @@ const Text = styled.span`
   padding-right: 10px;
 `;
 
+const Message = styled.span``;
+
 interface IProp {
   loading?: boolean;
   closeModal?: any;
   className?: string;
   action?: string;
   setAction: any;
+  message: string;
   emailInput: any;
   nickNameInput: any;
   passInput: any;
@@ -84,6 +87,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   className,
   action,
   setAction,
+  message,
   emailInput,
   nickNameInput,
   passInput,
@@ -117,6 +121,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
               >
                 {loading ? <Spinner /> : null}
               </AuthButton>
+              <Message>{message}</Message>
             </form>
             <TextContainer>
               <Text>처음이신가요?</Text>
@@ -136,12 +141,12 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
               <AuthInput
                 {...nickNameInput}
                 placeholder={"닉네임"}
-                type={"email"}
+                type={"text"}
               ></AuthInput>
               <AuthInput
                 {...passInput}
                 placeholder={"비밀번호"}
-                type={"email"}
+                type={"password"}
               ></AuthInput>
               <AuthInput
                 {...emailInput}
@@ -154,7 +159,11 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 textColor={"#6AB04C"}
                 backColor={"#fff"}
                 borderColor={"#6AB04C"}
-              ></AuthButton>
+                onClick={onSubmit}
+              >
+                {loading ? <Spinner /> : null}
+              </AuthButton>
+              <Message>{message}</Message>
             </form>
             <TextContainer>
               <TextButton
@@ -182,7 +191,10 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 textColor={"#6AB04C"}
                 backColor={"#fff"}
                 borderColor={"#6AB04C"}
-              ></AuthButton>
+              >
+                {loading ? <Spinner /> : null}
+              </AuthButton>
+              <Message>{message}</Message>
             </form>
             <TextContainer>
               <TextButton

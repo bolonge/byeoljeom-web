@@ -22,6 +22,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [action, setAction] = useState(actionProp);
+  const [message, setMessage] = useState("");
   const emailInput = useInput("");
   const nickNameInput = useInput("");
   const passInput = useInput("");
@@ -58,9 +59,17 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           const {
             data: { login },
           } = await loginMutation();
-          if (login) {
+          if (login === "이메일인증을 해야합니다") {
+            setMessage("이메일 인증을 해야합니다");
+          } else if (
+            login === "유저이름이 없습니다" ||
+            login === "비밀번호 오류"
+          ) {
+            setMessage("이메일 또는 비밀번호 오류입니다");
+          } else {
             localLogInMutation({ variables: { token: login } });
-            window.location.reload();
+            setMessage("로그인 되었습니다");
+            setTimeout(() => window.location.reload(), 1000);
           }
         } catch (error) {
           console.log(error);
@@ -72,6 +81,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       }
     } else if (action === "signUp") {
       try {
+        setLoading(true);
         const {
           data: { createAccount },
         } = await createAccountMutation();
@@ -80,9 +90,12 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     } else if (action === "confirm") {
       try {
+        setLoading(true);
         const {
           data: { confirmSecret },
         } = await confirmSecretMutation();
@@ -91,6 +104,8 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -102,6 +117,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       className={className}
       action={action}
       setAction={setAction}
+      message={message}
       emailInput={emailInput}
       nickNameInput={nickNameInput}
       passInput={passInput}
