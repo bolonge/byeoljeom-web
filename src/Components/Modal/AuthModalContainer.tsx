@@ -122,6 +122,8 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         if (confirmSecret) {
           setMessage("인증되었습니다");
           setTimeout(() => setAction("logIn"), 500);
+        } else {
+          setMessage("코드를 확인해주세요");
         }
       } catch (error) {
         console.log(error);
