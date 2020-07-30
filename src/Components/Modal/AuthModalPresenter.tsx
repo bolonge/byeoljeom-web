@@ -74,6 +74,7 @@ interface IProp {
   action?: string;
   setAction: any;
   message: string;
+  requestCode: any;
   emailInput: any;
   nickNameInput: any;
   passInput: any;
@@ -88,6 +89,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   action,
   setAction,
   message,
+  requestCode,
   emailInput,
   nickNameInput,
   passInput,
@@ -179,7 +181,10 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
           <>
             <LoginText>이메일 확인</LoginText>
             <form onSubmit={onSubmit}>
-              <AuthInput {...nickNameInput} placeholder={"닉네임"}></AuthInput>
+              <AuthInput
+                {...emailInput.value}
+                placeholder={"이메일"}
+              ></AuthInput>
               <AuthInput
                 {...confirmInput}
                 placeholder={"시크릿 코드"}
@@ -201,7 +206,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 text={"코드 다시 보내기"}
                 size={13}
                 color={"#6AB04C"}
-                onClick={() => null}
+                onClick={requestCode}
               ></TextButton>
             </TextContainer>
           </>

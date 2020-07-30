@@ -57,10 +57,15 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
     },
   });
 
-  const sendMessage = async () => {
+  const requestCode = async () => {
     const {
       data: { requestSecret },
     } = await requestSecretMutation();
+    if (requestSecret) {
+      setMessage("입력하신 이메일로 코드를 보냈습니다");
+    } else {
+      setMessage("이메일이 존재하지 않습니다");
+    }
   };
 
   const onSubmit = async (e: any) => {
@@ -101,7 +106,6 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         } = await createAccountMutation();
         if (createAccount) {
           setAction("confirm");
-          setMessage("이메일 인증을 위해 이메일로 코드를 보냈습니다");
         }
       } catch (error) {
         console.log(error);
@@ -111,11 +115,13 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
     } else if (action === "confirm") {
       try {
         setLoading(true);
+        requestCode();
         const {
           data: { confirmSecret },
         } = await confirmSecretMutation();
         if (confirmSecret) {
-          setAction("logIn");
+          setMessage("인증되었습니다");
+          setTimeout(() => setAction("logIn"), 500);
         }
       } catch (error) {
         console.log(error);
@@ -133,6 +139,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       action={action}
       setAction={setAction}
       message={message}
+      requestCode={requestCode}
       emailInput={emailInput}
       nickNameInput={nickNameInput}
       passInput={passInput}
