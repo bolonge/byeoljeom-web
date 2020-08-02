@@ -27,7 +27,6 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   const emailInput = useInput("");
   const nickNameInput = useInput("");
   const passInput = useInput("");
-  const secretInput = useInput("");
   const confirmInput = useInput("");
   const [loginMutation] = useMutation(LOG_IN, {
     variables: {
@@ -45,22 +44,18 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
     },
   });
 
-  const [requestSecretMutation] = useMutation(REQUEST_SECRET, {
-    variables: {
-      email: emailInput.value,
-    },
-  });
+  const [requestSecretMutation] = useMutation(REQUEST_SECRET);
   const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
     variables: {
       email: emailInput.value,
-      secret: secretInput.value,
+      secret: confirmInput.value,
     },
   });
 
   const requestCode = async () => {
     const {
       data: { requestSecret },
-    } = await requestSecretMutation();
+    } = await requestSecretMutation({ variables: { email: emailInput.value } });
     if (requestSecret) {
       setMessage("입력하신 이메일로 코드를 보냈습니다");
     } else {
@@ -115,13 +110,12 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
     } else if (action === "confirm") {
       try {
         setLoading(true);
-        requestCode();
         const {
           data: { confirmSecret },
         } = await confirmSecretMutation();
         if (confirmSecret) {
           setMessage("인증되었습니다");
-          setTimeout(() => setAction("logIn"), 500);
+          setTimeout(() => setAction("logIn"), 1000);
         } else {
           setMessage("코드를 확인해주세요");
         }

@@ -181,10 +181,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
           <>
             <LoginText>이메일 확인</LoginText>
             <form onSubmit={onSubmit}>
-              <AuthInput
-                {...emailInput.value}
-                placeholder={"이메일"}
-              ></AuthInput>
+              <AuthInput {...emailInput} placeholder={"이메일"}></AuthInput>
               <AuthInput
                 {...confirmInput}
                 placeholder={"시크릿 코드"}
@@ -195,6 +192,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 size={"mg"}
                 textColor={"#6AB04C"}
                 backColor={"#fff"}
+                onClick={onSubmit}
                 borderColor={"#6AB04C"}
               >
                 {loading ? <Spinner /> : null}
