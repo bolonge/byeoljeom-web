@@ -22,6 +22,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   className,
 }) => {
   const [loading, setLoading] = useState(false);
+  const [requestLoading, setRequestLoading] = useState(false);
   const [action, setAction] = useState(actionProp);
   const [message, setMessage] = useState("");
   const emailInput = useInput("");
@@ -53,13 +54,22 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   });
 
   const requestCode = async () => {
-    const {
-      data: { requestSecret },
-    } = await requestSecretMutation({ variables: { email: emailInput.value } });
-    if (requestSecret) {
-      setMessage("입력하신 이메일로 코드를 보냈습니다");
-    } else {
-      setMessage("이메일이 존재하지 않습니다");
+    try {
+      setRequestLoading(true);
+      const {
+        data: { requestSecret },
+      } = await requestSecretMutation({
+        variables: { email: emailInput.value },
+      });
+      if (requestSecret) {
+        setMessage("입력하신 이메일로 코드를 보냈습니다");
+      } else {
+        setMessage("이메일이 존재하지 않습니다");
+      }
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setRequestLoading(false);
     }
   };
 
@@ -130,6 +140,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   return (
     <AuthModalPresenter
       loading={loading}
+      requestLoading={requestLoading}
       closeModal={closeModal}
       className={className}
       action={action}

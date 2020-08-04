@@ -69,6 +69,7 @@ const Message = styled.span``;
 
 interface IProp {
   loading?: boolean;
+  requestLoading?: boolean;
   closeModal?: any;
   className?: string;
   action?: string;
@@ -84,6 +85,7 @@ interface IProp {
 
 const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   loading,
+  requestLoading,
   closeModal,
   className,
   action,
@@ -182,6 +184,16 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             <LoginText>이메일 확인</LoginText>
             <form onSubmit={onSubmit}>
               <AuthInput {...emailInput} placeholder={"이메일"}></AuthInput>
+              <AuthButton
+                text="코드 보내기"
+                size={"mg"}
+                textColor={"#6AB04C"}
+                backColor={"#fff"}
+                onClick={requestCode}
+                borderColor={"#6AB04C"}
+              >
+                {requestLoading ? <Spinner /> : null}
+              </AuthButton>
               <AuthInput
                 {...confirmInput}
                 placeholder={"시크릿 코드"}
@@ -201,10 +213,10 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
             </form>
             <TextContainer>
               <TextButton
-                text={"코드 다시 보내기"}
+                text={"로그인 화면으로"}
                 size={13}
                 color={"#6AB04C"}
-                onClick={requestCode}
+                onClick={() => setAction("logIn")}
               ></TextButton>
             </TextContainer>
           </>
