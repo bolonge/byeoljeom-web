@@ -7,20 +7,22 @@ const Container = styled.div`
 
 interface IProp {
   color?: string;
+  size?: number;
   className?: string;
   onClick: any;
 }
 
 const CloseIcon: React.FunctionComponent<IProp> = ({
   color = "white",
+  size = 20,
   className,
   onClick,
 }) => {
   return (
     <Container onClick={onClick} className={className}>
       <svg
-        width="20"
-        height="20"
+        width={size}
+        height={size}
         viewBox="0 0 241 238"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

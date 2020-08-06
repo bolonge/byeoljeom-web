@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "../../../typed-components";
 import { media } from "../../../Styles/MediaSize";
 
-const Container = styled.div<{ bg: string; bd: string }>`
+const Container = styled.div<{ bg: string; bd: string; disabled?: boolean }>`
   width: 80%;
   height: 40px;
   margin-top: 20px;
@@ -16,8 +16,9 @@ const Container = styled.div<{ bg: string; bd: string }>`
   background-color: ${(props) => props.bg};
   border: ${(props) => props.bd};
   :hover {
-    border: 0.5px solid ${(props) => props.theme.mainColor};
-    background-color: white;
+    border: ${(props) =>
+      props.disabled ? props.bd : `0.5px solid ${props.theme.mainColor} `};
+    background-color: ${(props) => (props.disabled ? props.bg : "white")};
   }
   ${media.phone} {
     width: 80%;
@@ -59,7 +60,7 @@ const AuthInput: React.FunctionComponent<IProps> = ({
   const [color, setColor] = useState("#eeeeee");
   const [border, setBorder] = useState("0.5px solid transparent");
   return (
-    <Container className={className} bg={color} bd={border}>
+    <Container className={className} bg={color} bd={border} disabled={disable}>
       <Input
         onFocus={() => {
           if (disable) {

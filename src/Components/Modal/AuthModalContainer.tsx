@@ -68,6 +68,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           setMessage("입력하신 이메일로 코드를 보냈습니다");
         } else {
           setMessage("이메일이 존재하지 않습니다");
+          setEmailCheck(false);
         }
       }
     } catch (e) {

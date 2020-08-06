@@ -48,6 +48,18 @@ const ModalClose = styled(CloseIcon)`
   right: 20px;
 `;
 
+const EmailBox = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const EmailClose = styled(CloseIcon)<{ disable: boolean }>`
+  position: relative;
+  display: ${(props) => (props.disable ? "flex" : "none")};
+  top: 35px;
+  right: 20px;
+`;
+
 const LoginText = styled.span`
   font-size: 20px;
   font-weight: 500;
@@ -190,11 +202,19 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
           <>
             <LoginText>이메일 확인</LoginText>
             <form>
-              <AuthInput
-                {...emailInput}
-                placeholder={"이메일"}
-                disable={emailCheck}
-              ></AuthInput>
+              <EmailBox>
+                <AuthInput
+                  {...emailInput}
+                  placeholder={"이메일"}
+                  disable={emailCheck}
+                ></AuthInput>
+                <EmailClose
+                  color="#999"
+                  size={10}
+                  onClick={() => setEmailCheck(false)}
+                  disable={emailCheck}
+                />
+              </EmailBox>
               <AuthButton
                 text="코드 보내기"
                 size={"mg"}
