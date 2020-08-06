@@ -112,18 +112,32 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         console.log("빈칸");
       }
     } else if (action === "signUp") {
-      try {
-        setLoading(true);
-        const {
-          data: { createAccount },
-        } = await createAccountMutation();
-        if (createAccount) {
-          setAction("confirm");
+      if (
+        nickNameInput.value !== "" &&
+        passInput.value !== "" &&
+        emailInput.value !== ""
+      ) {
+        try {
+          setLoading(true);
+          const {
+            data: { createAccount },
+          } = await createAccountMutation();
+          if (createAccount === "true") {
+            setAction("confirm");
+          } else if (createAccount === "email") {
+            setMessage("이미 존재하는 이메일입니다");
+          } else if (createAccount === "nickName") {
+            setMessage("이미 존재하는 닉네임입니다");
+          } else if (createAccount === "blackList") {
+            setMessage("가입 불가 이메일입니다");
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
         }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
+      } else {
+        setMessage("빈칸이 있습니다");
       }
     } else if (action === "confirm") {
       try {

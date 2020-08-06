@@ -123,6 +123,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   // const responseGoogle = (response: any) => {
   //   console.log(response);
   // };
+
   return (
     <Container className={className}>
       <ModalClose color="#999" onClick={closeModal}></ModalClose>
@@ -200,7 +201,12 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 text={"로그인 화면으로"}
                 size={13}
                 color={"#6AB04C"}
-                onClick={() => setAction("logIn")}
+                onClick={() => {
+                  setAction("logIn");
+                  nickNameInput.setValue("");
+                  passInput.setValue("");
+                  emailInput.setValue("");
+                }}
               ></TextButton>
             </TextContainer>
           </>
@@ -259,7 +265,10 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 text={"로그인 화면으로"}
                 size={13}
                 color={"#6AB04C"}
-                onClick={() => setAction("logIn")}
+                onClick={() => {
+                  setAction("logIn");
+                  emailInput.setValue("");
+                }}
               ></TextButton>
             </TextContainer>
           </>
