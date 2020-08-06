@@ -135,6 +135,8 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           setMessage("인증되었습니다");
           setTimeout(() => {
             setAction("logIn");
+            nickNameInput.setValue("");
+            passInput.setValue("");
             setMessage("");
             setEmailCheck(false);
           }, 1000);

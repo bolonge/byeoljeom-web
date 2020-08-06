@@ -67,7 +67,6 @@ const LoginText = styled.span`
 
 const TextContainer = styled.div`
   width: 80%;
-
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -77,8 +76,12 @@ const Text = styled.span`
   padding-right: 10px;
 `;
 
+const MessageContainer = styled.div`
+  position: absolute;
+  margin-top: 20px;
+`;
+
 const Message = styled.span`
-  margin: 10px;
   color: ${(props) => props.theme.mainColor};
 `;
 
@@ -144,7 +147,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
               >
                 {loading ? <Spinner /> : null}
               </AuthButton>
-              <Message>{message}</Message>
+              <MessageContainer>
+                <Message>{message}</Message>
+              </MessageContainer>
             </form>
             <TextContainer>
               <Text>처음이신가요?</Text>
@@ -186,7 +191,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
               >
                 {loading ? <Spinner /> : null}
               </AuthButton>
-              <Message>{message}</Message>
+              <MessageContainer>
+                <Message>{message}</Message>
+              </MessageContainer>
             </form>
             <TextContainer>
               <TextButton
@@ -243,7 +250,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
               >
                 {loading ? <Spinner /> : null}
               </AuthButton>
-              <Message>{message}</Message>
+              <MessageContainer>
+                <Message>{message}</Message>
+              </MessageContainer>
             </form>
             <TextContainer>
               <TextButton
