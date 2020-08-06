@@ -25,6 +25,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   const [requestLoading, setRequestLoading] = useState(false);
   const [action, setAction] = useState(actionProp);
   const [message, setMessage] = useState("");
+  const [emailCheck, setEmailCheck] = useState(false);
   const emailInput = useInput("");
   const nickNameInput = useInput("");
   const passInput = useInput("");
@@ -55,16 +56,19 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
 
   const requestCode = async () => {
     try {
-      setRequestLoading(true);
-      const {
-        data: { requestSecret },
-      } = await requestSecretMutation({
-        variables: { email: emailInput.value },
-      });
-      if (requestSecret) {
-        setMessage("입력하신 이메일로 코드를 보냈습니다");
-      } else {
-        setMessage("이메일이 존재하지 않습니다");
+      if (emailInput.value !== "") {
+        setEmailCheck(true);
+        setRequestLoading(true);
+        const {
+          data: { requestSecret },
+        } = await requestSecretMutation({
+          variables: { email: emailInput.value },
+        });
+        if (requestSecret) {
+          setMessage("입력하신 이메일로 코드를 보냈습니다");
+        } else {
+          setMessage("이메일이 존재하지 않습니다");
+        }
       }
     } catch (e) {
       console.log(e);
@@ -84,7 +88,10 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           } = await loginMutation();
           if (login === "이메일인증을 해야합니다") {
             setMessage("이메일 인증을 해야합니다");
-            setTimeout(() => setAction("confirm"), 1000);
+            setTimeout(() => {
+              setAction("confirm");
+              setMessage("");
+            }, 1000);
           } else if (
             login === "유저이름이 없습니다" ||
             login === "비밀번호 오류"
@@ -125,7 +132,11 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         } = await confirmSecretMutation();
         if (confirmSecret) {
           setMessage("인증되었습니다");
-          setTimeout(() => setAction("logIn"), 1000);
+          setTimeout(() => {
+            setAction("logIn");
+            setMessage("");
+            setEmailCheck(false);
+          }, 1000);
         } else {
           setMessage("코드를 확인해주세요");
         }
@@ -147,6 +158,8 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       setAction={setAction}
       message={message}
       requestCode={requestCode}
+      emailCheck={emailCheck}
+      setEmailCheck={setEmailCheck}
       emailInput={emailInput}
       nickNameInput={nickNameInput}
       passInput={passInput}

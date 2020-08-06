@@ -43,6 +43,7 @@ interface IProps {
   name?: string;
   onChange: any;
   className?: string;
+  disable?: boolean;
 }
 
 const AuthInput: React.FunctionComponent<IProps> = ({
@@ -53,6 +54,7 @@ const AuthInput: React.FunctionComponent<IProps> = ({
   name = "",
   onChange,
   className,
+  disable,
 }) => {
   const [color, setColor] = useState("#eeeeee");
   const [border, setBorder] = useState("0.5px solid transparent");
@@ -73,6 +75,7 @@ const AuthInput: React.FunctionComponent<IProps> = ({
         required={required}
         value={value}
         placeholder={placeholder}
+        disabled={disable}
       />
     </Container>
   );

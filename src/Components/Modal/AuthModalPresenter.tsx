@@ -65,7 +65,10 @@ const Text = styled.span`
   padding-right: 10px;
 `;
 
-const Message = styled.span``;
+const Message = styled.span`
+  margin: 10px;
+  color: ${(props) => props.theme.mainColor};
+`;
 
 interface IProp {
   loading?: boolean;
@@ -76,6 +79,8 @@ interface IProp {
   setAction: any;
   message: string;
   requestCode: any;
+  emailCheck: boolean;
+  setEmailCheck: any;
   emailInput: any;
   nickNameInput: any;
   passInput: any;
@@ -92,6 +97,8 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   setAction,
   message,
   requestCode,
+  emailCheck,
+  setEmailCheck,
   emailInput,
   nickNameInput,
   passInput,
@@ -182,8 +189,12 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
         {action === "confirm" && (
           <>
             <LoginText>이메일 확인</LoginText>
-            <form onSubmit={onSubmit}>
-              <AuthInput {...emailInput} placeholder={"이메일"}></AuthInput>
+            <form>
+              <AuthInput
+                {...emailInput}
+                placeholder={"이메일"}
+                disable={emailCheck}
+              ></AuthInput>
               <AuthButton
                 text="코드 보내기"
                 size={"mg"}
@@ -194,6 +205,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
               >
                 {requestLoading ? <Spinner /> : null}
               </AuthButton>
+
               <AuthInput
                 {...confirmInput}
                 placeholder={"시크릿 코드"}
