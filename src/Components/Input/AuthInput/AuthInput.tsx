@@ -62,8 +62,13 @@ const AuthInput: React.FunctionComponent<IProps> = ({
     <Container className={className} bg={color} bd={border}>
       <Input
         onFocus={() => {
-          setColor("white");
-          setBorder("0.5px solid #6AB04C");
+          if (disable) {
+            setColor("#eeeeee");
+            setBorder("0.5px solid transparent");
+          } else {
+            setColor("white");
+            setBorder("0.5px solid #6AB04C");
+          }
         }}
         onBlur={() => {
           setColor("#eeeeee");

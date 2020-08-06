@@ -200,7 +200,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 size={"mg"}
                 textColor={"#6AB04C"}
                 backColor={"#fff"}
-                onClick={requestCode}
+                onClick={() => {
+                  requestCode();
+                }}
                 borderColor={"#6AB04C"}
               >
                 {requestLoading ? <Spinner /> : null}
