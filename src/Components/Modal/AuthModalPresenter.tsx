@@ -158,7 +158,11 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 text={"회원가입"}
                 size={13}
                 color={"#6AB04C"}
-                onClick={() => setAction("signUp")}
+                onClick={() => {
+                  setAction("signUp");
+                  nickNameInput.setValue("");
+                  passInput.setValue("");
+                }}
               ></TextButton>
             </TextContainer>
           </>
