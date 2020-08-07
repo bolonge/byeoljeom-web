@@ -107,6 +107,8 @@ interface IProp {
   requestCode: any;
   emailCheck: boolean;
   setEmailCheck: any;
+  overTime: boolean;
+  setOverTime: any;
   emailInput: any;
   nickNameInput: any;
   passInput: any;
@@ -126,6 +128,8 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   requestCode,
   emailCheck,
   setEmailCheck,
+  overTime,
+  setOverTime,
   emailInput,
   nickNameInput,
   passInput,
@@ -266,8 +270,12 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                   if (emailCheck) {
                     console.log("잠시 후에 시도해 주세요");
                   } else {
-                    requestCode();
-                    setTime(setInterval(countDown, 1000));
+                    if (overTime) {
+                      setMessage("이메일을 확인해주세요");
+                    } else {
+                      requestCode();
+                      setTime(setInterval(countDown, 1000));
+                    }
                   }
                 }}
                 borderColor={"#6AB04C"}
@@ -275,7 +283,9 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 {requestLoading ? <Spinner /> : null}
               </AuthButton>
               <TimerContainer>
-                <Timer disable={emailCheck}>
+                <Timer
+                  disable={emailCheck ? (overTime ? false : true) : emailCheck}
+                >
                   {`
               ${Math.floor(count / 60)} : ${
                     (count % 120 === 60
