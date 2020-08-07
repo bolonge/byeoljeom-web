@@ -174,6 +174,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       action={action}
       setAction={setAction}
       message={message}
+      setMessage={setMessage}
       requestCode={requestCode}
       emailCheck={emailCheck}
       setEmailCheck={setEmailCheck}

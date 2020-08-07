@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "../../typed-components";
 // import { GoogleLogin } from "react-google-login";
 import { media } from "../../Styles/MediaSize";
@@ -76,6 +76,16 @@ const Text = styled.span`
   padding-right: 10px;
 `;
 
+const TimerContainer = styled.div`
+  margin-top: 20px;
+  height: 20px;
+`;
+
+const Timer = styled.span<{ disable: boolean }>`
+  position: relative;
+  display: ${(props) => (props.disable ? "flex" : "none")};
+`;
+
 const MessageContainer = styled.div`
   position: absolute;
   margin-top: 20px;
@@ -93,6 +103,7 @@ interface IProp {
   action?: string;
   setAction: any;
   message: string;
+  setMessage: any;
   requestCode: any;
   emailCheck: boolean;
   setEmailCheck: any;
@@ -111,6 +122,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   action,
   setAction,
   message,
+  setMessage,
   requestCode,
   emailCheck,
   setEmailCheck,
@@ -123,6 +135,19 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   // const responseGoogle = (response: any) => {
   //   console.log(response);
   // };
+  const [count, setCount] = useState(180);
+  const [time, setTime] = useState<any>();
+  const countDown = () => {
+    setCount((a) => a - 1);
+  };
+
+  useEffect(() => {
+    if (count === 0) {
+      setMessage("시간이 초과 되었습니다");
+      clearInterval(time);
+      setCount(180);
+    }
+  }, [count]);
 
   return (
     <Container className={className}>
@@ -238,13 +263,42 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 textColor={"#6AB04C"}
                 backColor={"#fff"}
                 onClick={() => {
-                  requestCode();
+                  if (emailCheck) {
+                    console.log("잠시 후에 시도해 주세요");
+                  } else {
+                    requestCode();
+                    setTime(setInterval(countDown, 1000));
+                  }
                 }}
                 borderColor={"#6AB04C"}
               >
                 {requestLoading ? <Spinner /> : null}
               </AuthButton>
-
+              <TimerContainer>
+                <Timer disable={emailCheck}>
+                  {`
+              ${Math.floor(count / 60)} : ${
+                    (count % 120 === 60
+                      ? "00"
+                      : count >= 120
+                      ? count % 120
+                      : count % 60
+                    ).toString().length === 2
+                      ? count % 120 === 60
+                        ? "00"
+                        : count >= 120
+                        ? count % 120
+                        : count % 60
+                      : `0${
+                          count % 120 === 60
+                            ? "00"
+                            : count >= 120
+                            ? count % 120
+                            : count % 60
+                        }`
+                  }`}
+                </Timer>
+              </TimerContainer>
               <AuthInput
                 {...confirmInput}
                 placeholder={"시크릿 코드"}
