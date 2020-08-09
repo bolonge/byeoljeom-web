@@ -76,16 +76,6 @@ const Text = styled.span`
   padding-right: 10px;
 `;
 
-const TimerContainer = styled.div`
-  margin-top: 20px;
-  height: 20px;
-`;
-
-const Timer = styled.span<{ disable: boolean }>`
-  position: relative;
-  display: ${(props) => (props.disable ? "flex" : "none")};
-`;
-
 const MessageContainer = styled.div`
   position: absolute;
   margin-top: 20px;
@@ -107,8 +97,6 @@ interface IProp {
   requestCode: any;
   emailCheck: boolean;
   setEmailCheck: any;
-  overTime: boolean;
-  setOverTime: any;
   emailInput: any;
   nickNameInput: any;
   passInput: any;
@@ -128,8 +116,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   requestCode,
   emailCheck,
   setEmailCheck,
-  overTime,
-  setOverTime,
   emailInput,
   nickNameInput,
   passInput,
@@ -144,14 +130,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   const countDown = () => {
     setCount((a) => a - 1);
   };
-
-  useEffect(() => {
-    if (count === 0) {
-      setMessage("시간이 초과 되었습니다");
-      clearInterval(time);
-      setCount(180);
-    }
-  }, [count]);
 
   return (
     <Container className={className}>
@@ -270,45 +248,15 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                   if (emailCheck) {
                     console.log("잠시 후에 시도해 주세요");
                   } else {
-                    if (overTime) {
-                      setMessage("이메일을 확인해주세요");
-                    } else {
-                      requestCode();
-                      setTime(setInterval(countDown, 1000));
-                    }
+                    requestCode();
+                    setMessage("이메일을 확인해주세요");
                   }
                 }}
                 borderColor={"#6AB04C"}
               >
                 {requestLoading ? <Spinner /> : null}
               </AuthButton>
-              <TimerContainer>
-                <Timer
-                  disable={emailCheck ? (overTime ? false : true) : emailCheck}
-                >
-                  {`
-              ${Math.floor(count / 60)} : ${
-                    (count % 120 === 60
-                      ? "00"
-                      : count >= 120
-                      ? count % 120
-                      : count % 60
-                    ).toString().length === 2
-                      ? count % 120 === 60
-                        ? "00"
-                        : count >= 120
-                        ? count % 120
-                        : count % 60
-                      : `0${
-                          count % 120 === 60
-                            ? "00"
-                            : count >= 120
-                            ? count % 120
-                            : count % 60
-                        }`
-                  }`}
-                </Timer>
-              </TimerContainer>
+
               <AuthInput
                 {...confirmInput}
                 placeholder={"시크릿 코드"}

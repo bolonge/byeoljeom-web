@@ -26,7 +26,6 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   const [action, setAction] = useState(actionProp);
   const [message, setMessage] = useState("");
   const [emailCheck, setEmailCheck] = useState(false);
-  const [overTime, setOverTime] = useState(false);
   const emailInput = useInput("");
   const nickNameInput = useInput("");
   const passInput = useInput("");
@@ -141,29 +140,27 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
         setMessage("빈칸이 있습니다");
       }
     } else if (action === "confirm") {
-      if (!overTime) {
-        try {
-          setLoading(true);
-          const {
-            data: { confirmSecret },
-          } = await confirmSecretMutation();
-          if (confirmSecret) {
-            setMessage("인증되었습니다");
-            setTimeout(() => {
-              setAction("logIn");
-              nickNameInput.setValue("");
-              passInput.setValue("");
-              setMessage("");
-              setEmailCheck(false);
-            }, 1000);
-          } else {
-            setMessage("코드를 확인해주세요");
-          }
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setLoading(false);
+      try {
+        setLoading(true);
+        const {
+          data: { confirmSecret },
+        } = await confirmSecretMutation();
+        if (confirmSecret) {
+          setMessage("인증되었습니다");
+          setTimeout(() => {
+            setAction("logIn");
+            nickNameInput.setValue("");
+            passInput.setValue("");
+            setMessage("");
+            setEmailCheck(false);
+          }, 1000);
+        } else {
+          setMessage("코드를 확인해주세요");
         }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -181,8 +178,6 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
       requestCode={requestCode}
       emailCheck={emailCheck}
       setEmailCheck={setEmailCheck}
-      overTime={overTime}
-      setOverTime={setOverTime}
       emailInput={emailInput}
       nickNameInput={nickNameInput}
       passInput={passInput}

@@ -17,7 +17,7 @@ const getSize = (size: string) => {
           `;
 };
 
-const Container = styled.div<{
+const Container = styled.button<{
   tC: string;
   backC: string;
   borderC: string;
@@ -50,6 +50,7 @@ interface IProp {
   backColor: string;
   borderColor: string;
   onClick?: any;
+  disable?: boolean;
 }
 
 const AuthButton: React.FunctionComponent<IProp> = ({
@@ -59,6 +60,7 @@ const AuthButton: React.FunctionComponent<IProp> = ({
   backColor,
   borderColor,
   onClick,
+  disable = false,
   children,
 }) => {
   return (
@@ -68,6 +70,7 @@ const AuthButton: React.FunctionComponent<IProp> = ({
       borderC={borderColor}
       onClick={onClick}
       size={size}
+      disabled={disable}
     >
       {children ? children : text}
     </Container>
