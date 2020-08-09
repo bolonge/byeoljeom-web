@@ -261,6 +261,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 {...confirmInput}
                 placeholder={"시크릿 코드"}
                 type={"password"}
+                disable={!emailCheck}
               ></AuthInput>
               <AuthButton
                 text="확인하기"
@@ -269,6 +270,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 backColor={"#fff"}
                 onClick={onSubmit}
                 borderColor={"#6AB04C"}
+                disable={!emailCheck}
               >
                 {loading ? <Spinner /> : null}
               </AuthButton>

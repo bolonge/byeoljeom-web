@@ -22,6 +22,7 @@ const Container = styled.button<{
   backC: string;
   borderC: string;
   size: string;
+  disabled: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -31,16 +32,22 @@ const Container = styled.button<{
   height: 40px;
   border-radius: 5px;
   font-weight: 700;
-  color: ${(props) => props.tC};
-  background-color: ${(props) => props.backC};
-  border: 0.5px solid ${(props) => props.borderC};
-  cursor: pointer;
-  &:hover,
-  &active {
-    background-color: ${(props) => props.tC};
-    border: 0.5px solid ${(props) => props.backC};
-    color: ${(props) => props.backC};
-  }
+  ${(props) =>
+    props.disabled
+      ? ` color: ${props.theme.blackColor};
+ background-color: ${props.theme.lightGreyColor};
+ border: 0.5px solid ${props.theme.darkGreyColor};
+ `
+      : ` color: ${props.tC};
+ background-color: ${props.backC};
+ border: 0.5px solid ${props.borderC};
+ cursor: pointer;
+ &:hover,
+ &active {
+   background-color: ${props.tC};
+   border: 0.5px solid ${props.backC};
+   color: ${props.backC};
+ }`}
 `;
 
 interface IProp {
