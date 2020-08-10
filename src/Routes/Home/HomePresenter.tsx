@@ -25,7 +25,6 @@ const OverlayMask = styled.div`
 const MainHeader = styled(Header)``;
 
 const ButtonContainer = styled.div`
-  width: 400px;
   min-width: 300px;
   display: flex;
   align-items: center;
@@ -36,8 +35,7 @@ const ButtonContainer = styled.div`
     min-width: 200px;
   }
   ${media.phone} {
-    width: 150px;
-    min-width: 150px;
+    display: none;
   }
 `;
 
@@ -69,12 +67,14 @@ const LoginButton = styled(TextButton)`
 `;
 
 interface IProp {
-  reviewData?: any;
+  reviewData: any;
+  userData: any;
   loading: boolean;
 }
 
 const HomePresenter: React.FunctionComponent<IProp> = ({
   reviewData,
+  userData,
   loading,
 }) => {
   const isLoggedIn = useIsLoggedIn();
@@ -94,7 +94,7 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
       {show && <OverlayMask onClick={closeModal} />}
       {show && <Modal action={action} closeModal={closeModal}></Modal>}
       <MainContainer>
-        <MainHeader>
+        <MainHeader url={isLoggedIn ? userData?.me.avatar : null}>
           {isLoggedIn ? null : (
             <ButtonContainer>
               <LoginButton
@@ -115,8 +115,8 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
         </MainHeader>
         <MainPage>
           {reviewData &&
-            reviewData.homeReviews &&
-            reviewData.homeReviews.map((r: any) => (
+            reviewData?.homeReviews &&
+            reviewData?.homeReviews.map((r: any) => (
               <ReviewBox key={r.id} {...r}></ReviewBox>
             ))}
         </MainPage>

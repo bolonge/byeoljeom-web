@@ -5,6 +5,7 @@ import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
 import MoreIcon from "../Icon/MoreIcon";
+import Avatar from "../Avatar";
 
 const Container = styled.div`
   width: 100%;
@@ -33,14 +34,21 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
 `;
 
+const HeaderAvatar = styled(Avatar)`
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
 interface IProp {
   style?: any;
+  url?: string;
   className?: string;
 }
 
 const Header: React.FunctionComponent<IProp> = ({
   style,
   className,
+  url,
   children,
 }) => {
   const history = useHistory();
@@ -61,6 +69,7 @@ const Header: React.FunctionComponent<IProp> = ({
         value={search.value}
       ></SearchInput>
       {children}
+      {url ? <HeaderAvatar url={url}></HeaderAvatar> : null}
     </Container>
   );
 };

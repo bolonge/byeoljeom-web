@@ -24,7 +24,7 @@ const Container = styled.div<{ size: string; url: string }>`
   `;
 
 interface IProp {
-  size: string;
+  size?: string;
   className?: string;
   url: string;
 }

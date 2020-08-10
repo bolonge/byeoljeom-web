@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "../../typed-components";
 // import { GoogleLogin } from "react-google-login";
 import { media } from "../../Styles/MediaSize";
@@ -125,11 +125,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   // const responseGoogle = (response: any) => {
   //   console.log(response);
   // };
-  const [count, setCount] = useState(180);
-  const [time, setTime] = useState<any>();
-  const countDown = () => {
-    setCount((a) => a - 1);
-  };
 
   return (
     <Container className={className}>
