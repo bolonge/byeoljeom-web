@@ -85,17 +85,3 @@ export const HOME_USER_REVIEWS = gql`
   }
   ${REVIEW_FRAGMENT}
 `;
-
-export interface HomeUserProp {
-  avatar: string;
-  nickName: string;
-}
-
-export const HOME_USER = gql`
-  query me {
-    me {
-      avatar
-      nickName
-    }
-  }
-`;
