@@ -91,11 +91,8 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
   const closeModal = () => setShow(false);
   return (
     <Wrapper>
-      {show && (
-        <OverlayMask>
-          <Modal action={action} closeModal={closeModal}></Modal>
-        </OverlayMask>
-      )}
+      {show && <OverlayMask onClick={closeModal} />}
+      {show && <Modal action={action} closeModal={closeModal}></Modal>}
       <MainContainer>
         <MainHeader>
           {isLoggedIn ? null : (
