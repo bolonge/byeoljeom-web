@@ -216,7 +216,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                   setAction("logIn");
                   nickNameInput.setValue("");
                   passInput.setValue("");
-                  emailInput.setValue("");
                 }}
               ></TextButton>
             </TextContainer>

@@ -124,6 +124,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
           } = await createAccountMutation();
           if (createAccount === "true") {
             setAction("confirm");
+            requestCode();
           } else if (createAccount === "email") {
             setMessage("이미 존재하는 이메일입니다");
           } else if (createAccount === "nickName") {
