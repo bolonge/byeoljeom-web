@@ -69,7 +69,11 @@ const Header: React.FunctionComponent<IProp> = ({
         value={search.value}
       ></SearchInput>
       {children}
-      {url ? <HeaderAvatar url={url}></HeaderAvatar> : null}
+      {url ? (
+        <Link to={"/#"}>
+          <HeaderAvatar url={url}></HeaderAvatar>
+        </Link>
+      ) : null}
     </Container>
   );
 };
