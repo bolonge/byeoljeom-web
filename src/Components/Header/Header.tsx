@@ -57,6 +57,7 @@ const Header: React.FunctionComponent<IProp> = ({
   const onClick = () => {
     setMoreIShow((s) => !s);
   };
+  const onSearchSubmin = () => {};
 
   return (
     <Container style={style} className={className}>

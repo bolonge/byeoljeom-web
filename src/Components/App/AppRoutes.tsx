@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import PropTypes from "prop-types";
 import Home from "../../Routes/Home";
+import Search from "../../Routes/Search";
 
 interface IProps {
   isLoggedIn: boolean;
@@ -15,7 +16,7 @@ interface IProps {
 const MainRoute: React.FunctionComponent = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/search" component={Search}></Route>
       <Redirect from="*" to="/" />
     </Switch>
   );
