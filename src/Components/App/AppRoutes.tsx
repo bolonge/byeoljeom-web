@@ -16,6 +16,7 @@ interface IProps {
 const MainRoute: React.FunctionComponent = () => {
   return (
     <Switch>
+      <Route exact path="/" component={Home}></Route>
       <Route exact path="/search" component={Search}></Route>
       <Redirect from="*" to="/" />
     </Switch>

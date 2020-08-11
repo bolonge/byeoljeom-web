@@ -28,6 +28,15 @@ const OverlayMask = styled.div`
 
 const MainHeader = styled(Header)``;
 
+const Wrapper = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(101, 166, 74, 0.18);
+`;
+
 const ButtonContainer = styled.div`
   min-width: 300px;
   display: flex;
@@ -90,7 +99,9 @@ function App() {
             </ButtonContainer>
           )}
         </MainHeader>
-        <AppRoutes isLoggedIn={isLoggedIn}></AppRoutes>
+        <Wrapper>
+          <AppRoutes isLoggedIn={isLoggedIn}></AppRoutes>
+        </Wrapper>
       </>
     </ThemeProvider>
   );
