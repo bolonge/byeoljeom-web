@@ -11,6 +11,7 @@ import AuthButton from "../../Components/Button/AuthButton";
 import { media } from "../../Styles/MediaSize";
 import { ME, HomeUserProp } from "../../ShareQueries";
 import { useQuery } from "@apollo/react-hooks";
+import { useLocation } from "react-router-dom";
 
 const OverlayMask = styled.div`
   position: fixed;
