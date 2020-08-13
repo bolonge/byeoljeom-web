@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { searchPropData, searchPropVars, SEARCH } from "./SearchQueries";
 import { useLocation, useParams } from "react-router-dom";
 
-const SearchContainer = () => {
+const SearchContainer: React.FunctionComponent = () => {
   const { search } = useLocation();
   const term = new URLSearchParams(search).get("term");
   const { data, loading } = useQuery<searchPropData, searchPropVars>(SEARCH, {

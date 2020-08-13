@@ -53,7 +53,6 @@ const Header: React.FunctionComponent<IProp> = ({
 }) => {
   const history = useHistory();
   const search = useInput("");
-
   const [moreIShow, setMoreIShow] = useState(false);
   const onClick = () => {
     setMoreIShow((s) => !s);

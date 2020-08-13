@@ -53,6 +53,16 @@ const ButtonContainer = styled.div`
   }
 `;
 
+const DownMenu = styled.div<{ display: string }>`
+  width: 100%;
+  display: none;
+  background-color: ${(props) => props.theme.whiteGrey};
+  height: 100px;
+  ${media.phone} {
+    display: ${(props) => props.display};
+  }
+`;
+
 const LoginButton = styled(TextButton)`
   margin-right: 30px;
 `;
@@ -60,6 +70,7 @@ const LoginButton = styled(TextButton)`
 function App() {
   const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
+  const [menu, setMenu] = useState(true);
   const [action, setAction] = useState("logIn");
   const { data: userData } = useQuery<HomeUserProp>(ME, {
     skip: !isLoggedIn,
@@ -75,6 +86,14 @@ function App() {
   };
 
   const closeModal = () => setShow(false);
+
+  const openMenu = () => {
+    setMenu(true);
+  };
+
+  const closeMenu = () => {
+    setMenu(false);
+  };
   return (
     <ThemeProvider theme={Theme}>
       <>
@@ -100,6 +119,7 @@ function App() {
             </ButtonContainer>
           )}
         </MainHeader>
+        <DownMenu display={menu ? "block" : "none"}></DownMenu>
         <Wrapper>
           <AppRoutes isLoggedIn={isLoggedIn}></AppRoutes>
         </Wrapper>

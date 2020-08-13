@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   background-color: black;
 `;
 
-const SearchPresenter = () => {
+const SearchPresenter: React.FunctionComponent = () => {
   return <Wrapper>{"검색"}</Wrapper>;
 };
 
