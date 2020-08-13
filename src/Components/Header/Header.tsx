@@ -42,13 +42,15 @@ const HeaderAvatar = styled(Avatar)`
 interface IProp {
   style?: any;
   url?: string;
+  toggleMenu: any;
   className?: string;
 }
 
 const Header: React.FunctionComponent<IProp> = ({
   style,
-  className,
   url,
+  toggleMenu,
+  className,
   children,
 }) => {
   const history = useHistory();
@@ -56,6 +58,7 @@ const Header: React.FunctionComponent<IProp> = ({
   const [moreIShow, setMoreIShow] = useState(false);
   const onClick = () => {
     setMoreIShow((s) => !s);
+    toggleMenu();
   };
   const onSearchSubmit = () => {};
 

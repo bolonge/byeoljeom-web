@@ -70,7 +70,7 @@ const LoginButton = styled(TextButton)`
 function App() {
   const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
   const [action, setAction] = useState("logIn");
   const { data: userData } = useQuery<HomeUserProp>(ME, {
     skip: !isLoggedIn,
@@ -87,12 +87,8 @@ function App() {
 
   const closeModal = () => setShow(false);
 
-  const openMenu = () => {
-    setMenu(true);
-  };
-
-  const closeMenu = () => {
-    setMenu(false);
+  const toggleMenu = () => {
+    setMenu((m) => !m);
   };
   return (
     <ThemeProvider theme={Theme}>
@@ -100,7 +96,10 @@ function App() {
         <GlobalStyles />
         {show && <OverlayMask onClick={closeModal} />}
         {show && <Modal action={action} closeModal={closeModal}></Modal>}
-        <MainHeader url={isLoggedIn ? userData?.avatar : undefined}>
+        <MainHeader
+          url={isLoggedIn ? userData?.avatar : undefined}
+          toggleMenu={toggleMenu}
+        >
           {isLoggedIn ? null : (
             <ButtonContainer>
               <LoginButton
