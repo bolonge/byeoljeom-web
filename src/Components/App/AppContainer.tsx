@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import styled, { ThemeProvider } from "../../typed-components";
 import Theme from "../../Styles/Theme";
 import GlobalStyles from "../../Styles/GlobalStyles";
-import Header from "../Header";
-import TextButton from "../Button/TextButton";
-import AppRoutes from "./AppRoutes";
+import AppPresenter from "./AppPresenter";
 import useIsLoggedIn from "../../Hooks/useIsLoggedIn";
 import Modal from "../../Components/Modal";
-import AuthButton from "../../Components/Button/AuthButton";
-import { media } from "../../Styles/MediaSize";
-import { ME, HomeUserProp } from "../../ShareQueries";
+import { ME, HomeUserPropData } from "../../ShareQueries";
 import { useQuery } from "@apollo/react-hooks";
-import { useLocation } from "react-router-dom";
 
 const OverlayMask = styled.div`
   position: fixed;
@@ -27,8 +22,6 @@ const OverlayMask = styled.div`
   z-index: 1;
 `;
 
-const MainHeader = styled(Header)``;
-
 const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -38,41 +31,12 @@ const Wrapper = styled.div`
   background-color: rgba(101, 166, 74, 0.18);
 `;
 
-const ButtonContainer = styled.div`
-  min-width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  ${media.tablet} {
-    width: 300px;
-    min-width: 200px;
-  }
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-const DownMenu = styled.div<{ display: string }>`
-  width: 100%;
-  display: none;
-  background-color: ${(props) => props.theme.whiteGrey};
-  height: 100px;
-  ${media.phone} {
-    display: ${(props) => props.display};
-  }
-`;
-
-const LoginButton = styled(TextButton)`
-  margin-right: 30px;
-`;
-
 function App() {
   const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
   const [menu, setMenu] = useState(false);
   const [action, setAction] = useState("logIn");
-  const { data: userData } = useQuery<HomeUserProp>(ME, {
+  const { data: userData } = useQuery<HomeUserPropData>(ME, {
     skip: !isLoggedIn,
   });
 
@@ -90,37 +54,21 @@ function App() {
   const toggleMenu = () => {
     setMenu((m) => !m);
   };
+
   return (
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
         {show && <OverlayMask onClick={closeModal} />}
         {show && <Modal action={action} closeModal={closeModal}></Modal>}
-        <MainHeader
-          url={isLoggedIn ? userData?.avatar : undefined}
-          toggleMenu={toggleMenu}
-        >
-          {isLoggedIn ? null : (
-            <ButtonContainer>
-              <LoginButton
-                text="로그인"
-                size={16}
-                onClick={() => openModal("logIn")}
-                color={"#6AB04C"}
-              ></LoginButton>
-              <AuthButton
-                text="회원가입"
-                textColor={"#fff"}
-                backColor={"#6AB04C"}
-                borderColor={"#6AB04C"}
-                onClick={() => openModal("signUp")}
-              ></AuthButton>
-            </ButtonContainer>
-          )}
-        </MainHeader>
-        <DownMenu display={menu ? "block" : "none"}></DownMenu>
         <Wrapper>
-          <AppRoutes isLoggedIn={isLoggedIn}></AppRoutes>
+          <AppPresenter
+            isLoggedIn={isLoggedIn}
+            url={userData?.me.avatar}
+            toggleMenu={toggleMenu}
+            openModal={openModal}
+            menu={menu}
+          ></AppPresenter>
         </Wrapper>
       </>
     </ThemeProvider>

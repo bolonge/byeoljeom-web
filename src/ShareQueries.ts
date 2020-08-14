@@ -1,8 +1,12 @@
 import gql from "graphql-tag";
 
-export interface HomeUserProp {
+interface HomeUserProp {
   avatar: string;
   nickName: string;
+}
+
+export interface HomeUserPropData {
+  me: HomeUserProp;
 }
 
 export const ME = gql`

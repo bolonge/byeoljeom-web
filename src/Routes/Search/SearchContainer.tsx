@@ -13,7 +13,6 @@ const SearchContainer: React.FunctionComponent = () => {
       term,
     },
   });
-  console.log(data?.searchProduct);
   return <SearchPresenter></SearchPresenter>;
 };
 

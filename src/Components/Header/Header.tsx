@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "../../typed-components";
-import { Link, useHistory } from "react-router-dom";
 import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
@@ -34,11 +33,6 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
 `;
 
-const HeaderAvatar = styled(Avatar)`
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
 interface IProp {
   style?: any;
   url?: string;
@@ -53,7 +47,6 @@ const Header: React.FunctionComponent<IProp> = ({
   className,
   children,
 }) => {
-  const history = useHistory();
   const search = useInput("");
   const [moreIShow, setMoreIShow] = useState(false);
   const onClick = () => {
@@ -73,11 +66,6 @@ const Header: React.FunctionComponent<IProp> = ({
         value={search.value}
       ></SearchInput>
       {children}
-      {url ? (
-        <Link to={"/#"}>
-          <HeaderAvatar url={url}></HeaderAvatar>
-        </Link>
-      ) : null}
     </Container>
   );
 };

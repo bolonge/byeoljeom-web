@@ -16,7 +16,7 @@ const getSize = (size: string) => {
           `;
 };
 
-const Container = styled.div<{ size: string; url: string }>`
+const Container = styled.div<{ size: string; url?: string }>`
   ${(props) => getSize(props.size)}
   background-image:url(${(props) => props.url});
   background-size:cover;
@@ -26,7 +26,7 @@ const Container = styled.div<{ size: string; url: string }>`
 interface IProp {
   size?: string;
   className?: string;
-  url: string;
+  url?: string;
 }
 
 const Avatar: React.FunctionComponent<IProp> = ({
