@@ -4,7 +4,7 @@ import styled from "../../typed-components";
 const getSize = (size: string) => {
   let number;
   if (size === "sm") {
-    number = 30;
+    number = 35;
   } else if (size === "md") {
     number = 50;
   } else if (size === "lg") {
