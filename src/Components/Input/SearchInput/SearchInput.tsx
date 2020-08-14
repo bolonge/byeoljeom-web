@@ -49,6 +49,7 @@ interface IProps {
   value: string;
   name?: string;
   onChange: any;
+  onKeyDown?: any;
   className?: string;
 }
 
@@ -59,6 +60,7 @@ const SearchInput: React.FunctionComponent<IProps> = ({
   value,
   name = "",
   onChange,
+  onKeyDown,
   className,
 }) => {
   const [color, setColor] = useState("#eeeeee");
@@ -76,6 +78,7 @@ const SearchInput: React.FunctionComponent<IProps> = ({
           setBorder("0.5px solid transparent");
         }}
         onChange={onChange}
+        onKeyDown={onKeyDown}
         name={name}
         type={type}
         required={required}

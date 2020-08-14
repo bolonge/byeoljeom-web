@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, FormHTMLAttributes } from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
 import MoreIcon from "../Icon/MoreIcon";
-import Avatar from "../Avatar";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -48,12 +48,25 @@ const Header: React.FunctionComponent<IProp> = ({
   children,
 }) => {
   const search = useInput("");
+  const history = useHistory();
   const [moreIShow, setMoreIShow] = useState(false);
   const onClick = () => {
     setMoreIShow((s) => !s);
     toggleMenu();
   };
-  const onSearchSubmit = () => {};
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (search.value !== "") {
+      if (e.key === "Enter") {
+        onSearchSubmit();
+      }
+    } else {
+      return null;
+    }
+  };
+  const onSearchSubmit = () => {
+    history.push(`/search?term=${search.value}`);
+  };
 
   return (
     <Container style={style} className={className}>
@@ -64,6 +77,7 @@ const Header: React.FunctionComponent<IProp> = ({
       <SearchInput
         onChange={search.onChange}
         value={search.value}
+        onKeyDown={onKeyDown}
       ></SearchInput>
       {children}
     </Container>
