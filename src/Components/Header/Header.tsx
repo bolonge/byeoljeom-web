@@ -66,6 +66,7 @@ const Header: React.FunctionComponent<IProp> = ({
   };
   const onSearchSubmit = () => {
     history.push(`/search?term=${search.value}`);
+    search.setValue("");
   };
 
   return (
