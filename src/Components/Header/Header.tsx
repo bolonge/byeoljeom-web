@@ -1,4 +1,4 @@
-import React, { useState, FormHTMLAttributes } from "react";
+import React, { useState } from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
