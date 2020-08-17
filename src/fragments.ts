@@ -6,7 +6,7 @@ export interface productProp {
   productName: string;
   productPhotos: Array<{ id: string; url: string }>;
   reviews: Array<{ id: string; rating: number }>;
-  category: Array<{ id: string; categoryName: string; superCategory: object }>;
+  category: Array<{ id: string; categoryName: string; superCategory: any }>;
   reviewCount: number;
   createdAt: string;
   isPublished: boolean;

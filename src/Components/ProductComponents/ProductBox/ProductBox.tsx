@@ -5,21 +5,40 @@ import { productProp } from "../../../fragments";
 const Container = styled.div<{ url: string }>`
   width: 200px;
   height: 150px;
-  background-color: red;
   background-image: url(${(props) => props.url});
   background-size: cover;
   border-radius: 20px;
 `;
 
-const Text = styled.span``;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Name = styled.span`
+  color: black;
+`;
+
+const Count = styled.span``;
+
+const CategoryName = styled.span``;
 
 const ProductBox: React.FunctionComponent<productProp> = ({
-  user,
+  productName,
   productPhotos,
+  reviewCount,
+  category,
 }) => {
   return (
-    <Container url={productPhotos ? productPhotos[0]?.url : ""}>
-      {productPhotos ? null : <Text>이미지가 없습니다</Text>}
+    <Container url={productPhotos[0]?.url}>
+      {productPhotos[0]?.url ? null : "이미지가 없습니다"}
+      <TextContainer>
+        <Name>{productName}</Name>
+        <Count>{reviewCount}</Count>
+        {category.map((c) => (
+          <CategoryName key={c.id}>{c.categoryName}</CategoryName>
+        ))}
+      </TextContainer>
     </Container>
   );
 };
