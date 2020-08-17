@@ -2,7 +2,7 @@ import { gql } from "apollo-boost";
 
 export interface productProp {
   id: string;
-  user: object;
+  user: any;
   productName: string;
   productPhotos: Array<{ id: string; url: string }>;
   reviews: Array<{ id: string; rating: number }>;

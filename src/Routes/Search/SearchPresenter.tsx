@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
+import ProductBox from "../../Components/ProductComponents/ProductBox";
 
 const Wrapper = styled.div`
   width: 60%;
@@ -8,23 +9,30 @@ const Wrapper = styled.div`
   min-height: 100vh;
   background-color: white;
   ${media.tablet} {
-    width: 100%;
+    min-width: 100%;
   }
   ${media.phone} {
-    width: 100%;
+    min-width: 100%;
   }
 `;
 
 interface IProp {
-  reviewData: any;
-  reviewLoading: boolean;
+  productData: any;
+  productLoading: boolean;
 }
 
 const SearchPresenter: React.FunctionComponent<IProp> = ({
-  reviewData,
-  reviewLoading,
+  productData,
+  productLoading,
 }) => {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      {productData &&
+        productData.map((r: any) => (
+          <ProductBox {...r} key={r.id}></ProductBox>
+        ))}
+    </Wrapper>
+  );
 };
 
 export default SearchPresenter;

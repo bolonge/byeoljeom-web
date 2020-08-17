@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 const SearchContainer: React.FunctionComponent = () => {
   const { search } = useLocation();
   const term = new URLSearchParams(search).get("term");
-  const { data: reviewData, loading: reviewLoading } = useQuery<
+  const { data: productData, loading: productLoading } = useQuery<
     searchPropData,
     searchPropVars
   >(SEARCH, {
@@ -18,8 +18,8 @@ const SearchContainer: React.FunctionComponent = () => {
   });
   return (
     <SearchPresenter
-      reviewData={reviewData}
-      reviewLoading={reviewLoading}
+      productData={productData?.searchProduct}
+      productLoading={productLoading}
     ></SearchPresenter>
   );
 };
