@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: row;
 `;
 
 const MainHeader = styled.div`
@@ -38,10 +40,10 @@ const HeaderMoreIcon = styled(MoreIcon)`
 `;
 
 const DownMenu = styled.div<{ display: string }>`
-  width: 200%;
+  width: 576px;
   display: none;
   background-color: ${(props) => props.theme.whiteGrey};
-  height: 200px;
+  height: 250px;
   ${media.phone} {
     display: ${(props) => props.display};
   }

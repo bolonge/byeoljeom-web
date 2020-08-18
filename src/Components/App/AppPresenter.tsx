@@ -34,6 +34,8 @@ const ButtonContainer = styled.div`
 
 const MainPage = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   width: 60%;
   min-width: 768px;

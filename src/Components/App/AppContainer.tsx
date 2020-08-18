@@ -28,7 +28,9 @@ const Wrapper = styled.div`
   min-height: 100vh;
   margin-top: 55px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(101, 166, 74, 0.18);
   ${media.phone} {
     margin-top: 60px;
