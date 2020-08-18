@@ -75,6 +75,7 @@ const Header: React.FunctionComponent<IProp> = ({
     if (search.value !== "") {
       if (e.key === "Enter") {
         onSearchSubmit();
+        console.log(search.value);
       }
     } else {
       return null;
@@ -82,7 +83,6 @@ const Header: React.FunctionComponent<IProp> = ({
   };
   const onSearchSubmit = () => {
     history.push(`/search?term=${search.value}`);
-    search.setValue("");
   };
 
   return (
