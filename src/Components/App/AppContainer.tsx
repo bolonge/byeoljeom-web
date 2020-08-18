@@ -28,8 +28,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
   margin-top: 55px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   background-color: rgba(101, 166, 74, 0.18);
   ${media.phone} {
     margin-top: 60px;
@@ -58,6 +57,7 @@ function App() {
 
   const toggleMenu = () => {
     setMenu((m) => !m);
+    console.log(menu);
   };
 
   return (

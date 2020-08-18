@@ -1,18 +1,10 @@
 import React from "react";
 import styled from "../../typed-components";
-import { media } from "../../Styles/MediaSize";
 import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 
 const MainPage = styled.div`
-  width: 60%;
-  min-width: 768px;
-  min-height: 100vh;
-  ${media.tablet} {
-    width: 100%;
-  }
-  ${media.phone} {
-    width: 100%;
-  }
+  width: 100%;
+  height: 100%;
 `;
 
 interface IProp {

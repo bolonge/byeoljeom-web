@@ -25,13 +25,13 @@ const CategoryName = styled.span``;
 
 const ProductBox: React.FunctionComponent<productProp> = ({
   productName,
-  productPhotos,
+  productPhoto,
   reviewCount,
   category,
 }) => {
   return (
-    <Container url={productPhotos[0]?.url}>
-      {productPhotos[0]?.url ? null : "이미지가 없습니다"}
+    <Container url={productPhoto?.url}>
+      {productPhoto?.url ? null : "이미지가 없습니다"}
       <TextContainer>
         <Name>{productName}</Name>
         <Count>{reviewCount}</Count>

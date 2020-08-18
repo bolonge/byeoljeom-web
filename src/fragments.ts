@@ -4,7 +4,7 @@ export interface productProp {
   id: string;
   user: any;
   productName: string;
-  productPhotos: Array<{ id: string; url: string }>;
+  productPhoto: any;
   reviews: Array<{ id: string; rating: number }>;
   category: Array<{ id: string; categoryName: string; superCategory: any }>;
   reviewCount: number;
@@ -21,7 +21,7 @@ export const PRODUCT_FRAGMENT = gql`
       nickName
     }
     productName
-    productPhotos {
+    productPhoto {
       id
       url
     }

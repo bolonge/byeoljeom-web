@@ -8,6 +8,10 @@ import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
+`;
+
+const MainHeader = styled.div`
+  width: 100%;
   height: 55px;
   position: fixed;
   top: 0;
@@ -33,16 +37,26 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
 `;
 
+const DownMenu = styled.div<{ display: string }>`
+  width: 200%;
+  display: none;
+  background-color: ${(props) => props.theme.whiteGrey};
+  height: 200px;
+  ${media.phone} {
+    display: ${(props) => props.display};
+  }
+`;
+
 interface IProp {
   style?: any;
-  url?: string;
+  menu?: boolean;
   toggleMenu: any;
   className?: string;
 }
 
 const Header: React.FunctionComponent<IProp> = ({
   style,
-  url,
+  menu,
   toggleMenu,
   className,
   children,
@@ -70,17 +84,20 @@ const Header: React.FunctionComponent<IProp> = ({
   };
 
   return (
-    <Container style={style} className={className}>
-      <HeaderMoreIcon
-        onClick={onClick}
-        color={moreIShow ? "#6AB04C" : "#999"}
-      />
-      <SearchInput
-        onChange={search.onChange}
-        value={search.value}
-        onKeyDown={onKeyDown}
-      ></SearchInput>
-      {children}
+    <Container>
+      <MainHeader style={style} className={className}>
+        <HeaderMoreIcon
+          onClick={onClick}
+          color={moreIShow ? "#6AB04C" : "#999"}
+        />
+        <SearchInput
+          onChange={search.onChange}
+          value={search.value}
+          onKeyDown={onKeyDown}
+        ></SearchInput>
+        {children}
+      </MainHeader>
+      <DownMenu display={menu ? "block" : "none"}></DownMenu>
     </Container>
   );
 };
