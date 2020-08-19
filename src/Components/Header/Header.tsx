@@ -4,7 +4,7 @@ import { media } from "../../Styles/MediaSize";
 import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
 import MoreIcon from "../Icon/MoreIcon";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -63,8 +63,10 @@ const Header: React.FunctionComponent<IProp> = ({
   className,
   children,
 }) => {
-  const search = useInput("");
+  const searchInput = useInput("");
   const history = useHistory();
+  const { search } = useLocation();
+  const term = new URLSearchParams(search).get("term");
   const [moreIShow, setMoreIShow] = useState(false);
   const onClick = () => {
     setMoreIShow((s) => !s);
@@ -72,17 +74,20 @@ const Header: React.FunctionComponent<IProp> = ({
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (search.value !== "") {
+    if (searchInput.value !== "") {
       if (e.key === "Enter") {
-        onSearchSubmit();
-        console.log(search.value);
+        if (term === searchInput.value) {
+          return null;
+        } else {
+          onSearchSubmit();
+        }
       }
     } else {
       return null;
     }
   };
   const onSearchSubmit = () => {
-    history.push(`/search?term=${search.value}`);
+    history.push(`/search?term=${searchInput.value}`);
   };
 
   return (
@@ -93,8 +98,8 @@ const Header: React.FunctionComponent<IProp> = ({
           color={moreIShow ? "#6AB04C" : "#999"}
         />
         <SearchInput
-          onChange={search.onChange}
-          value={search.value}
+          onChange={searchInput.onChange}
+          value={searchInput.value}
           onKeyDown={onKeyDown}
         ></SearchInput>
         {children}
