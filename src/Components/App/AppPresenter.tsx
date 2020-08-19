@@ -32,6 +32,16 @@ const ButtonContainer = styled.div`
   }
 `;
 
+const DownMenu = styled.div<{ display: string }>`
+  width: 576px;
+  display: none;
+  background-color: ${(props) => props.theme.whiteGrey};
+  height: 250px;
+  ${media.phone} {
+    display: ${(props) => props.display};
+  }
+`;
+
 const MainPage = styled.div`
   display: flex;
   align-items: center;
@@ -90,7 +100,7 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
 }) => {
   return (
     <Router>
-      <MainHeader toggleMenu={toggleMenu} menu={menu}>
+      <MainHeader toggleMenu={toggleMenu}>
         {isLoggedIn ? (
           <Link to={"/"}>
             {/* 아바타 프로필 링크 */}
@@ -114,6 +124,9 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
           </ButtonContainer>
         )}
       </MainHeader>
+      <DownMenu display={menu ? "block" : "none"}>
+        {isLoggedIn ? <></> : <></>}
+      </DownMenu>
       <MainPage>
         <MainRoute></MainRoute>
       </MainPage>

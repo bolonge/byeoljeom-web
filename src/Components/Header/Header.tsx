@@ -39,26 +39,14 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
 `;
 
-const DownMenu = styled.div<{ display: string }>`
-  width: 576px;
-  display: none;
-  background-color: ${(props) => props.theme.whiteGrey};
-  height: 250px;
-  ${media.phone} {
-    display: ${(props) => props.display};
-  }
-`;
-
 interface IProp {
   style?: any;
-  menu?: boolean;
   toggleMenu: any;
   className?: string;
 }
 
 const Header: React.FunctionComponent<IProp> = ({
   style,
-  menu,
   toggleMenu,
   className,
   children,
@@ -104,7 +92,6 @@ const Header: React.FunctionComponent<IProp> = ({
         ></SearchInput>
         {children}
       </MainHeader>
-      <DownMenu display={menu ? "block" : "none"}></DownMenu>
     </Container>
   );
 };
