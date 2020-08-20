@@ -14,6 +14,7 @@ import { media } from "../../Styles/MediaSize";
 import TextButton from "../Button/TextButton";
 import Header from "../Header";
 import AuthButton from "../Button/AuthButton";
+import MenuText from "../Button/MenuText";
 
 const MainHeader = styled(Header)``;
 
@@ -87,6 +88,7 @@ const MainRoute: React.FunctionComponent = () => {
 interface IProps {
   isLoggedIn: boolean;
   url: string | undefined;
+  nickName: string | undefined;
   toggleMenu: any;
   openModal: any;
   menu: boolean;
@@ -94,6 +96,7 @@ interface IProps {
 const AppPresenter: React.FunctionComponent<IProps> = ({
   isLoggedIn,
   url,
+  nickName,
   toggleMenu,
   openModal,
   menu,
@@ -125,7 +128,14 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
         )}
       </MainHeader>
       <DownMenu display={menu ? "block" : "none"}>
-        {isLoggedIn ? <></> : <></>}
+        {isLoggedIn ? (
+          <MenuText
+            text={nickName}
+            onClick={() => openModal("login")}
+          ></MenuText>
+        ) : (
+          <MenuText text={"로그인"}></MenuText>
+        )}
       </DownMenu>
       <MainPage>
         <MainRoute></MainRoute>

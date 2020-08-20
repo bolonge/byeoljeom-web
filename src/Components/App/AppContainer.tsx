@@ -59,7 +59,6 @@ function App() {
 
   const toggleMenu = () => {
     setMenu((m) => !m);
-    console.log(menu);
   };
 
   return (
@@ -72,6 +71,7 @@ function App() {
           <AppPresenter
             isLoggedIn={isLoggedIn}
             url={userData?.me.avatar}
+            nickName={userData?.me.nickName}
             toggleMenu={toggleMenu}
             openModal={openModal}
             menu={menu}
