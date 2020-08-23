@@ -65,9 +65,8 @@ const LoginButton = styled(TextButton)`
 `;
 
 const HeaderAvatar = styled(Avatar)`
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   ${media.phone} {

@@ -21,11 +21,10 @@ const Container = styled.div<{ bg: string; bd: string }>`
   }
   ${media.tablet} {
     width: 500px;
-    min-width: 350px;
+    min-width: 380px;
   }
   ${media.phone} {
     width: 350px;
-    min-width: 200px;
   }
 `;
 
@@ -37,8 +36,13 @@ const Input = styled.input`
   width: 500px;
   margin-left: 10px;
   background-color: transparent;
+  ${media.tablet} {
+    width: 500px;
+    min-width: 350px;
+  }
   ${media.phone} {
-    width: 300px;
+    width: 350px;
+    min-width: 200px;
   }
 `;
 
