@@ -16,6 +16,17 @@ const Wrapper = styled.div`
   }
 `;
 
+const ProductsConatiner = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  ${media.tablet} {
+    grid-template-columns: auto auto auto;
+  }
+  ${media.phone} {
+    grid-template-columns: auto auto;
+  }
+`;
+
 interface IProp {
   productData: any;
   productLoading: boolean;
@@ -27,10 +38,12 @@ const SearchPresenter: React.FunctionComponent<IProp> = ({
 }) => {
   return (
     <Wrapper>
-      {productData &&
-        productData.map((r: any) => (
-          <ProductBox {...r} key={r.id}></ProductBox>
-        ))}
+      <ProductsConatiner>
+        {productData &&
+          productData.map((r: any) => (
+            <ProductBox {...r} key={r.id}></ProductBox>
+          ))}
+      </ProductsConatiner>
     </Wrapper>
   );
 };
