@@ -1,14 +1,11 @@
 import ApolloClient from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
-require("dotenv").config();
+
 const cache = new InMemoryCache();
 
 export default new ApolloClient({
   cache,
-  uri:
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:4000"
-      : "https://reveiwgraphqlserver.herokuapp.com",
+  uri: process.env.REACT_APP_GRAPHQL_SERVER,
   clientState: {
     defaults: {
       auth: {
