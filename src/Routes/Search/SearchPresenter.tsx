@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   width: 100%;
   min-width: 768px;
   min-height: 100vh;
-  background-color: white;
+  background-color: transparent;
   ${media.tablet} {
     min-width: 100%;
   }
@@ -20,12 +20,12 @@ const ProductsConatiner = styled.div`
   display: grid;
   grid-gap: 10px;
   padding: 10px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   ${media.tablet} {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   ${media.phone} {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
