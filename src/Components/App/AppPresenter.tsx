@@ -142,7 +142,7 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
             <MenuText
               text={"회원가입"}
               color={"#6AB04C"}
-              weight={600}
+              weight={700}
               onClick={() => openModal("signUp")}
             ></MenuText>
           </>

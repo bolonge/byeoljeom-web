@@ -12,7 +12,7 @@ const Container = styled.div`
   ${(props) => props.theme.whiteBox}
   display:flex;
   height: 80vh;
-  width: 60%;
+  width: 65%;
   min-width: ${768 * 0.9}px;
   position: absolute;
   top: 50%;

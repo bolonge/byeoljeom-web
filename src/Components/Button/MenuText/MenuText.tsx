@@ -25,7 +25,7 @@ const MenuText: React.FunctionComponent<IProp> = ({
   onClick,
   text,
   color = "black",
-  weight = 400,
+  weight = 500,
 }) => {
   return (
     <Container onClick={onClick}>
