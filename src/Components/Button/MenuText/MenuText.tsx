@@ -3,23 +3,35 @@ import styled from "../../../typed-components";
 
 const Container = styled.div`
   width: 100%;
-  border-bottom: 0.4px thin ${(props) => props.theme.mainColor};
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 0.3px solid ${(props) => props.theme.darkGreyColor};
 `;
 
-const Text = styled.span`
-  color: black;
-  font-size: 12px;
+const Text = styled.span<{ color: string; weight: number }>`
+  font-size: 15px;
+  color: ${(props) => props.color};
+  font-weight: ${(props) => props.weight};
 `;
 
 interface IProp {
   onClick?: any;
-  text: string | undefined;
+  text: string;
+  color?: string;
+  weight?: number;
 }
 
-const MenuText: React.FunctionComponent<IProp> = ({ onClick, text }) => {
+const MenuText: React.FunctionComponent<IProp> = ({
+  onClick,
+  text,
+  color = "black",
+  weight = 400,
+}) => {
   return (
     <Container onClick={onClick}>
-      <Text>{text}</Text>
+      <Text color={color} weight={weight}>
+        {text}
+      </Text>
     </Container>
   );
 };

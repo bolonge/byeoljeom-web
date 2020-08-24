@@ -32,14 +32,18 @@ const ButtonContainer = styled.div`
     display: none;
   }
 `;
-
+//메뉴버튼
 const DownMenu = styled.div<{ display: string }>`
-  width: 576px;
+  width: 100%;
+  padding: 10px;
   display: none;
   background-color: ${(props) => props.theme.whiteGrey};
   height: 250px;
   ${media.phone} {
     display: ${(props) => props.display};
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 `;
 
@@ -126,14 +130,22 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
           </ButtonContainer>
         )}
       </MainHeader>
-      <DownMenu display={menu ? "block" : "none"}>
+      <DownMenu display={menu ? "flex" : "none"}>
         {isLoggedIn ? (
-          <MenuText
-            text={nickName}
-            onClick={() => openModal("login")}
-          ></MenuText>
-        ) : (
           <MenuText text={"로그인"}></MenuText>
+        ) : (
+          <>
+            <MenuText
+              text={"로그인"}
+              onClick={() => openModal("login")}
+            ></MenuText>
+            <MenuText
+              text={"회원가입"}
+              color={"#6AB04C"}
+              weight={600}
+              onClick={() => openModal("signUp")}
+            ></MenuText>
+          </>
         )}
       </DownMenu>
       <MainPage>
