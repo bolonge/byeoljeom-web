@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 const ProductsConatiner = styled.div`
   display: grid;
   grid-gap: 10px;
+  padding: 10px;
   grid-template-columns: auto auto auto auto;
   ${media.tablet} {
     grid-template-columns: auto auto auto;

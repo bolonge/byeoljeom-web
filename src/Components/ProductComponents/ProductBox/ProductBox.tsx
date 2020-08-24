@@ -1,17 +1,26 @@
 import React from "react";
 import styled from "../../../typed-components";
 import { productProp } from "../../../fragments";
+import { media } from "../../../Styles/MediaSize";
 
 const Wrapper = styled.div`
   padding: 5px;
   width: auto;
   height: 300px;
   ${(props) => props.theme.whiteBox};
+  cursor: pointer;
+  ${media.tablet} {
+    width: auto;
+  }
+  ${media.phone} {
+    width: auto;
+  }
 `;
 
 const PhotoContainer = styled.div<{ url: string }>`
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 5px;
   display: flex;
   border: 1px solid blue;
   align-items: center;
@@ -19,7 +28,6 @@ const PhotoContainer = styled.div<{ url: string }>`
   background-image: url(${(props) => props.url});
   background-size: cover;
   border-radius: 10px;
-  cursor: pointer;
 `;
 
 const TextContainer = styled.div`
