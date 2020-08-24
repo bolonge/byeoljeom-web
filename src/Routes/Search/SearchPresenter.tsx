@@ -4,7 +4,7 @@ import { media } from "../../Styles/MediaSize";
 import ProductBox from "../../Components/ProductComponents/ProductBox";
 
 const Wrapper = styled.div`
-  width: 60%;
+  width: 100%;
   min-width: 768px;
   min-height: 100vh;
   background-color: white;
@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 
 const ProductsConatiner = styled.div`
   display: grid;
+  grid-gap: 10px;
   grid-template-columns: auto auto auto auto;
   ${media.tablet} {
     grid-template-columns: auto auto auto;

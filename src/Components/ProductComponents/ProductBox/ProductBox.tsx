@@ -4,22 +4,27 @@ import { productProp } from "../../../fragments";
 
 const Wrapper = styled.div`
   padding: 5px;
-  width: 300px;
-  height: 200px;
+  width: auto;
+  height: 300px;
+  ${(props) => props.theme.whiteBox};
 `;
 
 const PhotoContainer = styled.div<{ url: string }>`
-  width: 200px;
+  width: 150px;
   height: 150px;
+  display: flex;
+  border: 1px solid blue;
+  align-items: center;
+  justify-content: center;
   background-image: url(${(props) => props.url});
   background-size: cover;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
 `;
 
 const TextContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 const Name = styled.span`
