@@ -6,8 +6,6 @@ import { useLocation } from "react-router-dom";
 
 const SearchContainer: React.FunctionComponent = () => {
   const { search } = useLocation();
-  console.log(search.split("=")[1]);
-
   const term = new URLSearchParams(search).get("term");
   const { data: productData, loading: productLoading } = useQuery<
     searchPropData,
