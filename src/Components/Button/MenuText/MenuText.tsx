@@ -16,7 +16,7 @@ const Text = styled.span<{ color: string; weight: number }>`
 
 interface IProp {
   onClick?: any;
-  text: string;
+  text: string | undefined;
   color?: string;
   weight?: number;
 }

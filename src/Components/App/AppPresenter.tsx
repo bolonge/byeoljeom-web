@@ -91,7 +91,7 @@ const MainRoute: React.FunctionComponent = () => {
 interface IProps {
   isLoggedIn: boolean;
   url: string | undefined;
-  nickName: string;
+  nickName: string | undefined;
   toggleMenu: any;
   openModal: any;
   menu: boolean;
