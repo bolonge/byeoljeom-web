@@ -29,6 +29,8 @@ const ProductsConatiner = styled.div`
   }
 `;
 
+const ReviewsContainer = styled.div``;
+
 interface IProp {
   productData: any;
   productLoading: boolean;
@@ -46,6 +48,7 @@ const SearchPresenter: React.FunctionComponent<IProp> = ({
             <ProductBox {...r} key={r.id}></ProductBox>
           ))}
       </ProductsConatiner>
+      <ReviewsContainer></ReviewsContainer>
     </Wrapper>
   );
 };

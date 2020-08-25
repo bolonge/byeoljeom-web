@@ -38,7 +38,7 @@ const DownMenu = styled.div<{ display: string }>`
   padding: 10px;
   display: none;
   background-color: ${(props) => props.theme.whiteGrey};
-  height: 250px;
+  height: auto;
   ${media.phone} {
     display: ${(props) => props.display};
     flex-direction: column;
@@ -91,7 +91,7 @@ const MainRoute: React.FunctionComponent = () => {
 interface IProps {
   isLoggedIn: boolean;
   url: string | undefined;
-  nickName: string | undefined;
+  nickName: string;
   toggleMenu: any;
   openModal: any;
   menu: boolean;
@@ -132,7 +132,7 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
       </MainHeader>
       <DownMenu display={menu ? "flex" : "none"}>
         {isLoggedIn ? (
-          <MenuText text={"로그인"}></MenuText>
+          <MenuText text={nickName}></MenuText>
         ) : (
           <>
             <MenuText
