@@ -76,7 +76,8 @@ const Header: React.FunctionComponent<IProp> = ({
   };
 
   const onSearchSubmit = () => {
-    history.push(`/search?term=${searchInput.value}`);
+    const encode = encodeURIComponent(searchInput.value);
+    history.push(`/search?term=${encode}`);
   };
 
   return (

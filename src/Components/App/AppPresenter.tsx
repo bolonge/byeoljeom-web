@@ -3,7 +3,7 @@ import {
   Route,
   Switch,
   Redirect,
-  HashRouter as Router,
+  BrowserRouter as Router,
   Link,
 } from "react-router-dom";
 import Home from "../../Routes/Home";
