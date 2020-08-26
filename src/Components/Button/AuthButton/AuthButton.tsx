@@ -43,7 +43,7 @@ const Container = styled.button<{
  border: 0.5px solid ${props.borderC};
  cursor: pointer;
  &:hover,
- &active {
+ &:active {
    background-color: ${props.tC};
    border: 0.5px solid ${props.backC};
    color: ${props.backC};

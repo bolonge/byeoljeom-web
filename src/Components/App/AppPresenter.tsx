@@ -18,6 +18,10 @@ import MenuText from "../Button/MenuText";
 
 const MainHeader = styled(Header)``;
 
+const AvatarContainer = styled.div``;
+
+const ProfileDown = styled.div``;
+
 const ButtonContainer = styled.div`
   min-width: 300px;
   display: flex;
@@ -71,8 +75,12 @@ const LoginButton = styled(TextButton)`
 const HeaderAvatar = styled(Avatar)`
   margin-left: 10px;
   margin-right: 10px;
-  box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:hover,
+  &:active {
+    box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
+  }
   ${media.phone} {
     display: none;
   }
@@ -108,10 +116,11 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
     <Router>
       <MainHeader toggleMenu={toggleMenu}>
         {isLoggedIn ? (
-          <Link to={"/"}>
-            {/* 아바타 프로필 링크 */}
+          <AvatarContainer>
             <HeaderAvatar url={url}></HeaderAvatar>
-          </Link>
+            <ProfileDown></ProfileDown>
+            <Link to={"/"}>{/* 아바타 프로필 링크 */}</Link>
+          </AvatarContainer>
         ) : (
           <ButtonContainer>
             <LoginButton

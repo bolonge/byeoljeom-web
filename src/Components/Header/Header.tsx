@@ -6,7 +6,7 @@ import SearchInput from "../Input/SearchInput";
 import MoreIcon from "../Icon/MoreIcon";
 import { useHistory, useLocation } from "react-router-dom";
 
-const Container = styled.div`
+const Container = styled.nav`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const MainHeader = styled.div`
   width: 100%;
-  height: 55px;
+  height: 60px;
   position: fixed;
   top: 0;
   left: 0;
@@ -24,9 +24,6 @@ const MainHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${media.phone} {
-    height: 60px;
-  }
 `;
 
 const HeaderMoreIcon = styled(MoreIcon)`
