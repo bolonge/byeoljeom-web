@@ -20,7 +20,21 @@ const MainHeader = styled(Header)``;
 
 const AvatarContainer = styled.div``;
 
-const ProfileDown = styled.div``;
+const ProfileDown = styled.div<{ display: string }>`
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  display: ${(props) => props.display};
+  box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: ${(props) => props.theme.whiteGrey};
+  ${media.phone} {
+    display: none;
+  }
+`;
 
 const ButtonContainer = styled.div`
   min-width: 300px;
@@ -72,13 +86,16 @@ const LoginButton = styled(TextButton)`
   margin-right: 30px;
 `;
 
-const HeaderAvatar = styled(Avatar)`
+const HeaderAvatar = styled(Avatar)<{ clicked: boolean }>`
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-  &:hover,
-  &:active {
+  ${(props) =>
+    props.clicked
+      ? `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)`
+      : "box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)"}
+  &:hover {
     box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
   }
   ${media.phone} {
@@ -100,25 +117,31 @@ interface IProps {
   isLoggedIn: boolean;
   url: string | undefined;
   nickName: string | undefined;
-  toggleMenu: any;
-  openModal: any;
   menu: boolean;
+  toggleMenu: any;
+  profileMenu: boolean;
+  toggleProfileMenu: any;
+  openModal: any;
 }
 const AppPresenter: React.FunctionComponent<IProps> = ({
   isLoggedIn,
   url,
   nickName,
-  toggleMenu,
-  openModal,
   menu,
+  toggleMenu,
+  profileMenu,
+  toggleProfileMenu,
+  openModal,
 }) => {
   return (
     <Router>
       <MainHeader toggleMenu={toggleMenu}>
         {isLoggedIn ? (
-          <AvatarContainer>
-            <HeaderAvatar url={url}></HeaderAvatar>
-            <ProfileDown></ProfileDown>
+          <AvatarContainer onClick={toggleProfileMenu}>
+            <HeaderAvatar clicked={profileMenu} url={url}></HeaderAvatar>
+            <ProfileDown
+              display={profileMenu ? "absolute" : "none"}
+            ></ProfileDown>
             <Link to={"/"}>{/* 아바타 프로필 링크 */}</Link>
           </AvatarContainer>
         ) : (

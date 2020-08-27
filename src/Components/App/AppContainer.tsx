@@ -41,6 +41,7 @@ function App() {
   const isLoggedIn = useIsLoggedIn();
   const [show, setShow] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [profile, setProfile] = useState(false);
   const [action, setAction] = useState("logIn");
   const { data: userData } = useQuery<HomeUserPropData>(ME, {
     skip: !isLoggedIn,
@@ -61,6 +62,10 @@ function App() {
     setMenu((m) => !m);
   };
 
+  const toggleProfileMenu = () => {
+    setProfile((p) => !p);
+  };
+
   return (
     <ThemeProvider theme={Theme}>
       <>
@@ -72,9 +77,11 @@ function App() {
             isLoggedIn={isLoggedIn}
             url={userData?.me.avatar}
             nickName={userData?.me.nickName}
-            toggleMenu={toggleMenu}
-            openModal={openModal}
             menu={menu}
+            toggleMenu={toggleMenu}
+            profileMenu={profile}
+            toggleProfileMenu={toggleProfileMenu}
+            openModal={openModal}
           ></AppPresenter>
         </Wrapper>
       </>
