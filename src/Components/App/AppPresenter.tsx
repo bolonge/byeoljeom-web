@@ -21,7 +21,7 @@ const MainHeader = styled(Header)``;
 const AvatarContainer = styled.div``;
 
 const ProfileDown = styled.div<{ display: string }>`
-  width: 100px;
+  width: 150px;
   height: 50px;
   border-radius: 5px;
   padding: 10px;
@@ -86,18 +86,19 @@ const LoginButton = styled(TextButton)`
   margin-right: 30px;
 `;
 
-const HeaderAvatar = styled(Avatar)<{ clicked: boolean }>`
+const HeaderAvatar = styled(Avatar)<{ clicked: string }>`
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-  ${(props) =>
-    props.clicked
-      ? `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)`
-      : "box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)"}
   &:hover {
     box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
   }
+  ${(props) =>
+    props.clicked === "true"
+      ? `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)`
+      : `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)`}
+
   ${media.phone} {
     display: none;
   }
@@ -140,7 +141,10 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
       <MainHeader toggleMenu={toggleMenu}>
         {isLoggedIn ? (
           <AvatarContainer onClick={toggleProfileMenu}>
-            <HeaderAvatar clicked={profileMenu} url={url}></HeaderAvatar>
+            <HeaderAvatar
+              clicked={profileMenu.toString()}
+              url={url}
+            ></HeaderAvatar>
             <ProfileDown display={profileMenu ? "absolute" : "none"}>
               <MenuText
                 text="로그아웃"
