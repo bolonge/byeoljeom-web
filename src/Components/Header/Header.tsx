@@ -22,8 +22,11 @@ const MainHeader = styled.div`
   border-bottom: 0.5px solid rgba(101, 166, 74, 0.3);
   padding-left: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  ${media.phone} {
+    justify-content: center;
+  }
 `;
 
 const HeaderMoreIcon = styled(MoreIcon)`

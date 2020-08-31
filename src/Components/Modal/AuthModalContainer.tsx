@@ -79,7 +79,7 @@ const AuthModalContainer: React.FunctionComponent<IProp> = ({
   };
 
   const onSubmit = async (e: any) => {
-    e.persist();
+    e.preventDefault();
     if (action === "logIn") {
       if (nickNameInput.value !== "" && passInput.value !== "") {
         try {
