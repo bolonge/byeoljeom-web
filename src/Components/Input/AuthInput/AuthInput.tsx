@@ -5,8 +5,8 @@ import { media } from "../../../Styles/MediaSize";
 const Container = styled.div<{ bg: string; bd: string; disabled?: boolean }>`
   width: 80%;
   height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   border: 0.5px solid ${(props) => props.theme.lightGreyColor};
   border-radius: 5px;
   display: flex;

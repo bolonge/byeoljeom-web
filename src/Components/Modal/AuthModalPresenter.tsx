@@ -37,8 +37,15 @@ const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  form {
-    margin-left: 10px;
+  ${media.phone} {
+    width: 100%;
+    form {
+      margin-top: 110px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 `;
 
@@ -61,12 +68,13 @@ const EmailClose = styled(CloseIcon)<{ disable: boolean }>`
 `;
 
 const LoginText = styled.span`
+  align-self: flex-start;
   font-size: 20px;
   font-weight: 500;
 `;
 
 const TextContainer = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -125,6 +133,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   // const responseGoogle = (response: any) => {
   //   console.log(response);
   // };
+  console.log(window.document.body.clientWidth);
 
   return (
     <Container className={className}>
@@ -286,17 +295,19 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
           </>
         )}
       </Form>
-      <Form>
-        <form>
-          {/* <GoogleLogin
+      {window.document.body.clientWidth >= 561 ? (
+        <Form>
+          <form>
+            {/* <GoogleLogin
             clientId="445431490120-o04ktdsg2qvtdktld3bjev0ce6g8pvs3.apps.googleusercontent.com"
             buttonText="구글로 시작하기"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
           /> */}
-        </form>
-      </Form>
+          </form>
+        </Form>
+      ) : null}
     </Container>
   );
 };
