@@ -74,10 +74,13 @@ const LoginText = styled.span`
 `;
 
 const TextContainer = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: row;
+  ${media.phone} {
+    width: 100%;
+  }
 `;
 
 const Text = styled.span`
