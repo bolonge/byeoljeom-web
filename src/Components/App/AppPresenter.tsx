@@ -142,7 +142,14 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
           <AvatarContainer onClick={toggleProfileMenu}>
             <HeaderAvatar clicked={profileMenu} url={url}></HeaderAvatar>
             <ProfileDown display={profileMenu ? "absolute" : "none"}>
-              <MenuText text="로그아웃" onClick={logOut}></MenuText>
+              <MenuText
+                text="로그아웃"
+                onClick={() => {
+                  logOut();
+                  window.location.replace("/");
+                }}
+                profile={true}
+              ></MenuText>
             </ProfileDown>
             <Link to={"/"}>{/* 아바타 프로필 링크 */}</Link>
           </AvatarContainer>
