@@ -122,6 +122,7 @@ interface IProps {
   profileMenu: boolean;
   toggleProfileMenu: any;
   openModal: any;
+  logOut: any;
 }
 const AppPresenter: React.FunctionComponent<IProps> = ({
   isLoggedIn,
@@ -132,6 +133,7 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
   profileMenu,
   toggleProfileMenu,
   openModal,
+  logOut,
 }) => {
   return (
     <Router>
@@ -139,9 +141,9 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
         {isLoggedIn ? (
           <AvatarContainer onClick={toggleProfileMenu}>
             <HeaderAvatar clicked={profileMenu} url={url}></HeaderAvatar>
-            <ProfileDown
-              display={profileMenu ? "absolute" : "none"}
-            ></ProfileDown>
+            <ProfileDown display={profileMenu ? "absolute" : "none"}>
+              <MenuText text="로그아웃" onClick={logOut}></MenuText>
+            </ProfileDown>
             <Link to={"/"}>{/* 아바타 프로필 링크 */}</Link>
           </AvatarContainer>
         ) : (

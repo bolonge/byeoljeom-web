@@ -6,8 +6,9 @@ import AppPresenter from "./AppPresenter";
 import useIsLoggedIn from "../../Hooks/useIsLoggedIn";
 import Modal from "../../Components/Modal";
 import { ME, HomeUserPropData } from "../../ShareQueries";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import { media } from "../../Styles/MediaSize";
+import { LOG_OUT } from "./AppQuries";
 
 const OverlayMask = styled.div`
   position: fixed;
@@ -43,6 +44,7 @@ function App() {
   const [menu, setMenu] = useState(false);
   const [profile, setProfile] = useState(false);
   const [action, setAction] = useState("logIn");
+  const [logOutMutation] = useMutation(LOG_OUT);
   const { data: userData } = useQuery<HomeUserPropData>(ME, {
     skip: !isLoggedIn,
   });
@@ -82,6 +84,7 @@ function App() {
             profileMenu={profile}
             toggleProfileMenu={toggleProfileMenu}
             openModal={openModal}
+            logOut={logOutMutation}
           ></AppPresenter>
         </Wrapper>
       </>
