@@ -91,14 +91,13 @@ const HeaderAvatar = styled(Avatar)<{ clicked: string }>`
   margin-right: 10px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-  &:hover {
-    box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
-  }
   ${(props) =>
     props.clicked === "true"
       ? `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)`
-      : `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3)`}
-
+      : `box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0)`};
+  &:hover {
+    box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
+  }
   ${media.phone} {
     display: none;
   }
