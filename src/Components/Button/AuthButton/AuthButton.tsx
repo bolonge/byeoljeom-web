@@ -41,7 +41,9 @@ const Container = styled.button<{
       : ` color: ${props.tC};
  background-color: ${props.backC};
  border: 0.5px solid ${props.borderC};
+ outline: none;
  cursor: pointer;
+ transition: 0.2s ease-in-out;
  &:hover,
  &:active {
    background-color: ${props.tC};
