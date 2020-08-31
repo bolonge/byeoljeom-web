@@ -133,7 +133,6 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
   // const responseGoogle = (response: any) => {
   //   console.log(response);
   // };
-  console.log(window.document.body.clientWidth);
 
   return (
     <Container className={className}>

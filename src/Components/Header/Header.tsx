@@ -22,7 +22,7 @@ const MainHeader = styled.div`
   border-bottom: 0.5px solid rgba(101, 166, 74, 0.3);
   padding-left: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -33,6 +33,8 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
   ${media.phone} {
     display: flex;
+    padding-right: 20px;
+    margin-right: 20px;
   }
 `;
 
