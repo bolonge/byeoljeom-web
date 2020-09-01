@@ -7,6 +7,8 @@ const Wrapper = styled.div`
   width: auto;
   min-width: 768px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: transparent;
   ${media.tablet} {
     min-width: 100%;
@@ -19,8 +21,11 @@ const Wrapper = styled.div`
 const ProductsConatiner = styled.div`
   display: grid;
   grid-gap: 10px;
+  height: auto;
+  margin-top: 10px;
   padding: 5px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  ${(props) => props.theme.whiteBox};
   ${media.custom(870)} {
     grid-template-columns: 1fr 1fr 1fr;
   }
