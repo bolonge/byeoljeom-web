@@ -21,6 +21,9 @@ const ProductsConatiner = styled.div`
   grid-gap: 10px;
   padding: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  ${media.custom(870)} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   ${media.tablet} {
     grid-template-columns: 1fr 1fr 1fr;
   }

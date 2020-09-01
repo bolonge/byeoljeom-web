@@ -6,7 +6,7 @@ import { media } from "../../../Styles/MediaSize";
 const Wrapper = styled.div`
   padding: 5px;
   width: auto;
-  min-width: 230px;
+  min-width: 240px;
   height: 300px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -51,6 +51,11 @@ const TextContainer = styled.div`
   height: 80px;
 `;
 
+const NameWrapper = styled.span`
+  width: 100%;
+  height: 10px;
+`;
+
 const Name = styled.span`
   color: black;
   font-size: 18px;
@@ -81,7 +86,9 @@ const ProductBox: React.FunctionComponent<productProp> = ({
         {productPhoto?.url ? null : "이미지가 없습니다"}
       </PhotoContainer>
       <TextContainer>
-        <Name>{productName}</Name>
+        <NameWrapper>
+          <Name>{productName}</Name>
+        </NameWrapper>
         <Count>{reviewCount}</Count>
         <CategoryContainer>
           {category.map((c) => (

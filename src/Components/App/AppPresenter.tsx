@@ -70,7 +70,7 @@ const MainPage = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: 60%;
+  width: 70%;
   min-width: 768px;
   min-height: 100vh;
   background-color: white;
