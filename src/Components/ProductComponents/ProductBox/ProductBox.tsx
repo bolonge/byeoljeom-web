@@ -6,7 +6,7 @@ import { media } from "../../../Styles/MediaSize";
 const Wrapper = styled.div`
   padding: 5px;
   width: auto;
-  min-width: 240px;
+  min-width: 230px;
   height: 300px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -47,13 +47,15 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
   height: 80px;
 `;
 
 const NameWrapper = styled.span`
   width: 100%;
-  height: 10px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 `;
 
 const Name = styled.span`

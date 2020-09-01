@@ -4,7 +4,7 @@ import { media } from "../../Styles/MediaSize";
 import ProductBox from "../../Components/ProductComponents/ProductBox";
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: auto;
   min-width: 768px;
   min-height: 100vh;
   background-color: transparent;
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const ProductsConatiner = styled.div`
   display: grid;
   grid-gap: 10px;
-  padding: 10px;
+  padding: 5px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   ${media.custom(870)} {
     grid-template-columns: 1fr 1fr 1fr;
