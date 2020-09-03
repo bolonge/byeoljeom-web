@@ -3,14 +3,22 @@ import styled from "../../typed-components";
 import { useLocation } from "react-router-dom";
 import PrivacyPolicy from "./PrivacyPolicy";
 import ServicePolicy from "./ServicePolicy";
+import { media } from "../../Styles/MediaSize";
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 70%;
+  min-width: 505px;
   padding: 10px;
+  ${media.phone} {
+    width: 90%;
+    min-width: 90%;
+  }
 `;
 
 const Policy: React.FunctionComponent = () => {
   const location = useLocation();
+  console.log(location.search);
+
   return (
     <Wrapper>
       {location.search === "Privacy" ? (
