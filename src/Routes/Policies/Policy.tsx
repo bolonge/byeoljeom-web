@@ -17,11 +17,10 @@ const Wrapper = styled.div`
 
 const Policy: React.FunctionComponent = () => {
   const location = useLocation();
-  console.log(location.search);
 
   return (
     <Wrapper>
-      {location.search === "Privacy" ? (
+      {location.pathname.split("/")[2] === "privacy" ? (
         <>{PrivacyPolicy}</>
       ) : (
         <>{ServicePolicy}</>
