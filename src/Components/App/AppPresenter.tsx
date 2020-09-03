@@ -16,6 +16,7 @@ import TextButton from "../Button/TextButton";
 import Header from "../Header";
 import AuthButton from "../Button/AuthButton";
 import MenuText from "../Button/MenuText";
+import Footer from "../Footer";
 
 const MainHeader = styled(Header)``;
 
@@ -197,6 +198,7 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
       <MainPage>
         <MainRoute></MainRoute>
       </MainPage>
+      <Footer></Footer>
     </Router>
   );
 };

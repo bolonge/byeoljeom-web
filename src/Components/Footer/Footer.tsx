@@ -5,21 +5,37 @@ import { media } from "../../Styles/MediaSize";
 
 const Container = styled.footer`
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   border-top: ${(props) => props.theme.boxBorder};
-  background-color: ${(props) => props.theme.lightGreyColor};
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 25px 0px;
   ${media.phone} {
+    flex-direction: column;
     padding: 30px 0px;
   }
 `;
 
+const Case = styled.div`
+  width: 30%;
+  height: 150px;
+  margin: 0 10px;
+  border: 1px solid black;
+  ${media.phone} {
+    width: 90%;
+    margin: 10px 10px;
+  }
+`;
+
 const Footer: React.FunctionComponent = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <Case></Case>
+      <Case></Case>
+      <Case></Case>
+    </Container>
+  );
 };
 
 export default Footer;
