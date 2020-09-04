@@ -8,6 +8,7 @@ import { media } from "../../Styles/MediaSize";
 const Wrapper = styled.div`
   width: 70%;
   min-width: 505px;
+  min-height: 80vh;
   padding: 10px;
   ${media.phone} {
     width: 90%;
@@ -21,7 +22,7 @@ const Policy: React.FunctionComponent = () => {
   return (
     <Wrapper>
       {location.pathname.split("/")[2] === "privacy" ? (
-        <>{PrivacyPolicy}</>
+        <PrivacyPolicy></PrivacyPolicy>
       ) : (
         <>{ServicePolicy}</>
       )}

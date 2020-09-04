@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "../../typed-components";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { media } from "../../Styles/MediaSize";
 
 const Container = styled.footer`
