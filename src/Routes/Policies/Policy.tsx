@@ -24,7 +24,7 @@ const Policy: React.FunctionComponent = () => {
       {location.pathname.split("/")[2] === "privacy" ? (
         <PrivacyPolicy></PrivacyPolicy>
       ) : (
-        <>{ServicePolicy}</>
+        <ServicePolicy></ServicePolicy>
       )}
     </Wrapper>
   );
