@@ -50,6 +50,7 @@ function App() {
 
   const openModal = (location: string) => {
     setShow(true);
+    window.scrollTo(0, 0);
     if (location === "signUp") {
       setAction("signUp");
     } else {
