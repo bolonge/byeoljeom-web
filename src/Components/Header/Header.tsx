@@ -5,6 +5,7 @@ import useInput from "../../Hooks/useInput";
 import SearchInput from "../Input/SearchInput";
 import MoreIcon from "../Icon/MoreIcon";
 import { useHistory, useLocation } from "react-router-dom";
+import Logo from "../logo/Logo";
 
 const Container = styled.nav`
   width: 100%;
@@ -37,6 +38,14 @@ const HeaderMoreIcon = styled(MoreIcon)`
   ${media.phone} {
     display: flex;
     padding-right: 20px;
+  }
+`;
+
+const HeaderLogo = styled(Logo)`
+  display: flex;
+  padding-right: 20px;
+  ${media.phone} {
+    display: none;
   }
 `;
 
@@ -84,6 +93,7 @@ const Header: React.FunctionComponent<IProp> = ({
   return (
     <Container>
       <MainHeader style={style} className={className}>
+        <HeaderLogo />
         <HeaderMoreIcon
           onClick={onClick}
           color={moreIShow ? "#6AB04C" : "#999"}
