@@ -33,6 +33,9 @@ const ProfileDown = styled.div<{ display: string }>`
   display: ${(props) => props.display};
   box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.3);
   background-color: ${(props) => props.theme.whiteGrey};
+  &:last-child {
+    border-bottom: 0;
+  }
   ${media.phone} {
     display: none;
   }
@@ -59,6 +62,9 @@ const DownMenu = styled.div<{ display: string }>`
   display: none;
   background-color: ${(props) => props.theme.whiteGrey};
   height: auto;
+  div:last-child {
+    border-bottom: none;
+  }
   ${media.phone} {
     display: ${(props) => props.display};
     flex-direction: column;
@@ -179,7 +185,17 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
       </MainHeader>
       <DownMenu display={menu ? "flex" : "none"}>
         {isLoggedIn ? (
-          <MenuText text={nickName}></MenuText>
+          <>
+            <MenuText text={nickName}></MenuText>
+            <MenuText
+              text="로그아웃"
+              onClick={() => {
+                logOut();
+                window.location.replace("/");
+              }}
+              profile={true}
+            ></MenuText>
+          </>
         ) : (
           <>
             <MenuText
