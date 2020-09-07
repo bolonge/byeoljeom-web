@@ -49,7 +49,6 @@ const ButtonContainer = styled.div`
   flex-direction: row;
   ${media.tablet} {
     width: 300px;
-    min-width: 200px;
   }
   ${media.phone} {
     display: none;
