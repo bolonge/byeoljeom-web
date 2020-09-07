@@ -43,7 +43,16 @@ const HeaderMoreIcon = styled(MoreIcon)`
 
 const HeaderLogo = styled(Logo)`
   display: flex;
-  padding-right: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  path {
+    fill: #474747;
+    transition: fill 0.2s ease-in-out;
+    &:hover {
+      fill: ${(props) => props.theme.mainColor};
+    }
+  }
+
   ${media.phone} {
     display: none;
   }
@@ -93,7 +102,7 @@ const Header: React.FunctionComponent<IProp> = ({
   return (
     <Container>
       <MainHeader style={style} className={className}>
-        <HeaderLogo />
+        <HeaderLogo onClick={() => history.push("/")} />
         <HeaderMoreIcon
           onClick={onClick}
           color={moreIShow ? "#6AB04C" : "#999"}
