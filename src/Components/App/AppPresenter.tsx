@@ -56,9 +56,10 @@ const ButtonContainer = styled.div`
 `;
 //메뉴버튼
 const DownMenu = styled.div<{ display: string }>`
-  width: 100%;
+  width: 105%;
   padding: 10px;
   display: none;
+
   background-color: ${(props) => props.theme.whiteGrey};
   height: auto;
   div:last-child {
@@ -185,6 +186,10 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
       <DownMenu display={menu ? "flex" : "none"}>
         {isLoggedIn ? (
           <>
+            <MenuText
+              text={"홈"}
+              onClick={() => window.location.replace("/")}
+            ></MenuText>
             <MenuText text={nickName}></MenuText>
             <MenuText
               text="로그아웃"
@@ -197,6 +202,10 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
           </>
         ) : (
           <>
+            <MenuText
+              text={"홈"}
+              onClick={() => window.location.replace("/")}
+            ></MenuText>
             <MenuText
               text={"로그인"}
               onClick={() => openModal("login")}
