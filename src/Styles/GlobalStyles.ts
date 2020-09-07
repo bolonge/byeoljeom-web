@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "../typed-components";
-import reset from "styled-reset";
 
 export default createGlobalStyle`
-    
     * {
         box-sizing:border-box;
     }
