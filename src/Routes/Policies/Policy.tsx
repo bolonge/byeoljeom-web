@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "../../typed-components";
 import { useLocation } from "react-router-dom";
 import PrivacyPolicy from "./PrivacyPolicy";
@@ -18,6 +18,10 @@ const Wrapper = styled.div`
 
 const Policy: React.FunctionComponent = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <Wrapper>
