@@ -7,12 +7,13 @@ import { media } from "../../Styles/MediaSize";
 
 const Wrapper = styled.div`
   width: 70%;
-  min-width: 505px;
+  min-width: 550px;
   min-height: 80vh;
   padding: 10px;
   ${media.phone} {
-    width: 90%;
-    min-width: 90%;
+    padding: 5px;
+    width: 100%;
+    min-width: 100%;
   }
 `;
 
