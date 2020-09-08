@@ -21,8 +21,6 @@ const Case = styled.div`
   width: 30%;
   height: 150px;
   margin: 0 10px;
-
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   ${media.phone} {
