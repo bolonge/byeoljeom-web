@@ -76,8 +76,8 @@ const CategoryName = styled.span`
 `;
 
 interface PBoxProp {
-  productProp: productProp;
-  loading?: boolean;
+  productProp?: productProp;
+  loading: boolean;
 }
 
 const ProductBox: React.FunctionComponent<PBoxProp> = ({
@@ -86,16 +86,16 @@ const ProductBox: React.FunctionComponent<PBoxProp> = ({
 }) => {
   return (
     <Wrapper>
-      <PhotoContainer url={productProp.productPhoto?.url}>
-        {productProp.productPhoto?.url ? null : "이미지가 없습니다"}
+      <PhotoContainer url={productProp?.productPhoto?.url}>
+        {productProp?.productPhoto?.url ? null : "이미지가 없습니다"}
       </PhotoContainer>
       <TextContainer>
         <NameWrapper>
-          <Name>{productProp.productName}</Name>
+          <Name>{productProp?.productName}</Name>
         </NameWrapper>
-        <Count>{productProp.reviewCount}</Count>
+        <Count>{productProp?.reviewCount}</Count>
         <CategoryContainer>
-          {productProp.category.map((c) => (
+          {productProp?.category.map((c) => (
             <CategoryName key={c.id}>{c.categoryName}</CategoryName>
           ))}
         </CategoryContainer>

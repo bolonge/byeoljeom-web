@@ -51,10 +51,14 @@ const SearchPresenter: React.FunctionComponent<IProp> = ({
   return (
     <Wrapper>
       <ProductsConatiner>
-        {productData &&
+        {productLoading ? (
+          <ProductBox loading={productLoading}></ProductBox>
+        ) : (
+          productData &&
           productData.map((r: any) => (
             <ProductBox {...r} key={r.id}></ProductBox>
-          ))}
+          ))
+        )}
       </ProductsConatiner>
       <ReviewsContainer></ReviewsContainer>
     </Wrapper>
