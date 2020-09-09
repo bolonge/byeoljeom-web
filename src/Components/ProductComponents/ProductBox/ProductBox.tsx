@@ -75,24 +75,27 @@ const CategoryName = styled.span`
   font-size: 15px;
 `;
 
-const ProductBox: React.FunctionComponent<productProp> = ({
-  productName,
-  productPhoto,
-  reviewCount,
-  category,
+interface PBoxProp {
+  productProp: productProp;
+  loading?: boolean;
+}
+
+const ProductBox: React.FunctionComponent<PBoxProp> = ({
+  productProp,
+  loading,
 }) => {
   return (
     <Wrapper>
-      <PhotoContainer url={productPhoto?.url}>
-        {productPhoto?.url ? null : "이미지가 없습니다"}
+      <PhotoContainer url={productProp.productPhoto?.url}>
+        {productProp.productPhoto?.url ? null : "이미지가 없습니다"}
       </PhotoContainer>
       <TextContainer>
         <NameWrapper>
-          <Name>{productName}</Name>
+          <Name>{productProp.productName}</Name>
         </NameWrapper>
-        <Count>{reviewCount}</Count>
+        <Count>{productProp.reviewCount}</Count>
         <CategoryContainer>
-          {category.map((c) => (
+          {productProp.category.map((c) => (
             <CategoryName key={c.id}>{c.categoryName}</CategoryName>
           ))}
         </CategoryContainer>
