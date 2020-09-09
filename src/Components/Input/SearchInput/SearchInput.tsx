@@ -29,7 +29,9 @@ const Container = styled.div<{ bg: string; bd: string }>`
   }
 `;
 
-const SearchMainIcon = styled(SearchIcon)``;
+const SearchMainIcon = styled(SearchIcon)`
+  margin-top: 2px;
+`;
 
 const Input = styled.input`
   border: 0;
