@@ -62,6 +62,13 @@ const Name = styled.span`
   color: black;
   font-size: 18px;
 `;
+const CountWrapper = styled.span`
+  width: 100%;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+`;
 
 const Count = styled.span`
   font-size: 15px;
@@ -94,7 +101,9 @@ const ProductBox: React.FunctionComponent<productProp> = ({
         <NameWrapper>
           {loading ? <GradientLoad /> : <Name>{productName}</Name>}
         </NameWrapper>
-        {loading ? <GradientLoad /> : <Count>{reviewCount}</Count>}
+        <CountWrapper>
+          {loading ? <GradientLoad /> : <Count>{reviewCount}</Count>}
+        </CountWrapper>
         <CategoryContainer>
           {loading ? (
             <GradientLoad />

@@ -18,8 +18,8 @@ const Container = styled.div`
   height: auto;
   border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyColor};
-  -webkit-animation: ${loading} 1s linear infinite;
-  animation: ${loading} 1s linear infinite;
+  -webkit-animation: ${loading} 1.5s linear infinite;
+  animation: ${loading} 1.5s linear infinite;
 `;
 
 const GradientLoad: React.FunctionComponent = () => {
