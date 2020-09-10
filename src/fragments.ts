@@ -1,15 +1,16 @@
 import { gql } from "apollo-boost";
 
 export interface productProp {
-  id: string;
-  user: any;
-  productName: string;
-  productPhoto: any;
-  reviews: Array<{ id: string; rating: number }>;
-  category: Array<{ id: string; categoryName: string; superCategory: any }>;
-  reviewCount: number;
-  createdAt: string;
-  isPublished: boolean;
+  id?: string;
+  user?: any;
+  productName?: string;
+  productPhoto?: any;
+  reviews?: Array<{ id: string; rating: number }>;
+  category?: Array<{ id: string; categoryName: string; superCategory: any }>;
+  reviewCount?: number;
+  createdAt?: string;
+  isPublished?: boolean;
+  loading?: boolean;
 }
 
 export const PRODUCT_FRAGMENT = gql`

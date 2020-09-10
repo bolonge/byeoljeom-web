@@ -15,7 +15,8 @@ const loading = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 20px;
+  height: auto;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyColor};
   -webkit-animation: ${loading} 1s linear infinite;
   animation: ${loading} 1s linear infinite;

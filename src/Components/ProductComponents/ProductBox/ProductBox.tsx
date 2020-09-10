@@ -2,6 +2,7 @@ import React from "react";
 import styled from "../../../typed-components";
 import { productProp } from "../../../fragments";
 import { media } from "../../../Styles/MediaSize";
+import GradientLoad from "../../GradientLoad";
 
 const Wrapper = styled.div`
   padding: 5px;
@@ -68,6 +69,8 @@ const Count = styled.span`
 
 const CategoryContainer = styled.div`
   display: flex;
+  width: 100%;
+  height: 18px;
   flex-direction: row;
 `;
 
@@ -75,29 +78,31 @@ const CategoryName = styled.span`
   font-size: 15px;
 `;
 
-interface PBoxProp {
-  productProp?: productProp;
-  loading: boolean;
-}
-
-const ProductBox: React.FunctionComponent<PBoxProp> = ({
-  productProp,
+const ProductBox: React.FunctionComponent<productProp> = ({
+  productPhoto,
+  productName,
+  reviewCount,
+  category,
   loading,
 }) => {
   return (
     <Wrapper>
-      <PhotoContainer url={productProp?.productPhoto?.url}>
-        {productProp?.productPhoto?.url ? null : "이미지가 없습니다"}
+      <PhotoContainer url={productPhoto?.url}>
+        {productPhoto?.url ? null : "이미지가 없습니다"}
       </PhotoContainer>
       <TextContainer>
         <NameWrapper>
-          <Name>{productProp?.productName}</Name>
+          {loading ? <GradientLoad /> : <Name>{productName}</Name>}
         </NameWrapper>
-        <Count>{productProp?.reviewCount}</Count>
+        {loading ? <GradientLoad /> : <Count>{reviewCount}</Count>}
         <CategoryContainer>
-          {productProp?.category.map((c) => (
-            <CategoryName key={c.id}>{c.categoryName}</CategoryName>
-          ))}
+          {loading ? (
+            <GradientLoad />
+          ) : (
+            category?.map((c) => (
+              <CategoryName key={c.id}>{c.categoryName}</CategoryName>
+            ))
+          )}
         </CategoryContainer>
       </TextContainer>
     </Wrapper>
