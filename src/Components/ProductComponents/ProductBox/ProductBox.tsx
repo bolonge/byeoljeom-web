@@ -46,7 +46,7 @@ const PhotoContainer = styled.image<{ url: string }>`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   height: 80px;
 `;
