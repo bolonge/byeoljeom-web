@@ -47,6 +47,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   height: 80px;
 `;
 
@@ -63,7 +64,7 @@ const Name = styled.span`
   font-size: 18px;
 `;
 const CountWrapper = styled.span`
-  width: 100%;
+  width: 60%;
   height: 18px;
   display: flex;
   justify-content: center;
@@ -76,7 +77,7 @@ const Count = styled.span`
 
 const CategoryContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 80%;
   height: 18px;
   flex-direction: row;
 `;
