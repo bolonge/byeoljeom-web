@@ -96,7 +96,7 @@ const ProductBox: React.FunctionComponent<productProp> = ({
   return (
     <Wrapper>
       <PhotoContainer url={productPhoto?.url}>
-        {productPhoto?.url ? null : "이미지가 없습니다"}
+        {productPhoto?.url ? null : loading ? null : "이미지가 없습니다"}
       </PhotoContainer>
       <TextContainer>
         <NameWrapper>
