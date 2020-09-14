@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "../../typed-components";
 
-const Wrapper = styled.div``;
+const MainPage = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 const ProductPresenter: React.FunctionComponent = () => {
-  return <Wrapper></Wrapper>;
+  return <MainPage></MainPage>;
 };
 
 export default ProductPresenter;
