@@ -42,13 +42,19 @@ const ProfileDown = styled.div<{ display: string }>`
 `;
 
 const ButtonContainer = styled.div`
-  min-width: 300px;
+  width: 300px;
+  min-width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   ${media.tablet} {
     width: 300px;
+    justify-content: flex-end;
+    margin-right: 10px;
+    div {
+      display: none;
+    }
   }
   ${media.phone} {
     display: none;
@@ -59,14 +65,14 @@ const DownMenu = styled.div<{ display: string }>`
   width: 105%;
   padding: 10px;
   display: none;
-
   background-color: ${(props) => props.theme.whiteGrey};
   height: auto;
-  div:last-child {
+  :last-child {
     border-bottom: none;
   }
   ${media.phone} {
     display: ${(props) => props.display};
+    box-shadow: 0 4px 6px -6px #222;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;

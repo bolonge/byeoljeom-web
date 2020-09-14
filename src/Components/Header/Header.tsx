@@ -26,7 +26,7 @@ const MainHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   ${media.phone} {
-    justify-content: flex-start;
+    justify-content: space-around;
   }
 `;
 
@@ -37,6 +37,8 @@ const HeaderMoreIcon = styled(MoreIcon)`
   }
   ${media.phone} {
     display: flex;
+    position: fixed;
+    left: 10px;
     padding-right: 20px;
   }
 `;

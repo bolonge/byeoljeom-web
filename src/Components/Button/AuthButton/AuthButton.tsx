@@ -28,7 +28,7 @@ const Container = styled.button<{
   align-items: center;
   justify-content: center;
   ${(props) => getSize(props.size)}
-  min-width: 60px;
+  min-width: 70px;
   height: 40px;
   border-radius: 5px;
   font-weight: 700;
