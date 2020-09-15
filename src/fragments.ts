@@ -4,7 +4,7 @@ export interface productProp {
   id?: string;
   user?: { id: string; avatar: string; nickName: string };
   productName?: string;
-  productPhoto?: { id: string; url: string };
+  productPhoto?: { id: string; url?: string };
   reviews?: Array<{ id: string; rating: number }>;
   category?: Array<{
     id: string;

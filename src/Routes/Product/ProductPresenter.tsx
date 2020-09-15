@@ -6,9 +6,19 @@ const MainPage = styled.div`
   height: 100%;
 `;
 
-interface IProp {}
+interface IProp {
+  productData: any;
+  productLoading: boolean;
+  reviewData: any;
+  reviewLoading: boolean;
+}
 
-const ProductPresenter: React.FunctionComponent<IProp> = () => {
+const ProductPresenter: React.FunctionComponent<IProp> = ({
+  productData,
+  productLoading,
+  reviewData,
+  reviewLoading,
+}) => {
   return <MainPage></MainPage>;
 };
 

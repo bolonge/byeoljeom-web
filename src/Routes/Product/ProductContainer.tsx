@@ -1,31 +1,32 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import ProductPresenter from "./ProductPresenter";
-import { PRODUCT_FRAGMENT, REVIEW_FRAGMENT } from "../../fragments";
-import gql from "graphql-tag";
-
-const SEE_PRODUCT = gql`
-  query seeProduct {
-    seeProduct {
-      ...ProductParts
-    }
-  }
-  ${PRODUCT_FRAGMENT}
-`;
-
-const SEE_REVIEW = gql`
-  query seeReview {
-    seeReview {
-      ...ReviewParts
-    }
-  }
-  ${REVIEW_FRAGMENT}
-`;
+import {
+  ProductDataProps,
+  ProductVarsProps,
+  ReviewDataProps,
+  ReviewVarsProps,
+  SEE_PRODUCT,
+  SEE_REVIEW,
+} from "./ProductQueries";
 
 const ProductContainer: React.FunctionComponent = () => {
-  const { data: productData, loading: productLoading } = useQuery(SEE_PRODUCT);
-  const { data: reviewData, loading: reviewLoading } = useQuery(SEE_REVIEW);
-  return <ProductPresenter></ProductPresenter>;
+  const { data: productData, loading: productLoading } = useQuery<
+    ProductDataProps,
+    ProductVarsProps
+  >(SEE_PRODUCT);
+  const { data: reviewData, loading: reviewLoading } = useQuery<
+    ReviewDataProps,
+    ReviewVarsProps
+  >(SEE_REVIEW);
+  return (
+    <ProductPresenter
+      productData={productData}
+      productLoading={productLoading}
+      reviewData={reviewData}
+      reviewLoading={reviewLoading}
+    ></ProductPresenter>
+  );
 };
 
 export default ProductContainer;
