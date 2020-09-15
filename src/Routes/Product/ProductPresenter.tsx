@@ -6,7 +6,9 @@ const MainPage = styled.div`
   height: 100%;
 `;
 
-const ProductPresenter: React.FunctionComponent = () => {
+interface IProp {}
+
+const ProductPresenter: React.FunctionComponent<IProp> = () => {
   return <MainPage></MainPage>;
 };
 

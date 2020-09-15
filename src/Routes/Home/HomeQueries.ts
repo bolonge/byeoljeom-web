@@ -1,4 +1,4 @@
-import { PRODUCT_FRAGMENT, REVIEW_FRAGMENT } from "../../fragments";
+import { PRODUCT_FRAGMENT, reviewProp, REVIEW_FRAGMENT } from "../../fragments";
 import gql from "graphql-tag";
 
 export const HOME_PRODUCTS = gql`
@@ -19,33 +19,8 @@ export const HOME_USER_PRODUCTS = gql`
   ${PRODUCT_FRAGMENT}
 `;
 
-export interface HomeReviews {
-  id: string;
-  user: {
-    id: string;
-    nickName: string;
-    avatar: string;
-    isSelf: boolean;
-  };
-  product: {
-    productName: string;
-  };
-  title: string;
-  text: string;
-  rating: string;
-  reviewPhotos: {
-    id: string;
-    url: string;
-  };
-  isLiked: boolean;
-  isHated: boolean;
-  likeCount: number;
-  hateCount: number;
-  commentCount: number;
-}
-
 export interface HomeReviewsData {
-  homeReviews: HomeReviews[];
+  homeReviews: reviewProp[];
 }
 
 export const HOME_REVIEWS = gql`

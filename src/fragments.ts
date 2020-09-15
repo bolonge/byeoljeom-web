@@ -2,11 +2,15 @@ import { gql } from "apollo-boost";
 
 export interface productProp {
   id?: string;
-  user?: any;
+  user?: { id: string; avatar: string; nickName: string };
   productName?: string;
-  productPhoto?: any;
+  productPhoto?: { id: string; url: string };
   reviews?: Array<{ id: string; rating: number }>;
-  category?: Array<{ id: string; categoryName: string; superCategory: any }>;
+  category?: Array<{
+    id: string;
+    categoryName: string;
+    superCategory: { id: string; superCategoryName: string };
+  }>;
   reviewCount?: number;
   createdAt?: string;
   isPublished?: boolean;
@@ -43,6 +47,31 @@ export const PRODUCT_FRAGMENT = gql`
     isPublished
   }
 `;
+
+export interface reviewProp {
+  id: string;
+  user: {
+    id: string;
+    nickName: string;
+    avatar: string;
+    isSelf: boolean;
+  };
+  product: {
+    productName: string;
+  };
+  title: string;
+  text: string;
+  rating: string;
+  reviewPhotos: {
+    id: string;
+    url: string;
+  };
+  isLiked: boolean;
+  isHated: boolean;
+  likeCount: number;
+  hateCount: number;
+  commentCount: number;
+}
 
 export const REVIEW_FRAGMENT = gql`
   fragment ReviewParts on Review {
