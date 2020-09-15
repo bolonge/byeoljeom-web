@@ -1,4 +1,5 @@
 import React from "react";
+import { productProp, reviewProp } from "../../fragments";
 import styled from "../../typed-components";
 
 const MainPage = styled.div`
@@ -7,9 +8,9 @@ const MainPage = styled.div`
 `;
 
 interface IProp {
-  productData: any;
+  productData?: productProp;
   productLoading: boolean;
-  reviewData: any;
+  reviewData?: reviewProp[];
   reviewLoading: boolean;
 }
 

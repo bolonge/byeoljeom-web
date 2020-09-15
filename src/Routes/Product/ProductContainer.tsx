@@ -11,20 +11,20 @@ import {
 } from "./ProductQueries";
 
 const ProductContainer: React.FunctionComponent = () => {
-  const { data: productData, loading: productLoading } = useQuery<
+  const { data: PData, loading: PLoading } = useQuery<
     ProductDataProps,
     ProductVarsProps
   >(SEE_PRODUCT);
-  const { data: reviewData, loading: reviewLoading } = useQuery<
+  const { data: RData, loading: RLoading } = useQuery<
     ReviewDataProps,
     ReviewVarsProps
   >(SEE_REVIEW);
   return (
     <ProductPresenter
-      productData={productData}
-      productLoading={productLoading}
-      reviewData={reviewData}
-      reviewLoading={reviewLoading}
+      productData={PData?.productData}
+      productLoading={PLoading}
+      reviewData={RData?.reviewData}
+      reviewLoading={RLoading}
     ></ProductPresenter>
   );
 };

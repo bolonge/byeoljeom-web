@@ -1,7 +1,14 @@
-import { PRODUCT_FRAGMENT, REVIEW_FRAGMENT } from "../../fragments";
+import {
+  productProp,
+  PRODUCT_FRAGMENT,
+  reviewProp,
+  REVIEW_FRAGMENT,
+} from "../../fragments";
 import gql from "graphql-tag";
 
-export interface ProductDataProps {}
+export interface ProductDataProps {
+  productData: productProp;
+}
 
 export interface ProductVarsProps {
   productName: string;
@@ -16,7 +23,9 @@ export const SEE_PRODUCT = gql`
   ${PRODUCT_FRAGMENT}
 `;
 
-export interface ReviewDataProps {}
+export interface ReviewDataProps {
+  reviewData: reviewProp[];
+}
 
 export interface ReviewVarsProps {
   id: string;
