@@ -97,7 +97,7 @@ const ProductBox: React.FunctionComponent<productProp> = ({
 }) => {
   const history = useHistory();
   const onClick = () => {
-    history.push(`/detail/name=${productName}`);
+    history.push(`/detail?name=${productName}`);
   };
   return (
     <Wrapper onClick={onClick}>

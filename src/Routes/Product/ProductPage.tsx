@@ -31,7 +31,6 @@ interface IProp {}
 const ProductPage: React.FunctionComponent<IProp> = ({}) => {
   const { search } = useLocation();
   const name = decodeURIComponent(search.split("=")[1]);
-  console.log(search);
   const { data: PData, loading: PLoading } = useQuery<
     ProductDataProps,
     ProductVarsProps
