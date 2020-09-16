@@ -7,6 +7,8 @@ const MainPage = styled.div`
   height: 100%;
 `;
 
+const Header = styled.div``;
+
 interface IProp {
   productData?: productProp;
   productLoading: boolean;

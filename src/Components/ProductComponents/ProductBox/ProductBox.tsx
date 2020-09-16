@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const PhotoContainer = styled.image<{ url: string }>`
+const PhotoContainer = styled.image<{ url: string | undefined }>`
   width: 100%;
   height: 200px;
   margin-bottom: 5px;

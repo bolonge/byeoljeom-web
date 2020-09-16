@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "../../../typed-components";
-import { HomeReviews } from "../../../Routes/Home/HomeQueries";
+import { reviewProp } from "../../../fragments";
 
 const Wrapper = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
 const Text = styled.span``;
 
-const ReviewBox: React.FunctionComponent<HomeReviews> = ({
+const ReviewBox: React.FunctionComponent<reviewProp> = ({
   id,
   user,
   product,
