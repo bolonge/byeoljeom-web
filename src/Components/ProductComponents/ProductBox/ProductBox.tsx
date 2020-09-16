@@ -3,6 +3,7 @@ import styled from "../../../typed-components";
 import { productProp } from "../../../fragments";
 import { media } from "../../../Styles/MediaSize";
 import GradientLoad from "../../GradientLoad";
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
   padding: 5px;
@@ -93,8 +94,12 @@ const ProductBox: React.FunctionComponent<productProp> = ({
   category,
   loading,
 }) => {
+  const history = useHistory();
+  const onClick = () => {
+    history.push(`/detail/name=${productName}`);
+  };
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <PhotoContainer url={productPhoto?.url}>
         {productPhoto?.url ? null : loading ? null : "이미지가 없습니다"}
       </PhotoContainer>

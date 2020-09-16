@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from "../../Routes/Home";
 import Search from "../../Routes/Search";
+import Product from "../../Routes/Product";
 import Policy from "../../Routes/Policies";
 import styled from "../../typed-components";
 import Avatar from "../Avatar";
@@ -122,6 +123,7 @@ const MainRoute: React.FunctionComponent = () => {
     <Switch>
       <Route exact path="/" component={Home}></Route>
       <Route path="/search" component={Search}></Route>
+      <Route path="/detail" component={Product}></Route>
       <Route path="/policy" component={Policy}></Route>
       <Redirect from="*" to="/" />
     </Switch>
