@@ -86,8 +86,8 @@ const MainPage = styled.div`
   justify-content: center;
   flex-direction: row;
   width: auto;
-  min-width: 768px;
-  min-height: 100vh;
+  min-width: auto;
+  min-height: auto;
   background-color: white;
   ${media.tablet} {
     min-width: 100%;
