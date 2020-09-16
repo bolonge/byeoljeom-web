@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   height: 300px;
   border-radius: 5px;
   cursor: pointer;
-  image {
+  div {
     background-size: 100% 110%;
     background-position: center;
     transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   &:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    image {
+    div {
       background-size: 120% 120%;
     }
   }
@@ -33,13 +33,14 @@ const Wrapper = styled.div`
   }
 `;
 
-const PhotoContainer = styled.image<{ url: string | undefined }>`
+const PhotoContainer = styled.div<{ url: string | undefined }>`
   width: 100%;
   height: 200px;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: contain;
   border-radius: 10px;
   background-image: url(${(props) => props.url});
 `;

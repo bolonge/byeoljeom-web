@@ -3,12 +3,10 @@ import { useQuery } from "@apollo/react-hooks";
 import {
   ProductDataProps,
   ProductVarsProps,
-  ReviewDataProps,
-  ReviewVarsProps,
   SEE_PRODUCT,
-  SEE_REVIEW,
 } from "./ProductQueries";
 import styled from "../../typed-components";
+import { useLocation } from "react-router-dom";
 
 const MainPage = styled.div`
   width: 1000px;
@@ -31,14 +29,14 @@ const ReviewContainer = styled.div`
 interface IProp {}
 
 const ProductPage: React.FunctionComponent<IProp> = ({}) => {
+  const { search } = useLocation();
+  const name = decodeURIComponent(search.split("=")[1]);
+  console.log(search);
   const { data: PData, loading: PLoading } = useQuery<
     ProductDataProps,
     ProductVarsProps
-  >(SEE_PRODUCT);
-  const { data: RData, loading: RLoading } = useQuery<
-    ReviewDataProps,
-    ReviewVarsProps
-  >(SEE_REVIEW);
+  >(SEE_PRODUCT, { variables: { productName: name } });
+
   return (
     <MainPage>
       <Header></Header>
