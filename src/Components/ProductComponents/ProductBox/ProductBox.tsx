@@ -5,7 +5,7 @@ import { media } from "../../../Styles/MediaSize";
 import GradientLoad from "../../GradientLoad";
 import { useHistory } from "react-router-dom";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ loading: string }>`
   padding: 5px;
   width: auto;
   min-width: 230px;
@@ -18,13 +18,15 @@ const Wrapper = styled.div`
     transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
+  ${(props) =>
+    props.loading === "true"
+      ? null
+      : `&:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     div {
       background-size: 120% 120%;
     }
-  }
-
+  }`}
   ${media.tablet} {
     width: auto;
   }
@@ -100,7 +102,7 @@ const ProductBox: React.FunctionComponent<productProp> = ({
     history.push(`/detail?name=${productName}`);
   };
   return (
-    <Wrapper onClick={onClick}>
+    <Wrapper onClick={onClick} loading={String(loading)}>
       <PhotoContainer url={productPhoto?.url}>
         {productPhoto?.url ? null : loading ? null : "이미지가 없습니다"}
       </PhotoContainer>
