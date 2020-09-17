@@ -28,12 +28,12 @@ export interface ReviewDataProps {
 }
 
 export interface ReviewVarsProps {
-  id: string;
+  productName: string;
 }
 
-export const SEE_REVIEW = gql`
-  query seeReview($id: String!) {
-    seeReview(id: $id) {
+export const REVIEW_LIST = gql`
+  query reviewList($productName: String!) {
+    reviewList(productName: $productName) {
       ...ReviewParts
     }
   }

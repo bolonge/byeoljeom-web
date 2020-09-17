@@ -3,7 +3,10 @@ import { useQuery } from "@apollo/react-hooks";
 import {
   ProductDataProps,
   ProductVarsProps,
+  ReviewDataProps,
+  ReviewVarsProps,
   SEE_PRODUCT,
+  REVIEW_LIST,
 } from "./ProductQueries";
 import styled from "../../typed-components";
 import { useLocation } from "react-router-dom";
@@ -35,7 +38,10 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
     ProductDataProps,
     ProductVarsProps
   >(SEE_PRODUCT, { variables: { productName: name } });
-
+  const { data: RData, loading: RLoading } = useQuery<
+    ReviewDataProps,
+    ReviewVarsProps
+  >(REVIEW_LIST);
   return (
     <MainPage>
       <Header></Header>
