@@ -99,7 +99,11 @@ const ProductBox: React.FunctionComponent<productProp> = ({
 }) => {
   const history = useHistory();
   const onClick = () => {
-    history.push(`/detail?name=${productName}`);
+    if (loading) {
+      return null;
+    } else {
+      history.push(`/detail?name=${productName}`);
+    }
   };
   return (
     <Wrapper onClick={onClick} loading={String(loading)}>
