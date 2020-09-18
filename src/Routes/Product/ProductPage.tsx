@@ -23,6 +23,10 @@ const Header = styled.div`
   border: 1px solid black;
 `;
 
+const TextContainer = styled.div``;
+
+const Title = styled.span``;
+
 const ReviewContainer = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -41,10 +45,14 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
   const { data: RData, loading: RLoading } = useQuery<
     ReviewDataProps,
     ReviewVarsProps
-  >(REVIEW_LIST);
+  >(REVIEW_LIST, { variables: { productName: name } });
   return (
     <MainPage>
-      <Header></Header>
+      <Header>
+        <TextContainer>
+          <Title>{PData?.productData.productName}</Title>
+        </TextContainer>
+      </Header>
       <ReviewContainer></ReviewContainer>
     </MainPage>
   );
