@@ -24,7 +24,7 @@ const ReviewBox: React.FunctionComponent<reviewProp> = ({
 }) => {
   return (
     <Wrapper>
-      <Text>{}</Text>
+      <Text>{text}</Text>
     </Wrapper>
   );
 };

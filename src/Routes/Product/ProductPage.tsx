@@ -10,6 +10,7 @@ import {
 } from "./ProductQueries";
 import styled from "../../typed-components";
 import { useLocation } from "react-router-dom";
+import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 
 const MainPage = styled.div`
   width: 1000px;
@@ -53,7 +54,11 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
           <Title>{PData?.productData.productName}</Title>
         </TextContainer>
       </Header>
-      <ReviewContainer></ReviewContainer>
+      <ReviewContainer>
+        {RData?.reviewData.map((r) => (
+          <ReviewBox key={r.id} {...r}></ReviewBox>
+        ))}
+      </ReviewContainer>
     </MainPage>
   );
 };
