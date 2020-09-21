@@ -11,11 +11,19 @@ import {
 import styled from "../../typed-components";
 import { useLocation } from "react-router-dom";
 import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
+import { media } from "../../Styles/MediaSize";
+import GradientLoad from "../../Components/GradientLoad";
 
 const MainPage = styled.div`
   width: 1000px;
   height: auto;
   padding: 10px;
+  ${media.tablet} {
+    width: 768px;
+  }
+  ${media.phone} {
+    width: 576px;
+  }
 `;
 
 const Header = styled.div`
@@ -47,17 +55,23 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
     ReviewDataProps,
     ReviewVarsProps
   >(REVIEW_LIST, { variables: { productName: name } });
+
   return (
     <MainPage>
       <Header>
         <TextContainer>
-          <Title>{PData?.productData.productName}</Title>
+          {PLoading ? (
+            <GradientLoad />
+          ) : (
+            <Title>{PData?.seeProduct.productName}</Title>
+          )}
         </TextContainer>
       </Header>
       <ReviewContainer>
-        {RData?.reviewData.map((r) => (
-          <ReviewBox key={r.id} {...r}></ReviewBox>
-        ))}
+        {RData?.reviewList &&
+          RData?.reviewList.map((r: any) => (
+            <ReviewBox key={r.id} {...r}></ReviewBox>
+          ))}
       </ReviewContainer>
     </MainPage>
   );

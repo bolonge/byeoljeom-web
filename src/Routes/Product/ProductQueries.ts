@@ -7,7 +7,7 @@ import {
 import gql from "graphql-tag";
 
 export interface ProductDataProps {
-  productData: productProp;
+  seeProduct: productProp;
 }
 
 export interface ProductVarsProps {
@@ -24,7 +24,7 @@ export const SEE_PRODUCT = gql`
 `;
 
 export interface ReviewDataProps {
-  reviewData: reviewProp[];
+  reviewList: reviewProp[];
 }
 
 export interface ReviewVarsProps {
