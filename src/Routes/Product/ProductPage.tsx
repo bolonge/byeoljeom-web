@@ -16,6 +16,7 @@ import GradientLoad from "../../Components/GradientLoad";
 
 const MainPage = styled.div`
   width: 1000px;
+  min-width: 760px;
   height: auto;
   padding: 10px;
   ${media.tablet} {
@@ -23,6 +24,7 @@ const MainPage = styled.div`
   }
   ${media.phone} {
     width: 576px;
+    min-width: 300px;
   }
 `;
 
