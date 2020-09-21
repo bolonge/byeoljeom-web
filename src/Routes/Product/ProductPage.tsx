@@ -16,15 +16,11 @@ import GradientLoad from "../../Components/GradientLoad";
 
 const MainPage = styled.div`
   width: 1000px;
-  min-width: 760px;
+  min-width: 900px;
   height: auto;
   padding: 10px;
   ${media.tablet} {
     width: 768px;
-  }
-  ${media.phone} {
-    width: 576px;
-    min-width: 300px;
   }
 `;
 
