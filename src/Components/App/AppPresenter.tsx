@@ -89,12 +89,6 @@ const MainPage = styled.div`
   min-width: auto;
   min-height: auto;
   background-color: white;
-  ${media.tablet} {
-    min-width: 100%;
-  }
-  ${media.phone} {
-    min-width: 100%;
-  }
 `;
 
 const LoginButton = styled(TextButton)`
