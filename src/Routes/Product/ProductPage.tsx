@@ -15,33 +15,19 @@ import { media } from "../../Styles/MediaSize";
 import GradientLoad from "../../Components/GradientLoad";
 
 const Wrapper = styled.div`
-  width: 1000px;
+  width: 90%;
   min-width: 768px;
   height: auto;
   padding: 10px;
-  ${media.tablet} {
-    min-width: 100%;
-  }
-  ${media.phone} {
-    min-width: 100%;
-  }
 `;
 
 const Header = styled.div`
-  width: auto;
-  min-width: 768px;
+  width: 100%;
   height: 250px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border: 1px solid black;
-  ${media.tablet} {
-    width: auto;
-    min-width: 576px;
-  }
-  ${media.phone} {
-    width: 576px;
-  }
 `;
 
 const TextContainer = styled.div`
