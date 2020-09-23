@@ -15,9 +15,10 @@ import { media } from "../../Styles/MediaSize";
 import GradientLoad from "../../Components/GradientLoad";
 
 const Wrapper = styled.div`
-  width: auto;
+  width: 1000px;
   min-width: 768px;
   height: auto;
+  padding: 10px;
   ${media.tablet} {
     min-width: 100%;
   }
@@ -27,21 +28,32 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
-  width: 800px;
+  width: auto;
   min-width: 768px;
   height: 250px;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   border: 1px solid black;
   ${media.tablet} {
+    width: auto;
     min-width: 576px;
   }
   ${media.phone} {
+    width: 576px;
   }
 `;
 
-const TextContainer = styled.div``;
+const TextContainer = styled.div`
+  width: 400px;
+  height: 30px;
+  display: flex;
+`;
 
-const Title = styled.span``;
+const Title = styled.span`
+  font-size: 30px;
+  font-weight: 700;
+`;
 
 const ReviewContainer = styled.div`
   min-height: 100vh;
@@ -69,15 +81,23 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
           {PLoading ? (
             <GradientLoad />
           ) : (
-            <Title>{PData?.seeProduct.productName}</Title>
+            <>
+              <Title>{PData?.seeProduct.productName}</Title>
+            </>
           )}
         </TextContainer>
       </Header>
       <ReviewContainer>
-        {RData?.reviewList &&
+        {RLoading ? (
+          <>
+            <ReviewBox loading={RLoading}></ReviewBox>
+          </>
+        ) : (
+          RData?.reviewList &&
           RData?.reviewList.map((r: any) => (
             <ReviewBox key={r.id} {...r}></ReviewBox>
-          ))}
+          ))
+        )}
       </ReviewContainer>
     </Wrapper>
   );

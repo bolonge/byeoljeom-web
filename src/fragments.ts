@@ -49,28 +49,29 @@ export const PRODUCT_FRAGMENT = gql`
 `;
 
 export interface reviewProp {
-  id: string;
-  user: {
+  id?: string;
+  user?: {
     id: string;
     nickName: string;
     avatar: string;
     isSelf: boolean;
   };
-  product: {
+  product?: {
     productName: string;
   };
-  title: string;
-  text: string;
-  rating: string;
-  reviewPhotos: {
+  title?: string;
+  text?: string;
+  rating?: string;
+  reviewPhotos?: {
     id: string;
     url: string;
   };
-  isLiked: boolean;
-  isHated: boolean;
-  likeCount: number;
-  hateCount: number;
-  commentCount: number;
+  isLiked?: boolean;
+  isHated?: boolean;
+  likeCount?: number;
+  hateCount?: number;
+  commentCount?: number;
+  loading?: boolean;
 }
 
 export const REVIEW_FRAGMENT = gql`

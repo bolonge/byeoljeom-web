@@ -21,6 +21,7 @@ const ReviewBox: React.FunctionComponent<reviewProp> = ({
   likeCount,
   hateCount,
   commentCount,
+  loading,
 }) => {
   return (
     <Wrapper>
