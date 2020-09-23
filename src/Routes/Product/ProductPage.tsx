@@ -14,20 +14,29 @@ import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 import { media } from "../../Styles/MediaSize";
 import GradientLoad from "../../Components/GradientLoad";
 
-const MainPage = styled.div`
-  width: 1000px;
-  min-width: 900px;
+const Wrapper = styled.div`
+  width: auto;
+  min-width: 768px;
   height: auto;
-  padding: 10px;
   ${media.tablet} {
-    width: 768px;
+    min-width: 100%;
+  }
+  ${media.phone} {
+    min-width: 100%;
   }
 `;
 
 const Header = styled.div`
-  width: 100%;
+  width: 800px;
+  min-width: 768px;
   height: 250px;
+  padding: 10px;
   border: 1px solid black;
+  ${media.tablet} {
+    min-width: 576px;
+  }
+  ${media.phone} {
+  }
 `;
 
 const TextContainer = styled.div``;
@@ -35,7 +44,6 @@ const TextContainer = styled.div``;
 const Title = styled.span``;
 
 const ReviewContainer = styled.div`
-  width: 100%;
   min-height: 100vh;
   border: 1px solid black;
 `;
@@ -55,7 +63,7 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
   >(REVIEW_LIST, { variables: { productName: name } });
 
   return (
-    <MainPage>
+    <Wrapper>
       <Header>
         <TextContainer>
           {PLoading ? (
@@ -71,7 +79,7 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
             <ReviewBox key={r.id} {...r}></ReviewBox>
           ))}
       </ReviewContainer>
-    </MainPage>
+    </Wrapper>
   );
 };
 

@@ -85,9 +85,6 @@ const MainPage = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: auto;
-  min-width: auto;
-  min-height: auto;
   background-color: white;
 `;
 
