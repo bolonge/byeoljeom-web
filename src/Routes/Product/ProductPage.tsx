@@ -15,14 +15,18 @@ import { media } from "../../Styles/MediaSize";
 import GradientLoad from "../../Components/GradientLoad";
 
 const Wrapper = styled.div`
-  width: 90%;
-  min-width: 768px;
+  width: auto;
   height: auto;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Header = styled.div`
   width: 100%;
+  padding: 0 20px;
   height: 250px;
   display: flex;
   align-items: center;
@@ -31,13 +35,18 @@ const Header = styled.div`
 `;
 
 const TextContainer = styled.div`
-  width: 400px;
+  width: auto;
+  min-width: 300px;
   height: 30px;
   display: flex;
+  min-width: 200px;
+  ${media.phone} {
+    width: 300px;
+  }
 `;
 
 const Title = styled.span`
-  font-size: 30px;
+  font-size: 3vw;
   font-weight: 700;
 `;
 

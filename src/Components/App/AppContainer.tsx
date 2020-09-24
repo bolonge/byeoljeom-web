@@ -7,7 +7,6 @@ import useIsLoggedIn from "../../Hooks/useIsLoggedIn";
 import Modal from "../../Components/Modal";
 import { ME, HomeUserPropData } from "../../ShareQueries";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { media } from "../../Styles/MediaSize";
 import { LOG_OUT } from "./AppQuries";
 
 const OverlayMask = styled.div`
@@ -25,16 +24,12 @@ const OverlayMask = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 100%;
   min-height: 100vh;
-  margin-top: 55px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  ${media.phone} {
-    margin-top: 60px;
-  }
 `;
 
 function App() {
