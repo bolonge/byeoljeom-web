@@ -25,13 +25,23 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
-  width: 100%;
+  width: 1000px;
+  box-sizing: border-box;
   padding: 0 20px;
   height: 250px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border: 1px solid black;
+  ${media.custom(1000)} {
+    width: 768px;
+  }
+  ${media.tablet} {
+    width: 576px;
+  }
+  ${media.phone} {
+    width: 100%;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -48,6 +58,9 @@ const TextContainer = styled.div`
 const Title = styled.span`
   font-size: 3vw;
   font-weight: 700;
+  ${media.tablet} {
+    font-size: 4vw;
+  }
 `;
 
 const ReviewContainer = styled.div`
