@@ -56,7 +56,7 @@ const TextContainer = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 3vw;
+  font-size: 30px;
   font-weight: 700;
   ${media.tablet} {
     font-size: 4vw;
