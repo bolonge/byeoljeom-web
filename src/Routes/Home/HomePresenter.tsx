@@ -16,6 +16,8 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
   reviewData,
   loading,
 }) => {
+  console.log(reviewData);
+
   return (
     <MainPage>
       {reviewData &&

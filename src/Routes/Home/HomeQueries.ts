@@ -1,5 +1,14 @@
-import { PRODUCT_FRAGMENT, reviewProp, REVIEW_FRAGMENT } from "../../fragments";
+import {
+  productProp,
+  PRODUCT_FRAGMENT,
+  reviewProp,
+  REVIEW_FRAGMENT,
+} from "../../fragments";
 import gql from "graphql-tag";
+
+export interface HomeProductData {
+  homeProducts: productProp[];
+}
 
 export const HOME_PRODUCTS = gql`
   query homeProducts {
