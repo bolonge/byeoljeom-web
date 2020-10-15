@@ -60,7 +60,7 @@ const EmailBox = styled.div`
   flex-direction: row;
 `;
 
-const EmailClose = styled(CloseIcon)<{ disable: boolean }>`
+const EmailClose = styled(CloseIcon) <{ disable: boolean }>`
   position: relative;
   display: ${(props) => (props.disable ? "flex" : "none")};
   top: 35px;
@@ -88,7 +88,6 @@ const Text = styled.span`
 `;
 
 const MessageContainer = styled.div`
-  position: absolute;
   margin-top: 20px;
 `;
 
