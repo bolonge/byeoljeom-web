@@ -25,7 +25,7 @@ const Container = styled.div<{ bg: string; bd: string }>`
   }
   ${media.phone} {
     width: 380px;
-    min-width: 350px;
+    min-width: 320px;
   }
 `;
 
