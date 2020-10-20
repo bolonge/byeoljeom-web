@@ -68,9 +68,9 @@ const ReviewContainer = styled.div`
   border: 1px solid black;
 `;
 
-interface IProp {}
+interface IProp { }
 
-const ProductPage: React.FunctionComponent<IProp> = ({}) => {
+const ProductPage: React.FunctionComponent<IProp> = () => {
   const { search } = useLocation();
   const name = decodeURIComponent(search.split("=")[1]);
   const { data: PData, loading: PLoading } = useQuery<
@@ -89,10 +89,10 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
           {PLoading ? (
             <GradientLoad />
           ) : (
-            <>
-              <Title>{PData?.seeProduct.productName}</Title>
-            </>
-          )}
+              <>
+                <Title>{PData?.seeProduct.productName}</Title>
+              </>
+            )}
         </TextContainer>
       </Header>
       <ReviewContainer>
@@ -101,11 +101,11 @@ const ProductPage: React.FunctionComponent<IProp> = ({}) => {
             <ReviewBox loading={RLoading}></ReviewBox>
           </>
         ) : (
-          RData?.reviewList &&
-          RData?.reviewList.map((r: any) => (
-            <ReviewBox key={r.id} {...r}></ReviewBox>
-          ))
-        )}
+            RData?.reviewList &&
+            RData?.reviewList.map((r: any) => (
+              <ReviewBox key={r.id} {...r}></ReviewBox>
+            ))
+          )}
       </ReviewContainer>
     </Wrapper>
   );

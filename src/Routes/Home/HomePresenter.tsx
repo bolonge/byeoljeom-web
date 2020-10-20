@@ -4,7 +4,8 @@ import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 
 const MainPage = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 80vh;
+  background-color:white;
 `;
 
 interface IProp {

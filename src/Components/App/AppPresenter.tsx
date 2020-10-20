@@ -66,6 +66,7 @@ const DownMenu = styled.div<{ display: string }>`
   width: 105%;
   padding: 10px;
   display: none;
+  margin-bottom:10px;
   background-color: ${(props) => props.theme.whiteGrey};
   height: auto;
   :last-child {
@@ -92,7 +93,7 @@ const LoginButton = styled(TextButton)`
   margin-right: 30px;
 `;
 
-const HeaderAvatar = styled(Avatar)<{ clicked: string }>`
+const HeaderAvatar = styled(Avatar) <{ clicked: string }>`
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
@@ -165,22 +166,22 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
             <Link to={"/"}>{/* 아바타 프로필 링크 */}</Link>
           </AvatarContainer>
         ) : (
-          <ButtonContainer>
-            <LoginButton
-              text="로그인"
-              size={16}
-              onClick={() => openModal("logIn")}
-              color={"#6AB04C"}
-            ></LoginButton>
-            <AuthButton
-              text="회원가입"
-              textColor={"#fff"}
-              backColor={"#6AB04C"}
-              borderColor={"#6AB04C"}
-              onClick={() => openModal("signUp")}
-            ></AuthButton>
-          </ButtonContainer>
-        )}
+            <ButtonContainer>
+              <LoginButton
+                text="로그인"
+                size={16}
+                onClick={() => openModal("logIn")}
+                color={"#6AB04C"}
+              ></LoginButton>
+              <AuthButton
+                text="회원가입"
+                textColor={"#fff"}
+                backColor={"#6AB04C"}
+                borderColor={"#6AB04C"}
+                onClick={() => openModal("signUp")}
+              ></AuthButton>
+            </ButtonContainer>
+          )}
       </MainHeader>
       <DownMenu display={menu ? "flex" : "none"}>
         {isLoggedIn ? (
@@ -200,23 +201,23 @@ const AppPresenter: React.FunctionComponent<IProps> = ({
             ></MenuText>
           </>
         ) : (
-          <>
-            <MenuText
-              text={"홈"}
-              onClick={() => window.location.replace("/")}
-            ></MenuText>
-            <MenuText
-              text={"로그인"}
-              onClick={() => openModal("login")}
-            ></MenuText>
-            <MenuText
-              text={"회원가입"}
-              color={"#6AB04C"}
-              weight={700}
-              onClick={() => openModal("signUp")}
-            ></MenuText>
-          </>
-        )}
+            <>
+              <MenuText
+                text={"홈"}
+                onClick={() => window.location.replace("/")}
+              ></MenuText>
+              <MenuText
+                text={"로그인"}
+                onClick={() => openModal("login")}
+              ></MenuText>
+              <MenuText
+                text={"회원가입"}
+                color={"#6AB04C"}
+                weight={700}
+                onClick={() => openModal("signUp")}
+              ></MenuText>
+            </>
+          )}
       </DownMenu>
       <MainPage>
         <MainRoute></MainRoute>

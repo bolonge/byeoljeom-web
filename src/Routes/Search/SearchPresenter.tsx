@@ -6,7 +6,7 @@ import ProductBox from "../../Components/ProductComponents/ProductBox";
 const Wrapper = styled.div`
   width: auto;
   min-width: 768px;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -22,7 +22,6 @@ const ProductsConatiner = styled.div`
   display: grid;
   grid-gap: 10px;
   height: auto;
-  margin-top: 10px;
   padding: 5px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   ${(props) => props.theme.whiteBox};
@@ -59,11 +58,11 @@ const SearchPresenter: React.FunctionComponent<IProp> = ({
             <ProductBox loading={productLoading}></ProductBox>
           </>
         ) : (
-          productData &&
-          productData.map((r: any) => (
-            <ProductBox {...r} key={r.id}></ProductBox>
-          ))
-        )}
+            productData &&
+            productData.map((r: any) => (
+              <ProductBox {...r} key={r.id}></ProductBox>
+            ))
+          )}
       </ProductsConatiner>
       <ReviewsContainer></ReviewsContainer>
     </Wrapper>
