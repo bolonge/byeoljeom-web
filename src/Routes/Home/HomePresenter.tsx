@@ -23,7 +23,7 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
   return (
     <MainPage>
       <Helmet>
-        <title>홈</title>
+        <title>홈 - 별점</title>
       </Helmet>
       {reviewData &&
         reviewData?.homeReviews &&
