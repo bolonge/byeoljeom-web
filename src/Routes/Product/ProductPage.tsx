@@ -32,7 +32,6 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid black;
   ${media.custom(1000)} {
     width: 768px;
   }
@@ -65,7 +64,6 @@ const Title = styled.span`
 
 const ReviewContainer = styled.div`
   min-height: 100vh;
-  border: 1px solid black;
 `;
 
 interface IProp { }

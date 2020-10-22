@@ -3,6 +3,7 @@ import styled from "../../../typed-components";
 import { reviewProp } from "../../../fragments";
 
 const Wrapper = styled.div`
+width:700px;
   ${(props) => props.theme.whiteBox}
 `;
 
