@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "별점",
+  "name": "리뷰로 소통",
   "icons": [
     {
       "src": "favicon.ico",
