@@ -21,6 +21,7 @@ const SearchContainer: React.FunctionComponent = () => {
     <SearchPresenter
       productData={productData?.searchProduct}
       productLoading={productLoading}
+      term={term}
     ></SearchPresenter>
   );
 };

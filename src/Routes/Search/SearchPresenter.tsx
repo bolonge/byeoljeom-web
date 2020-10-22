@@ -2,6 +2,7 @@ import React from "react";
 import styled from "../../typed-components";
 import { media } from "../../Styles/MediaSize";
 import ProductBox from "../../Components/ProductComponents/ProductBox";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   width: auto;
@@ -41,14 +42,19 @@ const ReviewsContainer = styled.div``;
 interface IProp {
   productData: any;
   productLoading: boolean;
+  term: string;
 }
 
 const SearchPresenter: React.FunctionComponent<IProp> = ({
   productData,
   productLoading,
+  term
 }) => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>검색 | {`${term}`}</title>
+      </Helmet>
       <ProductsConatiner>
         {productLoading ? (
           <>

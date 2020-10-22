@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import PrivacyPolicy from "./PrivacyPolicy";
 import ServicePolicy from "./ServicePolicy";
 import { media } from "../../Styles/MediaSize";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   width: 70%;
@@ -26,11 +27,14 @@ const Policy: React.FunctionComponent = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Policy</title>
+      </Helmet>
       {location.pathname.split("/")[2] === "privacy" ? (
         <PrivacyPolicy></PrivacyPolicy>
       ) : (
-        <ServicePolicy></ServicePolicy>
-      )}
+          <ServicePolicy></ServicePolicy>
+        )}
     </Wrapper>
   );
 };

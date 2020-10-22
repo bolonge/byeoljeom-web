@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "../../typed-components";
+import { Helmet } from 'react-helmet'
 import ReviewBox from "../../Components/ReviewComponents/ReviewBox";
 
 const MainPage = styled.div`
@@ -21,6 +22,9 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
 
   return (
     <MainPage>
+      <Helmet>
+        <title>홈</title>
+      </Helmet>
       {reviewData &&
         reviewData?.homeReviews &&
         reviewData?.homeReviews.map((r: any) => (
