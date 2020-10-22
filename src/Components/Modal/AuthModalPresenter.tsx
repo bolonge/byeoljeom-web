@@ -172,6 +172,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 color={"#6AB04C"}
                 onClick={() => {
                   setAction("signUp");
+                  setMessage("")
                   nickNameInput.setValue("");
                   passInput.setValue("");
                 }}
@@ -219,6 +220,7 @@ const AuthModalPresenter: React.FunctionComponent<IProp> = ({
                 color={"#6AB04C"}
                 onClick={() => {
                   setAction("logIn");
+                  setMessage("");
                   nickNameInput.setValue("");
                   passInput.setValue("");
                 }}
