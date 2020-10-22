@@ -7,8 +7,8 @@ const Container = styled.div<{ bg: string; bd: string }>`
   width: 500px;
   min-width: 450px;
   padding: 4px;
-  margin-left: 10px;
   border-radius: 10px;
+  margin-right:10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ const Container = styled.div<{ bg: string; bd: string }>`
   }
   ${media.phone} {
     width: 380px;
-    min-width: 320px;
+    min-width:200px;
   }
 `;
 

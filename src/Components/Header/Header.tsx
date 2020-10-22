@@ -35,11 +35,13 @@ const HeaderMoreIcon = styled(MoreIcon)`
   transition: 0.3s ease-in-out;
   &:hover {
   }
+  ${media.tablet} {
+    position:fixed;
+    left:10px;
+  }
   ${media.phone} {
     display: flex;
-    position: fixed;
-    left: 10px;
-    padding-right: 20px;
+    padding-right: 10px;
   }
 `;
 
