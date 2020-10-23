@@ -26,22 +26,23 @@ const MainHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   ${media.phone} {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 
 const HeaderMoreIcon = styled(MoreIcon)`
   display: none;
   transition: 0.3s ease-in-out;
-  &:hover {
-  }
-  ${media.tablet} {
-    position:fixed;
-    left:10px;
-  }
   ${media.phone} {
+    position:static;
     display: flex;
-    padding-right: 10px;
+    padding-right: 20px;
+  }
+`;
+
+const HeaderSearchInput = styled(SearchInput)`
+  ${media.phone}{
+  margin-right:30px;
   }
 `;
 
@@ -111,11 +112,11 @@ const Header: React.FunctionComponent<IProp> = ({
           onClick={onClick}
           color={moreIShow ? "#6AB04C" : "#999"}
         />
-        <SearchInput
+        <HeaderSearchInput
           onChange={searchInput.onChange}
           value={searchInput.value}
           onKeyDown={onKeyDown}
-        ></SearchInput>
+        ></HeaderSearchInput>
         {children}
       </MainHeader>
     </Container>
