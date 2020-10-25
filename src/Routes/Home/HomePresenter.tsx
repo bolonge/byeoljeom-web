@@ -11,14 +11,17 @@ const MainPage = styled.div`
 
 interface IProp {
   reviewData: any;
-  loading: boolean;
+  reviewLoading: boolean;
+  productData: any;
+  productLoading: boolean;
 }
 
 const HomePresenter: React.FunctionComponent<IProp> = ({
   reviewData,
-  loading,
+  reviewLoading,
+  productData,
+  productLoading
 }) => {
-  console.log(reviewData);
 
   return (
     <MainPage>
@@ -28,7 +31,7 @@ const HomePresenter: React.FunctionComponent<IProp> = ({
       {reviewData &&
         reviewData?.homeReviews &&
         reviewData?.homeReviews.map((r: any) => (
-          <ReviewBox key={r.id} {...r}></ReviewBox>
+          <ReviewBox key={r.id} loading={reviewLoading} {...r}></ReviewBox>
         ))}
     </MainPage>
   );

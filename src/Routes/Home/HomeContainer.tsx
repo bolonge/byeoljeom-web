@@ -9,14 +9,13 @@ import {
 } from "./HomeQueries";
 
 const HomeContainer: React.FunctionComponent = () => {
-  const { data: reviewData, loading } = useQuery<HomeReviewsData>(HOME_REVIEWS);
+  const { data: reviewData, loading: reviewLoading } = useQuery<HomeReviewsData>(HOME_REVIEWS);
   const { data: productData, loading: productLoading } = useQuery<
     HomeProductData
   >(HOME_PRODUCTS);
-  console.log(productData);
 
   return (
-    <HomePresenter reviewData={reviewData} loading={loading}></HomePresenter>
+    <HomePresenter reviewData={reviewData} reviewLoading={reviewLoading} productData={productData} productLoading={productLoading}></HomePresenter>
   );
 };
 
